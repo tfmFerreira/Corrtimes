@@ -5,6 +5,7 @@
 \usepackage{verbatim}
 \usepackage{graphicx}
 % \usepackage{multicol}
+\usepackage[normalem]{ulem} % for strikethrough
 \usepackage[obeyFinal]{easy-todo}
 \newcommand{\figurewidth}{.48\textwidth}
 \renewcommand{\epsilon}{\varepsilon}
@@ -430,17 +431,17 @@ We emphasize that the simulation data in Fig.~\ref{fig:teff_R1} give a \emph{low
 It is also worth noting that the temperature for simulation data varied across the models, but in no simulation was it lower than in the experiment. %As one would expect $\tau_\mathrm{e}$ to decrease with increasing temperature, the slow dynamics observed in some force fields do not occur because of the temperature difference.
 Also, the data are practically identical for the two CHARMM36 simulations that differ in system size and temperature, which indicates that small variations in either do not considerably affect the $\tau_\mathrm{e}$.
 
-\begin{figure}[ht!]
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=0.9\columnwidth]{normalcond.pdf}
 \caption{Effective correlation times ($\tau_\mathrm{e}$, upper panels) and $R_{1}$ rates (lower panels) in experiments (black) and MD simulations (colored) of POPC bilayers in $L_{\alpha}$ phase under full hydration.
-Inset shows the POPC structure and the segment labelling scheme.
+Inset shows the POPC structure and segment labelling.
 The data for  segments 8--11 is from the sn-2 (oleoyl) chain, whereas non-resolved contributions from both tails are included for segments 2--3 (2'--3' in the sn-1 chain) and 16--18 (14'--16').
-We only show simulation data for the segments for which we had experimental data.
-Data for the methyl segments ($\gamma$, C18, and C16') in Berger are not presented, because for an united atom model the hydrogens are constructed from the heavy atom locations post-simulation, and the protonation algorithm does not preserve the methyl C--H bond dynamics.
-The error bars for experimental values reflect error estimate of XXX, whereas the 
+Simulation data is shown only for the segments for which there was experimental data.
+The methyl segments ($\gamma$, C18, and C16') in Berger are left out, because for a united atom model the hydrogens are constructed, post-simulation, from the heavy atom locations, and the protonation algorithm does not preserve the methyl C--H bond dynamics.
+Error bars for the experimental values reflect error estimate of {\color{red}XXX}, whereas the 
 bars for simulated data points give the minimum and maximum value observed at each segment while the symbol denotes the average. %For the simulated data this includes contributions from both chains for carbon labels 2--3 and 16--18, in line with the experimental data. 
-Table~\ref{tab:standr} provides further details on the simulations.
+Table~\ref{tab:standr} provides further simulation details.
 }
 \label{fig:teff_R1}
 
@@ -452,10 +453,53 @@ Table~\ref{tab:standr} provides further details on the simulations.
 \end{figure}
 
 \subsection*{$R_1$ rates at standard conditions.}
-In the lower row of panels in Fig.~\ref{fig:teff_R1} we provide a comparison of experimental $R_{1}$ rates to those obtained from the simulations, under the same conditions as for $\tau_\mathrm{e}$. For the glycerol and headgroup region the force fields overall reproduce the experimental $R_{1}$ data better\todo{What is up with the gamma carbons?} than for the $\tau_\mathrm{e}$. For example, the 
-MacRog model gives particularly good $R_{1}$ rates result although it systematically overestimates effective correlation times.  As the $R_{1}$ data presented here was measured at 125~MHz, this means that the force fields tend to represent the rotational dynamics at $(2\pi\times125~\mathrm{MHz})^{-1}\sim$1 ns scales for the glycerol region. However, the discrepancies observed between experimental and computational MD $\tau_\mathrm{e}$ data show that MD does not reproduce the longer-scale dynamics contained in the $\tau_\mathrm{e}$ values in the glycerol and headgroup regions.
+The lower panels in Fig.~\ref{fig:teff_R1} compare experimental and simulated $R_{1}$ rates under the same conditions as for $\tau_\mathrm{e}$ above.
 
-In the tail region, the MD models are also somewhat in  agreement with $R_{1}$ rates. The Slipids and Berger model are usually underestimating the experimental value, whereas the Lipid14 and ECC mostly produce the largest rates of all the models. As the dynamics of the acyl tails is several times faster than the headgroup and glycerol regions, this too might indicate a more general tendency for MD to succeed in shorter time scales whereas rotations with slower dynamics are not depicted as well.
+The $R_1$ comparison distinctly differs from what is seen for $\tau_\mathrm{e}$.
+Some models that do very well for $\tau_\mathrm{e}$, do rather poorly for $R_1$, such as CHARMM36 in the $\alpha$ and $\beta$ segments.
+Also examples to the contrary are seen: MacRog gives particularly fitting $R_{1}$ rates for the glycerol backbone, $\alpha$, and $\beta$ segments, although it systematically overestimates their $\tau_\mathrm{e}$.
+
+To appreciate the implications of such differences, recall that
+matching our experimental $R_1$ rate (measured at 125\,MHz)
+is a necessary condition for a given force field to have correct rotational dynamics at the $(2\pi\times125~\mathrm{MHz})^{-1}\approx1$\,ns time scale.
+In contrast, $\tau_\mathrm{e}$ reflects all the sub-$\mu$s time scales (Fig.~\ref{fig:schem_teff}).
+
+Figure~\ref{fig:teff_R1} reveals a few cases where both $R_1$ and $\tau_\mathrm{e}$ (almost) match, suggesting (almost) correct rotational dynamics at all relevant time scales.
+%
+%Lipid14, Slipids, ECC, and for the $\beta$ and $\alpha$ segments.
+%
+For example, for the glycerol segments CHARMM36 and Slipids, %in particular g$_2$.
+and for the oleyl double bond CHARMM36 and MacRog,
+do a decent job.
+%
+%CHARMM36, MacRog, Lipid14, ECC for tail segments 2-3.
+%All models for the last tail segments; although the resolution is a bit shitty.
+(Notably, for these two regions
+all force fields are qualitatively correct in giving that $\mathrm g_2$ has the smallest $R_1$ of the glycerol segments and segment 9 of the oleyl double bond segments. That said, no MD model captures that the $R_1$ rates for the oleyl segments 8, 10, and 11 are all roughly equal.)
+
+In Fig.~\ref{fig:teff_R1} there are also cases where a matching $R_1$ is accompanied by a larger-than-experimental $\tau_\mathrm{e}$. Such combination suggests that MD does well at the 1\,ns scale, but does not reproduce the longer-time dynamics.
+%
+The most prominent example of this is MacRog for glycerols, $\alpha$, and $\beta$.
+
+Figure~\ref{fig:teff_R1} also has cases where $\tau_\mathrm{e}$ matches experiments, but $R_1$ does not. This indicates a cancelation of errors for the $\tau_\mathrm{e}$: The wrong dynamics at the 1-ns scale are compensated by wrong dynamics at other time scales.
+%
+This is seen to be the case for the $\gamma$ segment in all four all-atom force fields,
+for Slipids and Berger around the double bond, and
+for CHARMM36 in the $\alpha$ and $\beta$ segments.
+%
+\todo{We should make a blow-out figure of the $\gamma$ $\tau_\mathrm{e}$, because now it is hard to see how good MD actually reproduced it.}
+%
+As CHARMM36 on the whole did rather well for both $R_1$ and $\tau_\mathrm{e}$,
+let us next study its shortcoming on $\alpha$ and $\beta$ in some more detail.
+%
+%Berger and Slipids for tail segment 2.
+
+%In the tail region, the MD models are in somewhat worse agreement with $R_{1}$ rates than what was seen for $\tau_\mathrm{e}$.
+\sout{General tendency for MD to succeed in shorter time scales whereas rotations with slower dynamics are not depicted as well?}
+
+\subsection*{Dynamics of $\alpha$ and $\beta$ segments in CHARMM36.}
+
+
 
 We note that while some models, like CHARMM36, seem to provide reasonable conformational dynamics, none of them produces a set of order parameters in full agreement with the experiments~\cite{botan15}; The effective correlation times therefore depict the time taken to sample a phase space which is either slightly (CHARMM36) or drastically (Slipids) differs from what is observed in the experiments. We will therefore avoid overly detailed discussion on the models and rather concentrate on detecting common trends. Interestingly, when the order parameters of the same carbon have distinct values (splitting) most MD models also predict two distinct time scales with the order parameter with the lower $|S_{\rm{CH}}|$ having the larger $\tau_\mathrm{e}$ (data not shown). Unfortunately, this is challenging to verify experimentally. 
 
