@@ -158,7 +158,7 @@ graphically depicted in Fig.~\ref{fig:schem_teff}b.
 It is easily seen that in the presence of more long-lived correlations $\tau_\mathrm{e}$ grows, signaling that more time is needed for full conformational sampling.  
 
 \begin{figure}[t]
-\includegraphics[scale=0.45]{gfun_wg.pdf} 
+\includegraphics[scale=0.45]{./figures/gfun_draft.pdf} 
 \caption{The autocorrelation function $g(\tau)$ a) The fast mode (white background) and the slow mode (shaded green) of the correlation function along with the oscillation owing to magic angle spinning. The fast mode decays to a plateau quantifying the $S_{\mathrm{CH}}$ while the slow mode gives the final descent to zero. b) Illustration of typical C--H bond autocorrelation function obtained from a MD simulation. The gray area under the curve gives a means of quantifying the $\tau_\mathrm{e}$. }
 \label{fig:schem_teff}
 
@@ -199,7 +199,7 @@ d_{\mathrm{CH}}=\frac{\hslash\gamma_{\mathrm{H}}\gamma_{\mathrm{C}}\mu_{0}}{4\pi
 where $\hslash$ is the reduced Planck constant, $\gamma_{\mathrm{C}}$ and $\gamma_{\mathrm{H}}$ are the gyromagnetic constants for $^{1}H$ and $^{13}C$, $\mu_{0}$ is the vacuum permeability, and $\langle r^{3}_{\mathrm{CH}}\rangle$ denotes the average cubic length of the C-H bond.
 \end{comment}
 
-\subsection{Data aquisition and analysis}
+\subsection{Data acquisition and analysis}
 
 The simulation trajectories used in this work were collected from the Zenodo repository (\url{zenodo.org}) with majority of the data originating from the NMRlipids project~\cite{botan15,catte16} (\url{nmrlipids.blogspot.fi}). A list of the simulations, as well as the references to the data files are presented in Table~\ref{tab:standr} for trajectories near room temperature and in full hydration, Table~\ref{tab:chol} for simulations including cholesterol, Table~\ref{tab:hydr} for data under varying hydration, and Table~\ref{tab:salt} for simulations in increasing NaCl concentration. Additional computational details of each of the simulations are available at the referred Zenodo entry. All the experimental quantities were collected from the literature \todo{Except are they, or mostly from Tiago and re-analysed from raw data?} sources referred at the respective figures\todo{How to refer to experimental data from Tiago?}.   
 
@@ -409,88 +409,107 @@ The additional contribution to the upper error for $\tau_\mathrm e$ then reads
 $
 \Delta g'_\mathrm f(t_\mathrm u) \times \left(\exp(-t_\mathrm u / 10^{-6}\,\mathrm s) - \exp(-1)\right) \times 10^{-6}\,\mathrm s.
 $
+\todo{Discuss the possibility of skewed error distributions?}
 
-The $R_{1}$ were first calculated separately for each lipid in the system using Eq.~\eqref{eq:R1} and then averaging over the lipids. The standard error of mean was used to estimate the uncertainty in $R_{1}$. The spectral densities for Eq.~\eqref{eq:R1} were obtained by fitting a sum of 71 exponentials, with logarithmically spaced time-scales $\tau_{i}$ ranging from 0.1 ns to 1 $\mu$s, to the normalized correlation functions $g'^m_{\mathrm{f}}(t)=\sum_{i=1}^{N}\alpha_{i}e^{-t/\tau_{i}}$ and then calculating the spectral density based of the Fourier transformation\cite{ferreira15}
+The $R_{1}$ rates from simulations were first calculated separately for each C--H bond in the system (using Eq.~\eqref{eq:R1} with $N_\mathrm{H}=1$), and averaged over time; the thus obtained $N_\mathrm{l}$ measurements were then taken to be independent, allowing the uncertainty to be estimated as standard error of the mean.
+%
+The total $R_1$ rate of a given carbon was obtained as a sum over the $R_1$ rates of its C--H bonds.
+%
+When several carbons were known to have contributed to the experimental $R_1$ rate of a carbon segment, the carbon-wise $R_1$ rates were averaged to obtain the segment-wise $R_1$ rate.
+%
+The segment-wise error estimates were obtained by standard error propagation, starting from the uncertainties of the $R_1$ rates of the C--H bonds.
+
+The spectral densities for Eq.~\eqref{eq:R1} were obtained by fitting a sum of 71 exponentials, with logarithmically spaced time-scales $\tau_{i}$ ranging from 0.1 ns to 1 $\mu$s, to the normalized correlation functions $g'^m_{\mathrm{f}}(t)=\sum_{i=1}^{N}\alpha_{i}e^{-t/\tau_{i}}$ and then calculating the spectral density based on the Fourier transformation\cite{ferreira15}
 \begin{equation}
 j^m{(\omega)}=2(1-S_\mathrm{CH})\sum_{i=1}^{N}\alpha_{i}\frac{\tau_{i}}{1+\omega\tau_{i}} .
 \end{equation}
 
-\todo{Discuss the possibility of skewed error distributions?}
 
 \section{Results and Discussion}
 \subsection*{Effective correlation times at standard conditions.}
-The upper panels of Fig.~\ref{fig:teff_R1} compare the $\tau_\mathrm{e}$ obtained for fully hydrated POPC bilayers in experiments (black) and in six different MD force fields (color).
+The left panels of Fig.~\ref{fig:teff_R1} compare the $\tau_\mathrm{e}$ obtained for fully hydrated POPC bilayers in experiments (black) and in six different MD force fields (color).
 
-Qualitatively, every force field captures the general shape of the $\tau_\mathrm{e}$ profile: Dynamics slows down towards the glycerol backbone in both the headgroup and in the tails. Quantitatively, the $\tau_\mathrm{e}$ in the membrane core are reproduced rather well, but at the water-facing interface MD has a tendency towards slower dynamics than what was experimentally observed.
-CHARMM36 and Slipids have the best overall performance---although Slipids exhibits a qualitatively wrong, decreasing, trend from $\mathrm g_{3}$ to $\mathrm g_{1}$. \todo{Not extremely clear, though; would be good to know the errors to make this claim.}
+Qualitatively, every force field captures the general shape of the $\tau_\mathrm{e}$ profile: Dynamics slows down towards the glycerol backbone in both the headgroup and in the tails. Quantitatively, MD has a tendency towards
+slightly too fast dynamics in the membrane core,
+but
+at the water-facing interface MD is typically clearly too slow.
+CHARMM36 and Slipids have the best overall performance---although the $\tau_\mathrm{e}$ in Slipids exhibit a qualitatively wrong, decreasing, trend from $\mathrm g_{3}$ to $\mathrm g_{1}$.
 
 The slowness of MD around the glycerol backbone is consistent with previous results for the Berger model~\cite{ferreira15}. It also agrees with the insufficient conformational sampling of glycerol backbone torsions observed in 500-ns-long CHARMMc32b2~\cite{schlenkrich96,feller00} simulations of a DOPC lipid~\cite{vogel12}. % The first carbon of the palmitoyl tail is the only location where some force fields have a tendency to underestimate $\tau_{\mathrm{eff}}$. 
 
-We emphasize that the simulation data in Fig.~\ref{fig:teff_R1} give a \emph{lower} limit of $\tau_\mathrm{e}$, as discussed in Theoretical Background (Sec.~\ref{sec:theory}). The $\tau_\mathrm{e}$ values could increase further if the trajectories were extended, and thus the true overestimation could be more severe than what was seen here.
+%We emphasize that the simulation data in Fig.~\ref{fig:teff_R1} give a \emph{lower} limit of $\tau_\mathrm{e}$, as discussed in Theoretical Background (Sec.~\ref{sec:theory}). The $\tau_\mathrm{e}$ values could increase further if the trajectories were extended, and thus the true overestimation could be more severe than what was seen here.
 
 It is also worth noting that the temperature for simulation data varied across the models, but in no simulation was it lower than in the experiment. %As one would expect $\tau_\mathrm{e}$ to decrease with increasing temperature, the slow dynamics observed in some force fields do not occur because of the temperature difference.
 Also, the data are practically identical for the two CHARMM36 simulations that differ in system size and temperature, which indicates that small variations in either do not considerably affect the $\tau_\mathrm{e}$.
 
-\begin{figure}[!ht]
+\begin{figure*}[!ht]
 \centering
-\includegraphics[width=0.9\columnwidth]{normalcond.pdf}
-\caption{Effective correlation times ($\tau_\mathrm{e}$, upper panels) and $R_{1}$ rates (lower panels) in experiments (black) and MD simulations (colored) of POPC bilayers in $L_{\alpha}$ phase under full hydration.
-Inset shows the POPC structure and segment labelling.
-The data for  segments 8--11 is from the sn-2 (oleoyl) chain, whereas non-resolved contributions from both tails are included for segments 2--3 (2'--3' in the sn-1 chain) and 16--18 (14'--16').
-Simulation data is shown only for the segments for which there was experimental data.
-The methyl segments ($\gamma$, C18, and C16') in Berger are left out, because for a united atom model the hydrogens are constructed, post-simulation, from the heavy atom locations, and the protonation algorithm does not preserve the methyl C--H bond dynamics.
-Error bars for the experimental values reflect error estimate of {\color{red}XXX}, whereas the 
-bars for simulated data points give the minimum and maximum value observed at each segment while the symbol denotes the average. %For the simulated data this includes contributions from both chains for carbon labels 2--3 and 16--18, in line with the experimental data. 
+\includegraphics[width=\textwidth]{./figures/normalcond_2020_2.pdf}
+\caption{Effective correlation times ($\tau_\mathrm{e}$, left panels) and $R_{1}$ rates (right panels) in experiments (black) and MD simulations (colored) of POPC bilayers in $L_{\alpha}$ phase under full hydration.
+Inset on the right shows the POPC structure and carbon segment labelling.
+Each plotted value contains contributions from all the hydrogens within its carbon segment; the data for segments 8--11 are only from the sn-2 (oleoyl) chain, whereas the (experimentally non-resolved) contributions of both tails are included for segments 2--3 (2'--3' in the sn-1 chain) and 16--18 (14'--16').
+%
+Simulation data are only shown for the segments for which there exists experimental data.
+%
+For $\tau_\mathrm{e}$,
+a simulation data point indicates the average over hydrogens; however,
+if $\tau_\mathrm{e}$ could not be determined for all hydrogens, only the error bar
+(extending from the mean of the lower to the mean of the upper error estimates) is shown.
+%
+The methyl segments ($\gamma$, C18, and C16') in Berger are left out, because for a united atom model the hydrogens must be constructed post-simulation from the heavy atom locations, and the protonation algorithm does not preserve the methyl C--H bond dynamics.
+%
 Table~\ref{tab:standr} provides further simulation details.
+%
+Error bars for the experimental values reflect error estimate of {\color{red}XXX}.
 }
 \label{fig:teff_R1}
 
+\todo{Error estimate in the experiment has changed since the paper in which these data were originally published; needs to be explained to the reader.}\\
+\todo{How to refer to the experiments? Not really from previous publication because of re-analysis.}
 
-\todo{Error estimate in the experiment has changed since the paper in which these data were originally published; needs to be explained to the reader.} \\
-\todo{How to refer to the experiments? Not really from previous publication bc of re-analysis} \\
-
-
-\end{figure}
+\end{figure*}
 
 \subsection*{$R_1$ rates at standard conditions.}
-The lower panels in Fig.~\ref{fig:teff_R1} compare experimental and simulated $R_{1}$ rates under the same conditions as for $\tau_\mathrm{e}$ above.
+The panels on the right side of Fig.~\ref{fig:teff_R1} compare experimental and simulated $R_{1}$ rates under the same conditions as for the $\tau_\mathrm{e}$ on the left.
 
 The $R_1$ comparison distinctly differs from what is seen for $\tau_\mathrm{e}$.
-Some models that do very well for $\tau_\mathrm{e}$, do rather poorly for $R_1$, such as CHARMM36 in the $\alpha$ and $\beta$ segments.
-Also examples to the contrary are seen: MacRog gives particularly fitting $R_{1}$ rates for the glycerol backbone, $\alpha$, and $\beta$ segments, although it systematically overestimates their $\tau_\mathrm{e}$.
+Some models that do very well for $\tau_\mathrm{e}$, do rather poorly for $R_1$, such as CHARMM36 in the $\gamma$, $\beta$, and $\alpha$ segments.
+Also examples to the contrary are seen: MacRog gives particularly fitting $R_{1}$ rates for the $\beta$, $\alpha$, g$_3$, and g$_1$ segments, although it systematically overestimates their $\tau_\mathrm{e}$.
 
-To appreciate the implications of such differences, recall that
-matching our experimental $R_1$ rate (measured at 125\,MHz)
+To appreciate the implications of such differences, let us recall that
+matching our experimental $R_1$ rates (measured at 125\,MHz)
 is a necessary condition for a given force field to have correct rotational dynamics at the $(2\pi\times125~\mathrm{MHz})^{-1}\approx1$\,ns time scale.
 In contrast, $\tau_\mathrm{e}$ reflects all the sub-$\mu$s time scales (Fig.~\ref{fig:schem_teff}).
 
-Figure~\ref{fig:teff_R1} reveals a few cases where both $R_1$ and $\tau_\mathrm{e}$ (almost) match, suggesting (almost) correct rotational dynamics at all relevant time scales.
+Figure~\ref{fig:teff_R1} reveals a few cases where both $R_1$ and $\tau_\mathrm{e}$ (almost) match experiments, suggesting (almost) correct rotational dynamics at all relevant time scales.
 %
-%Lipid14, Slipids, ECC, and for the $\beta$ and $\alpha$ segments.
+%, and for the .
 %
-For example, for the glycerol segments CHARMM36 and Slipids, %in particular g$_2$.
-and for the oleyl double bond CHARMM36 and MacRog,
-do a decent job.
+For example, 
+%LET'S MENTION ONLY THE VERY GOOD ONES
+Slipids does (almost) perfect job for the $\beta$ and $\alpha$ segments;
+CHARMM36 for the g$_3$, g$_2$,  C2 and C3;
+Lipid14 and ECC for the oleoyl double bond; and
+MacRog for the tail end segments.
 %
-%CHARMM36, MacRog, Lipid14, ECC for tail segments 2-3.
-%All models for the last tail segments; although the resolution is a bit shitty.
-(Notably, for these two regions
-all force fields are qualitatively correct in giving that $\mathrm g_2$ has the smallest $R_1$ of the glycerol segments and segment 9 of the oleyl double bond segments. That said, no MD model captures that the $R_1$ rates for the oleyl segments 8, 10, and 11 are all roughly equal.)
+(Notably,
+all force fields are qualitatively correct in giving that $\mathrm g_2$ has the smallest $R_1$ of the glycerol segments and segment 9 of the oleoyl double bond segments. That said, no MD model captures that the $R_1$ rates for the oleoyl segments 8, 10, and 11 are all roughly equal.)
 
-In Fig.~\ref{fig:teff_R1} there are also cases where a matching $R_1$ is accompanied by a larger-than-experimental $\tau_\mathrm{e}$. Such combination suggests that MD does well at the 1\,ns scale, but does not reproduce the longer-time dynamics.
+In Fig.~\ref{fig:teff_R1} there are also cases where a matching $R_1$ is accompanied by a larger-than-experimental $\tau_\mathrm{e}$. Such combination suggests that MD does well at the 1\,ns scale, but has too slow long-time dynamics.
 %
-The most prominent example of this is MacRog for glycerols, $\alpha$, and $\beta$.
+The most prominent example of this is MacRog for $\beta$, $\alpha$, and the glycerol region.
 
 Figure~\ref{fig:teff_R1} also has cases where $\tau_\mathrm{e}$ matches experiments, but $R_1$ does not. This indicates a cancelation of errors for the $\tau_\mathrm{e}$: The wrong dynamics at the 1-ns scale are compensated by wrong dynamics at other time scales.
 %
-This is seen to be the case for the $\gamma$ segment in all four all-atom force fields,
-for Slipids and Berger around the double bond, and
-for CHARMM36 in the $\alpha$ and $\beta$ segments.
+This is seen to be the case in all four all-atom force fields for the $\gamma$ segment,
+%for Slipids around the double bond,
+and for CHARMM36 in $\beta$ and $\alpha$.
 %
 \todo{We should make a blow-out figure of the $\gamma$ $\tau_\mathrm{e}$, because now it is hard to see how good MD actually reproduced it.}
 %
 As CHARMM36 on the whole did rather well for both $R_1$ and $\tau_\mathrm{e}$,
-let us next study its shortcoming on $\alpha$ and $\beta$ in some more detail.
+let us next study this shortcoming on the headgroup $R_1$ rates
+in some more detail.
 %
 %Berger and Slipids for tail segment 2.
 
