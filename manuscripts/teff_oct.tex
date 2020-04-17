@@ -628,9 +628,6 @@ What are the motions in the 0.2--2\,ns window that are over-presented in CHARMM3
 Identifying them and speeding them up would improve the model dynamics.
 However, the connection between the fitted correlation times and the correlation times of distinct motional processes such as dihedral rotations and lipid wobbling turns out to be highly non-trivial; we thus refrain from further analysis here.
 
-\clearpage
-\newpage
-
 \subsection*{Effect of cholesterol.}
 The experimental effective correlation times $\tau_\mathrm e$
 (Fig.~\ref{fig:chol}A, top panels)
@@ -733,24 +730,6 @@ The molecular electrometer has been used to show that most molecular dynamics fo
 \label{fig:salt}
 \end{figure}
 
----
-
-Q: How is the effective correlation time $\tau_\mathrm e$ related to the autocorrelation of the order parameter $S_\mathrm{CH}$?
-After all, $\tau_\mathrm e$ does measure the reorientation of the C--H bond, which is clearly related to how fast the $S_\mathrm{CH}$ is sampled.
-
-A: In a lipid bilayer, the second order rotational correlation function approaches $S^2_\mathrm{CH}$. The speed of this approach tells how fast the C--H bond orientations are sampled. In the relaxation experiment this speed is measured.
-
-In the C--H bond order parameter experiment one measures how much of the second order rotational correlation is left after all the available C--H bond orientations in the bilayer have been sampled.
-
-That is,  $\tau_\mathrm e$ does indeed measure how fast the $S^2_\mathrm{CH}$ is sampled.
-
-If the relaxation is single-exponential, $\tau_\mathrm e$ is the relaxation time of this exponential process. If the relaxation is multi-exponential, $\tau_\mathrm e$ is the weighted mean of the corresponding set of relaxation times.
-
-In the multi-exponential case it is a bit hard to say just based on $\tau_\mathrm e$, how long one needs to sample the $S_\mathrm{CH}$, because this depends also on the above-mentioned weights of the processes.
-
-The main advantage of $\tau_\mathrm e$ is that the larger (smaller) it is, the slower (faster) the process is. The same is not true for $R_1$ or other spin relaxation parameters, because their connection to the molecular dynamics is complicated, and goes through the spectral density, see Eq.~\eqref{eq:R1}.
-
----
 
 
 \section{Conclusions}
