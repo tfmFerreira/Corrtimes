@@ -447,16 +447,22 @@ However, in practice the fit is often highly unreliable in terms of depicting th
 
 \section{Results and Discussion}
 
-In the following, we discuss the internal dynamics of POPC lipids in
-six different MD force fields (Table~\ref{tab:standr}).
-%Berger, Slipids, MacRog, Lipid14, ECC, and CHARMM36.
-One should keep in mind that none of these six
+In the following, we discuss phospholipid internal dynamics in
+six different MD force fields, %Berger, Slipids, MacRog, Lipid14, ECC, and CHARMM36
+first at standard conditions (pure POPC bilayers, full hydration, no salt;
+see Table~\ref{tab:standr} for simulation details and Fig~\ref{fig:teff_R1} for results).
+%
+%An assessment of the bilayer dynamics under one set of conditions does not a give complete picture of the membrane functioning.
+We then proceed to
+cover a wider range of experimentally, biologically, and computationally relevant conditions, and investigate how the dynamics change when cholesterol is added to the bilayer (Table~\ref{tab:chol} and Fig.~\ref{fig:chol}), when hydration level is reduced (Table~\ref{tab:hydr} and Fig.~\ref{fig:hydration}), and when monovalent salt is added to the solution (Table~\ref{tab:salt} and Fig.~\ref{fig:salt}).
+
+One should keep in mind that none of the force fields we study
 produces all the C--H bond order parameters, $S_\mathrm{CH}$, within experimental accuracy~\cite{botan15}.
 %
 %(In CHARMM36 the three headgroup segments have rather good $S_\mathrm{CH}$: $\gamma$ within $\pm0.01$, $\beta$ within $\pm0.04$, and $\alpha$ within $\pm0.02$.)
 %
 In other words, the structural ensembles simulated do not exactly match
-the structural ensemble occurring in reality---these simulations are not a true computational microscope.
+the structural ensemble occurring in reality, that is, these simulations are not a true computational microscope.
 %
 Consequently, the
 $\tau_\mathrm{e}$ times and $R_1$ rates
@@ -481,9 +487,9 @@ The slowness of MD around the glycerol backbone is consistent with previous resu
 %We emphasize that the simulation data in Fig.~\ref{fig:teff_R1} give a \emph{lower} limit of $\tau_\mathrm{e}$, as discussed in Theoretical Background (Sec.~\ref{sec:theory}). The $\tau_\mathrm{e}$ values could increase further if the trajectories were extended, and thus the true overestimation could be more severe than what was seen here.
 
 It is worth noting that although temperature varied across these openly available simulation data, it was in no case lower than in the experiment. %As one would expect $\tau_\mathrm{e}$ to decrease with increasing temperature, the slow dynamics observed in some force fields do not occur because of the temperature difference.
-Decreasing the temperature would increase the
-$\tau_\mathrm{e}$---as indicated by the CHARMM36 simulations at different temperatures---such that
-any overestimation of $\tau_\mathrm{e}$ by MD would get worse, were the simulations done at the experimental 298\,K.
+As decreasing the temperature would increase the
+$\tau_\mathrm{e}$---as indicated by the CHARMM36 simulations at different temperatures---any
+overestimation of $\tau_\mathrm{e}$ by MD would get worse, were the simulations done at the experimental 298\,K.
 
 \begin{figure*}[!ht]
 \centering
@@ -530,7 +536,7 @@ Figure~\ref{fig:teff_R1} reveals a few cases where both $R_1$ and $\tau_\mathrm{
 %
 For example, 
 %LET'S MENTION ONLY THE VERY GOOD ONES
-Slipids does (almost) perfect job for the $\beta$ and $\alpha$ segments;
+Slipids does a good job for the $\beta$ and $\alpha$ segments;
 CHARMM36 for the g$_3$, g$_2$,  C2 and C3;
 Lipid14 and ECC for the oleoyl double bond; and
 MacRog for the tail end segments.
@@ -622,26 +628,72 @@ What are the motions in the 0.2--2\,ns window that are over-presented in CHARMM3
 Identifying them and speeding them up would improve the model dynamics.
 However, the connection between the fitted correlation times and the correlation times of distinct motional processes such as dihedral rotations and lipid wobbling turns out to be highly non-trivial; we thus refrain from further analysis here.
 
-\begin{figure}[ht!]
+\clearpage
+\newpage
+
+\subsection*{Effect of cholesterol.}
+The experimental effective correlation times $\tau_\mathrm e$
+(Fig.~\ref{fig:chol}A, top panels)
+show that when cholesterol is added,
+the glycerol region conformational dynamics
+slow down markedly.
+%
+The tail segments slow down too,
+the effect increasing towards the backbone.
+In stark contrast, however,
+the $\tau_\mathrm e$ of headgroup segments ($\gamma$, $\beta$, $\alpha$)
+appear fully unaffected by cholesterol.
+%
+Furthermore, cholesterol induces no measurable change in the
+headgroup $\beta$ and $\alpha$ segment
+dynamics at short ($\sim1$\,ns) time scales, as
+demonstrated by
+the experimental $R_{1}$ rates (Fig.~\ref{fig:chol}A, lower panels).
+That said,
+there is a measurable change to $R_1$ at $\gamma$,
+at the oleoyl double bond, and at the tail end.
+
+All the force fields investigated qualitatively reproduce slow downs of $\tau_\mathrm e$ (see Fig.~\ref{fig:chol}B):
+Slipids gives the best magnitude estimates, while CHARMM36 and MacRog clearly overestimate the changes at the glycerol, C2, and C3 carbons. Notably, MacRog {\color{red} (and Berger?)} predicts an erroneous slow down also for the $\beta$ and $\alpha$ carbons, for which experiments detect no change.
+%
+Also,  while CHARMM36 correctly shows no chance in $\tau_\mathrm{e}$
+of the $\gamma$, $\beta$, and $\alpha$ carbons,
+it does predict a clearly non-zero $\Delta R_{1}$ for all three, indicative of some inaccuracies in the
+headgroup rotational dynamics. % at shorter time-scales.
+Such inaccuracies might affect the recent findings~\cite{leeb18}
+obtained using CHARMM36
+that 
+(at least at small cholesterol concentrations)
+the headgroups of PCs neighbouring a cholesterol (within 6.6\,\AA) spend more time on top of the cholesterol than elsewhere;
+such arrested rotations should manifest on $\tau_\mathrm e$ and $R_1$.
+%
+Interestingly, 
+the tail $\Delta R_{1}$ seem to be pretty well captured by
+all three all-atom force fields, whereas Berger fails to capture the change at the oleoyl bond.
+
+%Along with the slow-down of dynamics, all the models show an increase in the $\vert S_{\rm{CH}}\vert$ upon addition of cholesterol at the tail region (\todo{Show data?}), reflecting the reduced available volume for the POPC.\todo{Is this a known effect/explanation?}
+
+%The change observed here, however, is particularly sensitive to the length of the trajectory as cholesterol-induced increase in effective correlation time is likely to lead to worse convergence of the correlation function within the limited simulation time, and more drastic underestimation of $\tau_\mathrm{e}$ is expected than for simulations without cholesterol. This will, consequently, cause a tendency towards underestimation on the strength of the cholesterol-driven modulation of the effective correlation time.
+
+\begin{figure}[h!]
 	\centering
-	\includegraphics[scale=0.49]{cholesterol.pdf}  
-	\caption{The effect of bilayer cholesterol content on the effective correlation times and $R_{1}$. a) The experimental $\tau_\mathrm{e}$ (top) and $R_{1}$ (bottom) values both in pure POPC bilayer and when the bilayer contains 50\% cholesterol. The experimental data is measured at XXXK and XXX. b) The change in $\tau_\mathrm{e}$ (top) and $R_{1}$ (bottom) when bilayer composition goes from pure POPC to containing 50\% cholesterol, both experimentally and in MD simulations. Further details on the simulations are provided in Table~\ref{tab:chol}.}
+	\includegraphics[width=\columnwidth]{./figures/cholesterol.pdf}  
+	\caption{Effect of bilayer cholesterol content.
+	(A) The experimental effective correlation times $\tau_\mathrm{e}$ (top panels) and $R_{1}$ rates (bottom) in a pure POPC bilayer and in a bilayer containing 50\% cholesterol. The data were measured at 298\,K and {\color{red} full(?) hydration}.
+	(B) The change in $\tau_\mathrm{e}$ ($\Delta\tau_\mathrm{e}$, top panels) and $R_{1}$ ($\Delta R_{1}$, bottom),
+	both in experiments and in MD simulations, when bilayer composition changes from pure POPC to 50\% cholesterol.
+	Berger not shown for $\Delta\tau_\mathrm{e}$, because the open data available were insufficient to determine meaningful error estimates.
+	Error estimates for the simulated $\Delta\tau_\mathrm e$ are the maximal possible
+	based on the errors at 0\% and 50\% cholesterol;
+	for other data regular error propagation is used.
+	Table~\ref{tab:chol} provides further simulation details;
+	for segment labeling, see Fig.~\ref{fig:teff_R1}.
+	}
 	\label{fig:chol}
 \end{figure}
+\todo{@Hanne: Double check that the calculation of errors in Fig~\ref{fig:chol}B was as the caption describes.}
 
-\subsection*{Changing conditions.}
-An assessment of the bilayer dynamics under one set of conditions does not a give complete picture of the membrane functioning. To cover wider range of the experimentally, biologically, and computationally relevant conditions, we proceed to investigate how the dynamics change when cholesterol is added to the bilayer (Fig.~\ref{fig:chol}), when the hydration level is reduced (Fig.~\ref{fig:hydration}), and when monovalent salt is added to the solution (Fig.~\ref{fig:salt}).
-
-\subsubsection*{Cholesterol.}
-The addition of cholesterol causes the conformational dynamics of certain regions of POPC to slow down, whereas others stay constant. The slow-down is most evident from the experimental $\tau_\mathrm{e}$ values presented in the top panel Fig.~\ref{fig:chol}a, where a clear increase is detected for $\mathrm g_{1}$, $\mathrm g_{2}$, $\mathrm g_{3}$ and C2/C2$'$ carbons accompanied by some evidence of slower dynamics near the oleanyl double bond. The experimental $R_{1}$ rates, depicted in the lower panel of Fig.~\ref{fig:chol}a,  confirm that cholesterol addition indeed induces a change near the double bond, at the short time scale dynamics at C9 and C11 carbons. Importantly, neither experimental measure detects an effect on the headgroup $\beta$ or $\alpha$ carbons. 
-
-All the force fields investigated in Fig.~\ref{fig:chol} qualitatively reproduce the slow down in dynamics with CHARMM36 giving the best estimate for the magnitude while Slipids clearly overestimates change, the especially at the glycerol carbons. Notably, some force fields, like Slipids, also predict a slow down for the $\alpha$ and $\beta$ carbons where no change is detected experimentally. Interestingly,  while CHARMM36 correctly gives no chance in $\tau_\mathrm{e}$, it also predicts a non-zero $\Delta R_{1}$ at $\alpha$ and $\beta$ carbons which indicates some inaccuracies in the C--H dynamics at shorter time-scales in these carbons. The tail $\Delta R_{1}$, on the other hand, seem to be well captured by CHARMM36. Along with the slow-down of dynamics, all the models show an increase in the $\vert S_{\rm{CH}}\vert$ upon addition of cholesterol at the tail region, reflecting the reduced available volume for the POPC.\todo{is this a known effect/explanation?}
-
-The change observed here, however, is particularly sensitive to the length of the trajectory as cholesterol-induced increase in effective correlation time is likely to lead to worse convergence of the correlation function within the limited simulation time, and more drastic underestimation of $\tau_\mathrm{e}$ is expected than for simulations without cholesterol. This will, consequently, cause a tendency towards underestimation on the strength of the cholesterol-driven modulation of the effective correlation time. \todo{Should we propose that longer simulations would be good for future work? SAMULI: Only for reasonable models, like CHARMM.} 
-
-One of the most popular models used to explain the effect of cholesterol on phopholipid bilayers is the umbrella model~\cite{huang99} where the phopholipid headgroup shields the bulky hydrophophic bodies of cholesterols from water. This leads to even distribution of cholesterol as covering single molecules is energetically less costly compared to cholesterol clusters. A recent study, using one of the most realistic MD models for cholesterol-phospholipid interactions (CHARMM36\cite{botan15}), suggested that phospholipids cover the cholesterols simply by orienting their headgroups towards the them~\cite{leeb18}. However, this effect was only detected up to 0.66 nm distance from a cholesterol molecule. Dynamically, we would expect this preferred orientation to manifest as a slow down in the headgroup C--H bonds. This is, however, not detected experimentally or with the most realistic MD models (Fig.~\ref{fig:chol}), as stipulated above, which puts the validity of the umbrella model under question. It is important to note that simulations with Berger and MacRog models do show this slow-down, possibly leading to erroneous conclusions.
-
-\subsubsection*{Hydration.}
+\subsection*{Effect of drying.}
 To investigate the effect of hydration on the C--H bond dynamics on the PC headgroup, we first present a comparison of experimental effective correlation times obtained from the POPC (measured in full hydration) and DMPC (1,2-dimyristoyl-sn-glycero-3-phosphocholine, measured in low hydration) in Fig.~\ref{fig:hydration}a. The values are the same within the experimental accuracy, which leads to two conclusions, 1) the motions of the headgroup bonds are unaffected by the chemical differences in the tails between the two molecules and 2) the decrease of hydration level down to 13 waters per lipid does not considerably alter the correlation times for the headgroup or glycerol region. 
 
 %As the available trajectories in low hydration are relatively short, we only investigate the effective correlation times $\gamma$ and $\beta$ carbons where the fast dynamics alleviates the risk of underestimation. 
@@ -667,7 +719,7 @@ Table~\ref{tab:hydr}. Note that three of the data points for the Berger model ar
 \todo{how to refer to full hydration POPC data}
 \end{figure}
 
-\subsubsection*{Salinity.}
+\subsection*{Effect of salinity.}
 Finally, we study the response of the MD model dynamics to increasing amounts of monovalent salt. Experimentally, the modulation of $\alpha$ and $\beta$ carbon order parameters upon increasing ion concentration have been used to quantify ion binding to lipid bilayers (the molecular electrometer~\cite{seeling87,catte16}). The order parameters are constant for POPC bilayers under NaCl addition in experiments, indicating negligible ion binding. Based on this, we anticipate the effective correlation times also to be unaffected by monovalent salt, however, to our knowledge no experimental measurements have been conducted to quantify this.
 
 The molecular electrometer has been used to show that most molecular dynamics force fields overestimate the binding of monovalent ions to PC bilayers~\cite{catte16}: In the simulations the modulation of the $\alpha$ and $\beta$ carbon order parameters by increasing NaCl concentration was overestimated compared to the experiments, and accompanied by accumulation of ions at the bilayer surface. In Fig.~\ref{fig:salt} we compare three force fields, one that is known to exhibit pronounced overbinding~\cite{catte16} (MacRog) and two producing more realistic binding affinity (Slipids and CHARMM36). The lateral distribution of Na$^{+}$ ions near the bilayer is quantified in Fig.~\ref{fig:salt}a whereas Fig.~\ref{fig:salt}b shows the chance in $\tau_{\rm{e}}$ for increasing salt concentration. Ion accumulation results in a slow down in the effective correlation time that is somewhat proportional to the strength of ion binding. Correlation times extracted from the CHARMM36 model vary only a little (low ion binding) when ion concentration is increased, whereas a slightly more pronounced change is observed with Slipids, and MacRog exhibits a clear slow-down (significant ion binding). This indicates that, similarly to the order parameters, $\tau_{\rm{e}}$ may be useful in investigating the ion binding affinity of lipid bilayers and experimental work exploring this avenue would be interesting.   
