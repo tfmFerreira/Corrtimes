@@ -9,6 +9,7 @@
 \usepackage[obeyFinal]{easy-todo}
 \usepackage{dutchcal}
 \usepackage{xfrac}
+\usepackage{footmisc}
 
 \newcommand{\figurewidth}{.48\textwidth}
 \renewcommand{\epsilon}{\varepsilon}
@@ -187,92 +188,173 @@ Table~\ref{tab:salt} at increasing NaCl concentration.
 Additional computational details of each of the simulations are available at the cited Zenodo entry.
 
 \begin{table}[t!]
-\caption{Analyzed simulations of POPC bilayers under full hydration. The column labeled "files" lists the citation numbers that contain links to the downloadable simulation files. Number of lipids and number of water molecules are denoted with N$_{{\rm l}}$ and N$_{{\rm w}}$, respectively, temperatures (T) are given in Kelvins and t$_{{\rm anal}}$ is the length of the trajectory used for analysis.}
-\resizebox{8.7cm}{!} {
-\begin{tabular}{llrrrrc}
+\caption{Analyzed simulations of POPC lipid bilayers at standard conditions.}
+\begin{minipage}[t]{\columnwidth}
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{lrrrrc}
 %\hline
-force field  & lipid & N$_{{\rm l}}$  & N$_{{\rm w}}$  & T (K)  & t$_{{\rm anal}}$ (ns) & files \tabularnewline
+force field  &
+$N_{\rm l}$\footnote{Number of POPC molecules.} &
+$N_{\rm w}$\footnote{Number of water molecules.}  &
+$T$\footnote{Simulation temperature.}(K) &
+$t_{{\rm anal}}$\footnote{Trajectory length used for analysis.}(ns) &
+files\footnote{Reference for the openly available simulation files.} \tabularnewline
 \hline 
-Berger-POPC-07~\cite{ollila07a}  & POPC & 128 & 7290 & 298 & 50  & {[}\!\!\citenum{bergerFILESpopc}{]} \tabularnewline
-CHARMM36~\cite{klauda10} & POPC  & 128 & 5120 & 303 & 140 & {[}\!\!\citenum{charmm36files}{]} \tabularnewline
-CHARMM36~\cite{klauda10} & POPC & 34 & 1020 & 300 & 140 & {[}\!\!\citenum{charmm36filesHA}{]}\tabularnewline
-MacRog~\cite{kulig15}  & POPC  & 128  & 6400 & 310 & 200  & {[}\!\!\citenum{macrogCHOLfiles}{]}\tabularnewline
-Lipid14 \cite{dickson14}  & POPC  & 72 & 2234 & 303 & 50 & {[}\!\!\citenum{lipid14files}{]}\tabularnewline
-Slipids \cite{jambeck12b}  & POPC  & 200 & 9000 & 310 & 500  & {[}\!\!\citenum{slipidsFILESpopcchol}{]}\tabularnewline
-ECC \cite{melcr18}  & POPC  & 128 & 6400 & 300 & 300  & {[}\!\!\citenum{eccFILESpopc}{]}\tabularnewline
-\end{tabular}}
+Berger-POPC-07~\cite{ollila07a}
+	& 128 & 7290 & 298 & 50  & {[}\!\!\citenum{bergerFILESpopc}{]} \tabularnewline[1.0ex]
+CHARMM36~\cite{klauda10}
+	& 128 & 5120 & 303 & 140 & {[}\!\!\citenum{charmm36files}{]} \tabularnewline
+%CHARMM36~\cite{klauda10}
+	& 34 & 1020 & 300 & 140 & {[}\!\!\citenum{charmm36filesHA}{]}\tabularnewline[1.0ex]
+MacRog~\cite{kulig15} 
+	&  128  & 6400 & 310 & 200  & {[}\!\!\citenum{macrogCHOLfiles}{]}\tabularnewline[1.0ex]
+Lipid14 \cite{dickson14}
+	& 72 & 2234 & 303 & 50 & {[}\!\!\citenum{lipid14files}{]}\tabularnewline[1.0ex]
+Slipids~\cite{jambeck12b}
+	& 200 & 9000 & 310 & 500  & {[}\!\!\citenum{slipidsFILESpopcchol}{]}\tabularnewline[1.0ex]
+ECC~\cite{melcr18}
+	& 128 & 6400 & 300 & 300  & {[}\!\!\citenum{eccFILESpopc}{]}\tabularnewline
+\end{tabular}
+}
+\end{minipage}
 \label{tab:standr}
 \end{table}
 
-\begin{table}[t!]
-\caption{Simulation data for cholesterol-containing POPC bilayers. Number of cholesterols is given by N$_{{\rm chol}}$ while C$_{{\rm chol}}$ denotes the percentage of cholesterol from all the lipids. Rest of the labels are as in Table~\ref{tab:standr}.}
-\resizebox{8.7cm}{!} {
-\begin{tabular}{llrrrrrrc}
+\begin{table}[]
+\caption{Analyzed simulations of cholesterol-containing POPC bilayers.}
+\begin{minipage}[t]{\columnwidth}
+\resizebox{\columnwidth}{!} {
+\begin{tabular}{lrrrrrrc}
 %\hline
-force field  & lipid  & N$_{{\rm l}}$  & N$_{{\rm chol}}$  & C$_{{\rm chol}}$  & N$_{{\rm w}}$  & T (K)  & t$_{{\rm anal}}$ (ns) & files \tabularnewline
+force field POPC/cholesterol &
+$c_{{\rm chol}}$\footnote{Bilayer cholesterol content (mol \%).}  &
+$N_{\rm chol}$\footnote{Number of cholesterol molecules.}  &
+$N_{\rm l}$\footnote{Number of POPC molecules.} &
+$N_{\rm w}$\footnote{Number of water molecules.}  &
+$T$\footnote{Simulation temperature.}(K) &
+$t_{{\rm anal}}$\footnote{Trajectory length used for analysis.}(ns) &
+files\footnote{Reference for the openly available simulation files.} 
+\tabularnewline
 \hline 
-Berger-POPC-07~\cite{ollila07a} & POPC  & 128  & 0  & 0\%  & 7290  & 298  & 50 & {[}\!\!\citenum{bergerFILESpopc}{]} \tabularnewline
-/H\"{o}ltje-CHOL-13~\cite{holtje01,ferreira13}  & POPC  & 64  & 64  & 50\%  & 10314  & 298  & 60  & {[}\!\!\citenum{bergerFILESpopc50chol}{]} \tabularnewline
-CHARMM36\cite{klauda10,lim12}  & POPC  & 128 & 0 & 0\%  & 5120  & 303  & 140  & {[}\!\!\citenum{charmm36files}{]} \tabularnewline
- & POPC  & 80  & 80  & 50\%  & 4496  & 303  & 200  & {[}\!\!\citenum{charmm36files50perCHOL}{]} \tabularnewline
-MacRog\cite{kulig15}  & POPC  & 128  & 0  & 0\%  & 6400  & 310  & 200  & {[}\!\!\citenum{macrogCHOLfiles}{]} \tabularnewline
- & POPC  & 64  & 64  & 50\%  & 6400  & 310  & 200  & {[}\!\!\citenum{macrogCHOLfiles}{]} \tabularnewline
-Slipids \cite{jambeck12b,jambeck13chol} & POPC  & 200  & 0 & 0\% & 9000 & 310 & 500  & {[}\!\!\citenum{slipidsFILESpopcchol}{]} \tabularnewline
- & POPC & 200 & 200 & 50\% & 18000 & 310 & 500 & {[}\!\!\citenum{slipidsFILESpopcchol}{]}\tabularnewline
-\end{tabular}}
+Berger-POPC-07~\cite{ollila07a}
+	& 0\%	& 0	& 128	& 7290  & 298  & 50 & {[}\!\!\citenum{bergerFILESpopc}{]} \tabularnewline
+/H\"{o}ltje-CHOL-13~\cite{holtje01,ferreira13} 
+	& 50\%	& 64	& 64		& 10314  & 298  & 60  & {[}\!\!\citenum{bergerFILESpopc50chol}{]} \tabularnewline[1.0ex]
+CHARMM36~\cite{klauda10} 
+	& 0\%	& 0 	& 128 	& 5120  & 303  & 140  & {[}\!\!\citenum{charmm36files}{]} \tabularnewline
+/CHARMM36~\cite{lim12} 
+ 	& 50\%	& 80	& 80		& 4496  & 303  & 200  & {[}\!\!\citenum{charmm36files50perCHOL}{]} \tabularnewline[1.0ex]
+MacRog~\cite{kulig15}
+	& 0\%	& 0	& 128	& 6400  & 310  & 200  & {[}\!\!\citenum{macrogCHOLfiles}{]} \tabularnewline
+/MacRog~\cite{kulig15}
+ 	& 50\%	& 64	& 64		& 6400  & 310  & 200  & {[}\!\!\citenum{macrogCHOLfiles}{]} \tabularnewline[1.0ex]
+Slipids~\cite{jambeck12b}
+	& 0\%	& 0	& 200	& 9000 & 310 & 500  & {[}\!\!\citenum{slipidsFILESpopcchol}{]} \tabularnewline
+/Slipids~\cite{jambeck13chol}
+ 	& 50\%	&200& 200	& 18000 & 310 & 500 & {[}\!\!\citenum{slipidsFILESpopcchol}{]}\tabularnewline
+\end{tabular}
+}
+\end{minipage}
 \label{tab:chol}
 \end{table}
 
-\begin{table}[h!]
-\caption{Simulation data for bilayers under varying hydration level. The water to lipid ratio is denoted as W/L, and other labels are as in Table~\ref{tab:standr}.}
-\resizebox{8.7cm}{!} {
+\begin{table}[]
+\caption{Analyzed simulations of lipid bilayers under varying hydration level.}
+\begin{minipage}[t]{\columnwidth}
+\resizebox{\columnwidth}{!} {
 \begin{tabular}{llrrrrrc}
 %\hline
-force field  & lipid  & W/L  & N$_{{\rm l}}$  & N$_{{\rm w}}$  & T (K)  & t$_{{\rm anal}}$ (ns) & files \tabularnewline
+force field  &
+lipid  &
+$n_{{\mathrm w\!}_{/\mathrm l}}$\footnote{Water/lipid molar ratio.}  &
+$N_{\rm l}$\footnote{Number of lipid molecules.}  &
+$N_{\rm w}$\footnote{Number of water molecules.} &
+$T$\footnote{Simulation temperature.}(K)  &
+$t_{{\rm anal}}$\footnote{Trajectory length used for analysis.}(ns) &
+files\footnote{Reference for the openly available simulation files.} \tabularnewline
 \hline 
-Berger-POPC-07~\cite{ollila07a}  & POPC  & 57  & 128  & 7290  & 298  & 50 & {[}\!\!\citenum{bergerFILESpopc}{]} \tabularnewline
- & POPC  & 7  & 128  & 896  & 298  & 60  & {[}\!\!\citenum{bergerDEHYDfiles}{]} \tabularnewline
- Berger-DLPC-13~\cite{kanduc13} & DLPC  & 24  & 72  & 1728  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc24}{]} \tabularnewline
- & DLPC  & 16  & 72  & 1152  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc16}{]} \tabularnewline
- & DLPC  & 12  & 72  & 864  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc12}{]} \tabularnewline
- & DLPC  & 4  & 72  & 288  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc4}{]} \tabularnewline
-CHARMM36\cite{klauda10}  & POPC  & 40  & 128  & 5120  & 303  & 140 & {[}\!\!\citenum{charmm36files}{]} \tabularnewline
- & POPC  & 15  & 72  & 1080  & 303  & 20  & {[}\!\!\citenum{charmm36files15wPERl}{]} \tabularnewline
- & POPC  & 7  & 72  & 504  & 303  & 20  & {[}\!\!\citenum{charmm36files7wPERl}{]} \tabularnewline
-MacRog\cite{kulig15}  & POPC  & 50  & 288  & 14400  & 310  & 40  & {[}\!\!\citenum{macrogdehydFILES}{]} \tabularnewline
- & POPC  & 15  & 288  & 4320  & 310  & 100 & {[}\!\!\citenum{macrogdehydFILES}{]} \tabularnewline
- & POPC  & 10  & 288  & 2880  & 310  & 100  & {[}\!\!\citenum{macrogdehydFILES}{]} \tabularnewline
-\end{tabular}}
+Berger-POPC-07~\cite{ollila07a} 
+	& POPC  & 57  & 128  & 7290  & 298  & 50 & {[}\!\!\citenum{bergerFILESpopc}{]} \tabularnewline
+Berger-DLPC-13~\cite{kanduc13}
+	& DLPC\footnote{1,2-didodecanoyl-sn-glycero-3-phosphocholine. \label{fn:DLPC}}  & 24  & 72  & 1728  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc24}{]} \tabularnewline
+	& DLPC\footref{fn:DLPC}  & 16  & 72  & 1152  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc16}{]} \tabularnewline
+	& DLPC\footref{fn:DLPC}  & 12  & 72  & 864  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc12}{]} \tabularnewline
+Berger-POPC-07~\cite{ollila07a} 
+	& POPC  & 7  & 128  & 896  & 298  & 60  & {[}\!\!\citenum{bergerDEHYDfiles}{]} \tabularnewline
+Berger-DLPC-13~\cite{kanduc13}
+	& DLPC\footref{fn:DLPC}  & 4  & 72  & 288  & 300  & 80  & {[}\!\!\citenum{bergerFILESdlpc4}{]} \tabularnewline[1.0ex]
+CHARMM36\cite{klauda10} 
+	& POPC  & 40  & 128  & 5120  & 303  & 140 & {[}\!\!\citenum{charmm36files}{]} \tabularnewline
+	& POPC  & 15  & 72  & 1080  & 303  & 20  & {[}\!\!\citenum{charmm36files15wPERl}{]} \tabularnewline
+	& POPC  & 7  & 72  & 504  & 303  & 20  & {[}\!\!\citenum{charmm36files7wPERl}{]} \tabularnewline[1.0ex]
+MacRog\cite{kulig15} 
+	& POPC  & 50  & 288  & 14400  & 310  & 40  & {[}\!\!\citenum{macrogdehydFILES}{]} \tabularnewline
+	& POPC  & 15  & 288  & 4320  & 310  & 100 & {[}\!\!\citenum{macrogdehydFILES}{]} \tabularnewline
+	& POPC  & 10  & 288  & 2880  & 310  & 100  & {[}\!\!\citenum{macrogdehydFILES}{]} \tabularnewline
+\end{tabular}
+}
 \label{tab:hydr}
+\end{minipage}
+\todo{
+	The data points here do not match those in Fig.~\ref{fig:hydration}B.
+	MacRog in Fig.~\ref{fig:hydration}B: 50, 25, 10, 5 w/l, and
+	C36 in Fig.~\ref{fig:hydration}B: 40, 31, 15, 7 w/l.
+	}\\
+\todo{The $t_\mathrm{anal}$ for MacRog here do not match Ref.~\citenum{macrogdehydFILES} ($100$\,ns $\to50$\,ns)?}
 \end{table}
 
 %\begin{multicols}{2}
 %\twocolumn
-\begin{table*}[t!]
-\caption{Simulation data for bilayers under varying concentration of NaCl. Number of Na$^+$ and Cl$^-$ ions are denoted by N$_{{\rm Na}}$ and N$_{{\rm Cl}}$ while {[}salt{]} gives the NaCl concentration calculated as {[}salt{]} =N$_{{\rm Na}}${[}water{]}/N$_{{\rm w}}$, where {[}water{]} = 55.5 M. Other labels are as in Table~\ref{tab:standr}.}
-\resizebox{16cm}{!} {
-\begin{tabular}{llrrrrrrrc}
+\begin{table}[]
+\caption{Analyzed simulations of POPC lipid bilayers at varying NaCl concentration.}
+\begin{minipage}[t]{\columnwidth}
+\resizebox{\columnwidth}{!} {
+\begin{tabular}{lrrrrrrc}
 %\hline
-% some footnotes are not visible in typeset-MS (pdf)
-force field (lipid, ion) & lipid  & {[}salt{]} mM  & N$_{{\rm l}}$  & N$_{{\rm w}}$  & N$_{{\rm Na}}$  & N$_{{\rm Cl}}$  & T (K)  & t$_{{\rm anal}}$ (ns)  & files\tabularnewline
+force field POPC/ions &
+{[}NaCl{]}\footnote{NaCl concentration, calculated as
+{[}NaCl{]}$=N_{{\rm Na}}\times${[}water{]}$/N_{{\rm w}}$, where {[}water{]} = 55.5\,M.} (mM)  &
+$N_{{\rm Na}}$\footnote{Number of Na$^+$ ions, equal to number of Cl$^-$ ions.}   &
+$N_{\rm l}$\footnote{Number of POPC molecules.}   &
+$N_{\rm w}$\footnote{Number of water molecules.} &
+$T$\footnote{Simulation temperature.}(K) &
+$t_{{\rm anal}}$\footnote{Trajectory length used for analysis.}(ns) &
+files\footnote{Reference for the openly available simulation files.}\tabularnewline
 \hline 
-CHARMM36\cite{klauda10}  & POPC  & 0 & 128  & 5120  & 0 & 0 & 303 & 140 & {[}\!\!\citenum{charmm36files}{]}\tabularnewline
-CHARMM36\cite{klauda10}, CHARMM36\cite{venable13}  & POPC  & 350 & 72  & 2085  & 13  & 13  & 303  & 80  & {[}\!\!\citenum{charmmPOPC350mMNaClfiles}{]} \tabularnewline
-CHARMM36\cite{klauda10}, CHARMM36\cite{venable13}  & POPC  & 690 & 72  & 2085  & 26  & 26  & 303  & 73 & {[}\!\!\citenum{charmmPOPC690mMNaClfiles}{]} \tabularnewline
-CHARMM36\cite{klauda10}, CHARMM36\cite{venable13}  & POPC  & 950 & 72  & 2168  & 37  & 37  & 303  & 60  & {[}\!\!\citenum{charmmPOPC950mMNaClfiles}{]} \tabularnewline
-\hline 
-MacRog\cite{kulig15}  & POPC  & 0  & 128  & 6400  & 0 & 0 & 310 & 400 & {[}\!\!\citenum{macrogCHOLfiles}{]}\tabularnewline
-MacRog\cite{kulig15}, OPLS\cite{aqvist90}  & POPC  & 100 & 288  & 14554  & 27  & 27  & 310  & 90 & {[}\!\!\citenum{macrogIONfiles}{]} \tabularnewline
-MacRog\cite{kulig15}, OPLS\cite{aqvist90}  & POPC  & 210  & 288  & 14500  & 54  & 54  & 310  & 90  & {[}\!\!\citenum{macrogIONfiles}{]} \tabularnewline
-MacRog\cite{kulig15}, OPLS\cite{aqvist90}  & POPC  & 310 & 288  & 14446  & 81  & 81  & 310  & 80  & {[}\!\!\citenum{macrogIONfiles}{]} \tabularnewline
-MacRog\cite{kulig15}, OPLS\cite{aqvist90}  & POPC  & 420 & 288  & 14392  & 108  & 108  & 310  & 90 & {[}\!\!\citenum{macrogIONfiles}{]} \tabularnewline
-\hline 
-Slipids \cite{jambeck12b}  & POPC  & 0 & 200  & 9000 & 0 & 0 & 310 & 500 & {[}\!\!\citenum{slipidsFILESpopcchol}{]}\tabularnewline
-Slipids\cite{jambeck12b}, AMBER\cite{smith94}  & POPC  & 130 & 200  & 9000  & 21  & 21  & 310  & 100 & {[}\!\!\citenum{slipidsFILESpopc130mMnaclSD}{]} \tabularnewline
-Slipids\cite{jambeck12b}, AMBER\cite{smith94} & POPC & 1.0 & 200 & 900 & 162 & 162 & 310 & 200 & {[}\!\!\citenum{slipidsFILESpopc1MnaclSD}{]}\tabularnewline
-\end{tabular}}
+CHARMM36\cite{klauda10}%/---
+	&0	&0	&128	& 5120	&303	&140	& {[}\!\!\citenum{charmm36files}{]}\tabularnewline
+%CHARMM36\cite{klauda10}
+/CHARMM36\cite{venable13}
+	&346	&13	& 72	& 2085	&303	& 80	& {[}\!\!\citenum{charmmPOPC350mMNaClfiles}{]} \tabularnewline
+%CHARMM36\cite{klauda10}/CHARMM36\cite{venable13}
+	&692	&26	& 72	& 2085	&303	& 73	& {[}\!\!\citenum{charmmPOPC690mMNaClfiles}{]} \tabularnewline
+%CHARMM36\cite{klauda10}/CHARMM36\cite{venable13}
+	&947	&37	& 72	& 2168	&303	& 60	& {[}\!\!\citenum{charmmPOPC950mMNaClfiles}{]} \tabularnewline[1.0ex]
+
+MacRog\cite{kulig15}%/---
+	&0	&0	&128	& 6400	&310	&400	& {[}\!\!\citenum{macrogCHOLfiles}{]}\tabularnewline
+%MacRog\cite{kulig15}
+/OPLS\cite{aqvist90}
+	&103	&27	&288	& 14554	&310	& 90	& {[}\!\!\citenum{macrogIONfiles}{]} \tabularnewline
+%MacRog\cite{kulig15}/OPLS\cite{aqvist90}
+	&207	&54	&288	& 14500	&310	& 90	& {[}\!\!\citenum{macrogIONfiles}{]} \tabularnewline
+%MacRog\cite{kulig15}/OPLS\cite{aqvist90}
+	&311	&81	&288	& 14446	&310	& 80	& {[}\!\!\citenum{macrogIONfiles}{]} \tabularnewline
+%MacRog\cite{kulig15}/OPLS\cite{aqvist90}
+	&416	&108	&288	& 14392	&310	& 90	& {[}\!\!\citenum{macrogIONfiles}{]} \tabularnewline[1.0ex]
+
+Slipids \cite{jambeck12b}%/---
+	&0	&0	&200	& 9000	&310	&500	& {[}\!\!\citenum{slipidsFILESpopcchol}{]}\tabularnewline
+%Slipids\cite{jambeck12b}
+/AMBER\cite{smith94}
+	&130	& 21	&200	& 9000	&310	&100	& {[}\!\!\citenum{slipidsFILESpopc130mMnaclSD}{]} \tabularnewline
+%Slipids\cite{jambeck12b}/AMBER\cite{smith94}
+	&999	&162	&200	& 9000	&310	&200	& {[}\!\!\citenum{slipidsFILESpopc1MnaclSD}{]}\tabularnewline
+\end{tabular}
+}
+\end{minipage}
 \label{tab:salt}
-\end{table*}
+\end{table}
 %\onecolumn
 %\end{multicols}
 
@@ -513,7 +595,7 @@ Error bars for the experimental values reflect error estimate of {\color{red}XXX
 }
 \label{fig:teff_R1}
 
-\todo{Error estimate in the experiment has changed since the paper in which these data were originally published; needs to be explained to the reader.}\\
+\todo{Experimental error estimate changed since the data were originally published; needs to be explained to the reader.}\\
 \todo{How to refer to the experiments? Not really from previous publication because of re-analysis.}
 
 \end{figure*}
@@ -643,7 +725,7 @@ appear fully unaffected by cholesterol.
 %
 Furthermore, cholesterol induces no measurable change in the
 headgroup $\beta$ and $\alpha$ segment
-dynamics at short ($\sim1$\,ns) time scales, as
+dynamics at short ($\sim$1\,ns) time scales, as
 demonstrated by
 the experimental $R_{1}$ rates (Fig.~\ref{fig:chol}A, lower panels).
 That said,
@@ -687,34 +769,126 @@ all three all-atom force fields, whereas Berger fails to capture the change at t
 	for segment labeling, see Fig.~\ref{fig:teff_R1}.
 	}
 	\label{fig:chol}
+\todo{@Hanne: Double check that the calculation of errors in (B) was as the caption describes.}
 \end{figure}
-\todo{@Hanne: Double check that the calculation of errors in Fig~\ref{fig:chol}B was as the caption describes.}
+
 
 \subsection*{Effect of drying.}
-To investigate the effect of hydration on the C--H bond dynamics on the PC headgroup, we first present a comparison of experimental effective correlation times obtained from the POPC (measured in full hydration) and DMPC (1,2-dimyristoyl-sn-glycero-3-phosphocholine, measured in low hydration) in Fig.~\ref{fig:hydration}a. The values are the same within the experimental accuracy, which leads to two conclusions, 1) the motions of the headgroup bonds are unaffected by the chemical differences in the tails between the two molecules and 2) the decrease of hydration level down to 13 waters per lipid does not considerably alter the correlation times for the headgroup or glycerol region. 
-
-%As the available trajectories in low hydration are relatively short, we only investigate the effective correlation times $\gamma$ and $\beta$ carbons where the fast dynamics alleviates the risk of underestimation. 
-Figure~\ref{fig:hydration}b presents effective correlation times obtained from three different MD models as function of hydration. All the force fields produce $\tau_\mathrm{e}$s that are relatively unaffected by the hydration level above 15 waters per lipid (W/L), in line with the experimental observation. When the water content is further reduced, the dynamics slows down. The effect is weakest with CHARMM36, while more  pronounced increase in $\tau_\mathrm{e}$ is observed with MacRog and Berger force fields. At these same levels of hydration, a change the lipid headgroup order parameters is also detected~\cite{botan15}, owing to the tilt of the headgroup towards the membrane plane under low hydration conditions~\cite{bechinger91}. Deuterium NMR relaxation time ($T_{1}$) measurements from DOPC bilayers~\cite{ulrich94} have revealed a slow-down of the headgroup conformational dynamics below $\approx$10 W/L, which was attributed to the reduction in available volume for the tilted headgroup. This slow-down is in qualitatively in line with the increased $\tau_{\rm{e}}$ observed here from the MD models. 
-
-
-\todo{SAMULI: Maybe we could have a quantitative discussion about how much dehydration slows down the dynamics and how this could affect, e.g., to membrane fusion.} 
-
-\todo{SAMULI: It would be interesting to compare the acyl chains with dehydration to the ones with cholesterol.}
-  
-In the tail region dehydration also causes a consistent decrease in $\tau_{\rm{e}}$ when using the Berger and MacRog models (data not shown). This change is accompanied by an increase in the absolute value of the tail order parameters, which may serve as the early indicators of structural transition in the bilayer upon dehydration in the MD models.  Experimentally, the gel-to-liquid crystalline phase transition occurs around 3~W/L at room temperature~\cite{lynch89}.\todo{validity of "structural transition" -statement}
-
-The observed general slow down is of significance when studying not only single bilayers under low hydration but also intermembrane interactions, such as fusion, which naturally lead to dehydrated conditions as the lipid assemblies approach. Slower dynamics imply that longer simulation times are needed for equilibration, for reliably quantifying the properties of the bilayer, and for observing any dynamic events like the lipid tail flips from one membrane to another in case of the fusion~\cite{best citation here}. Same applies in simulations performed in increasing concentrations of cholesterol, as the slow down of dynamics and the increase of tail order parameters observed therein are analogous to those occurring upon dehydration. \todo{really not the smoothest text}
+Figure~\ref{fig:hydration}A shows how a mild dehydration affects
+C--H bond dynamics in the PC headgroup and glycerol backbone;
+the plot compares the experimental effective correlation times $\tau_\mathrm e$
+measured for POPC at full hydration and for DMPC (1,2-dimyristoyl-sn-glycero-3-phosphocholine)
+at 13 waters per lipid.
+The $\tau_\mathrm e$ are the same within experimental accuracy.
+%
+This is in line with what was seen experimentally when adding cholesterol
+(Fig.~\ref{fig:chol}): The headgroup ($\gamma$, $\beta$, $\alpha$)
+$\tau_\mathrm e$ are unaffected by structural differences
+(such as the presence of cholesterol or the tail types)
+in the glycerol and tail regions.
+In addition,
+Fig.~\ref{fig:hydration}A indicates that
+a mild dehydration does not alter the $\tau_\mathrm e$
+in the headgroup and glycerol regions. 
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[scale=0.51]{hydration.pdf} 
+\includegraphics[width=\columnwidth]{../Figs/hydration_2020.pdf} 
 
-\caption{The effect of hydration on the effective correlation times. a) Comparison of experimental effective correlation times from DMPC in low hydration (13 W/L) and POPC in full hydration (28 W/L). The DMPC data is obtained from Ref.~\citenum{pham15} whereas the POPC data is as in Figures~\ref{fig:teff_R1}. Neither the different chemistry of the lipid tails, nor the hydration level has an effect within the experimental accuracy. b) The response of effective correlation times to changing hydration level from three MD models. The error bars give the minimum and maximum value observed at each carbon while the symbol denotes the average. The change in the effective correlation time, $\Delta \tau_\mathrm{e}$, is quantified with respect to the salt-free state. Details on the simulations are given in 
-Table~\ref{tab:hydr}. Note that three of the data points for the Berger model are from 1,2-didodecanoyl-sn-glycero-3-phosphocholine (DLPC) bilayers (diamonds). }
+\caption{Effect of drying on %the
+effective correlation times %$\tau_\mathrm e$
+in headgroup and glyc\-er\-ol backbone.
+(A) Experimental $\tau_\mathrm e$ for
+DMPC (from Ref.~\citenum{pham15}) at low hydration %(13\,w/l)
+do not significantly differ from the
+$\tau_\mathrm e$ for POPC at full hydration. %(28\,w/l)
+(B) Calculated $\tau_\mathrm e$  for
+POPC at decreasing hydration in three MD models.
+Note that three Berger data points are from DLPC bilayers ({\color{red} dashed}).
+Points give the mean of segment hydrogens,
+if $\tau_\mathrm{e}$ could be determined for all hydrogens; else only the error bar
+(extending from the mean of the lower to the mean of the upper uncertainty estimates) is shown;
+the area delimited by the error bars is shaded for visualization.
+See Table~\ref{tab:hydr} for simulation details.}
 \label{fig:hydration}
-
-\todo{how to refer to full hydration POPC data}
+\todo{How to refer to full hydration POPC data?}\\
+\todo{Add also the black and orange (i.e. experimental) data points to B.}
 \end{figure}
+
+Figure~\ref{fig:hydration}B shows the effects of dehydration in three MD models.
+Combination of
+the unrealistically slow dynamics especially in the glycerol backbone (Fig.~\ref{fig:teff_R1}) and
+the relatively short lengths of the openly available trajectories %with dehydration conditions
+(Table~\ref{tab:hydr})
+led to large uncertainty estimates. %for simulation data are large. %which makes discussion challenging.
+%
+However, in the $\gamma$ segment
+there is clearly no effect above 13\,w/l in CHARMM36 and MacRog,
+in agreement with the experiments;
+lower water contents show a slow down, 
+especially in MacRog below 10\,w/l. 
+%
+Similarly, the
+$\beta$ and $\alpha$ segments
+show no detectable change above 13\,w/l
+for CHARMM36 and Berger,
+in agreement with the experiments;
+below 10 w/l Berger shows a slowdown, and
+in CHARMM36 the slowdown manifests as an abrupt increase of the uncertainty estimate.
+%
+For the glycerol segments,
+due to the large uncertainties,
+only qualitative trends of the lower error estimate can be looked at:
+For CHARMM36 the lower error estimate stays almost constant all the way until 7\,w/l,
+for Berger and MacRog it suggests a slowdown starting already from $\sim$20\,w/l.
+
+These simulational findings indicate that
+experiments at hydration levels below 10\,w/l would also show an increase in $\tau_\mathrm e$.
+This prediction is in line with the
+exponential slow-down
+%(decay constant $\sim$4 removed waters per lipid)
+of the headgroup conformational dynamics
+upon dehydration that was indicated by $^2$H-NMR $R_{1}$ measurements
+of DOPC bilayers:
+$R_1\sim\exp(-n_{{\mathrm w\!}_{/\mathrm l}}/4)$~\cite{ulrich94}.
+%
+The slowdown was attributed to the reduction in the effective volume available for the headgroup~\cite{ulrich94}
+owing to its tilt towards the membrane upon dehydration;
+the tilt is observed via changes of the lipid headgroup order parameters~\cite{bechinger91},
+and is qualitatively reproduced by all the simulation models~\cite{botan15}.
+
+%{\color{red} Cite also the D$_2$O data. \cite{Volke:1994b}}
+%{\color{blue} There are also data for the tails. \cite{Volke:1982a}}
+%{\color{green} Ref.~\citenum{Faure:1997a}: Each DMPC in fluid phase binds $\sim$10 D$_2$O.}
+
+
+Figure~\ref{fig:dehydrationR1} shows
+a collection of experimental $^{13}$C-NMR $R_1$ rates
+measured at 125\,MHz for the headgroup segments
+at different water contents;
+in addition to the full hydration POPC data from Fig.~\ref{fig:teff_R1},
+DMPC at 13\,w/l~\cite{pham15}, % 125 MHz, 300K
+and POPC at 20 and 5\,w/l~\cite{Volke:1995a} %125.76 MHz, 298K
+are shown.
+%
+An increasing trend with decreasing hydration is observed for all the segments,
+indicating changes of headgroup dynamics at short ($\sim$1\,ns) time scales.
+Interestingly, only CHARMM36 captures this,
+whereas Berger and MacRog present the opposite, decreasing, trend for the $\beta$ and $\alpha$ segments.
+%
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\columnwidth]{../Figs/dehydrationR1.jpeg} 
+\caption{Effect of drying on $^{13}$C-NMR $R_1$ rates of the headgroup segments (at 125\,MHz)
+in experiments and simulations.}
+\label{fig:dehydrationR1}
+\end{figure}
+
+The here discussed slow down should be of significance
+not only when simulating a bilayer (stack) under low hydration,
+but also for studies of inter\-membrane interactions, such as membrane fusion, because these naturally lead to dehydrated conditions when the lipid assemblies approach. Slower dynamics imply that longer simulation times are needed for equilibration, for reliably quantifying the properties of the bilayers, and for observing rare events. %such as the lipid tail flips from one membrane to another in case of the fusion~\cite{best citation here}. Same applies in simulations performed in increasing concentrations of cholesterol, as the slow down of dynamics and the increase of tail order parameters observed therein are analogous to those occurring upon dehydration. \todo{really not the smoothest text}
+%Sims by Calero~\cite{Calero:2019a} for water dynamics at membrane
+
 
 \subsection*{Effect of salinity.}
 Finally, we study the response of the MD model dynamics to increasing amounts of monovalent salt. Experimentally, the modulation of $\alpha$ and $\beta$ carbon order parameters upon increasing ion concentration have been used to quantify ion binding to lipid bilayers (the molecular electrometer~\cite{seeling87,catte16}). The order parameters are constant for POPC bilayers under NaCl addition in experiments, indicating negligible ion binding. Based on this, we anticipate the effective correlation times also to be unaffected by monovalent salt, however, to our knowledge no experimental measurements have been conducted to quantify this.
@@ -731,8 +905,28 @@ The molecular electrometer has been used to show that most molecular dynamics fo
 \end{figure}
 
 
-
 \section{Conclusions}
+
+
+---
+
+Q: How is the effective correlation time $\tau_\mathrm e$ related to the autocorrelation of the order parameter $S_\mathrm{CH}$?
+After all, $\tau_\mathrm e$ does measure the reorientation of the C--H bond, which is clearly related to how fast the $S_\mathrm{CH}$ is sampled.
+
+A: In a lipid bilayer, the second order rotational correlation function approaches $S^2_\mathrm{CH}$. The speed of this approach tells how fast the C--H bond orientations are sampled. In the relaxation experiment this speed is measured.
+
+In the C--H bond order parameter experiment one measures how much of the second order rotational correlation is left after all the available C--H bond orientations in the bilayer have been sampled.
+
+That is,  $\tau_\mathrm e$ does indeed measure how fast the $S^2_\mathrm{CH}$ is sampled.
+
+If the relaxation is single-exponential, $\tau_\mathrm e$ is the relaxation time of this exponential process. If the relaxation is multi-exponential, $\tau_\mathrm e$ is the weighted mean of the corresponding set of relaxation times.
+
+In the multi-exponential case it is a bit hard to say just based on $\tau_\mathrm e$, how long one needs to sample the $S_\mathrm{CH}$, because this depends also on the above-mentioned weights of the processes.
+
+The main advantage of $\tau_\mathrm e$ is that the larger (smaller) it is, the slower (faster) the process is. The same is not true for $R_1$ or other spin relaxation parameters, because their connection to the molecular dynamics is complicated, and goes through the spectral density, see Eq.~\eqref{eq:R1}.
+
+---
+
 
 
 Here, we have investigated the dynamics of phosphatidylcholine molecular dynamics models using publicly available MD trajectories. The MD models are able to qualitatively capture the correlation time profile of POPC---the slow glycerol backbone and the faster dynamics of the headgroup and tail regions---but most are prone to too slow dynamics of the glycerol C--H bonds.  In general, the these force fields reproduce the experimentally detected $R_{1}$ values adequately, indicating that processes at time scales $\sim$1 ns are represented but problems arise at longer time-scales. While none of the force fields is able to reproduce all the experimental values, the CHARMM36 POPC model performs well when compared to the effective correlation times, while the Slipids and Lipid14 force field provide realistic $R_{1}$ in the PC headgroup and glycerol regions. However, since none of the current MD models reproduce the experimental order parameters, these timescales depict a sampling of a conformational space that does not fully represent the underlying reality.
