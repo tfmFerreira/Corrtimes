@@ -80,19 +80,20 @@ We seek to exploit the existing NMRlipids database and demonstrate, for the firs
 In their biologically relevant state as the core components of the cell's membranes, lipids are a intrinsically unstructured.\\
 To properly describe the (ensemble of structures and the) conformational dynamics of lipids is even more important than for (folded) proteins. 
 ({\it Although biological membranes are complex mixtures of multiple lipid types as well as other molecules, lamellar phospholipid bilayers with one or few lipid types serve as an important model system, that have been successfully used to decipher,  \textit{eg.},  possible molecular mechanisms behind anesthetics~\cite{chau07,XXX}, the effect of cholesterol on membrane structure~\cite{XXX,ferreira13}, and the functioning of membrane proteins~\cite{lindahl08} \todo{add more references}. In particular,}) MD simulations of these model systems have been widely used~\cite{lyubartsev11,chau07,ferreira13,botan15, ferreira15,miettinen19,XXX} to provide an atomistic view on the biomembranes, and hold vast potential in making further connections between their structure and function.
-However, to be truly useful MD shouls:
+However, to be truly useful MD should:
 
 1) Give the right statistics.
 %The significance for investigating the conformational dynamics of lipids in bilayer simulations is two-fold.
-Firstly, when exploring static properties of the bilayers, it is crucial to assess how well the simulations have converged. In order to extract reliable statistics, the conformations sampled have to represent the equilibrium distribution with enough transitions between states. Indeed, simulations of a single (1,2-dioleoyl-sn-glycero-3-phosphocholine) DOPC lipid using the CHARMM32b2 force field indicated that the conformations sampled do not replicate the equilibrium distribution even after 500 ns~\cite{vogel12}; also, the C--H bond dynamics of the Berger model was shown~\cite{ferreira15} to be too slow at the glycerol region of 1-palmitoyl-2-oleoylphosphatidylcholine (POPC) compared to correlation times extracted from NMR experiments.\\
+Firstly, when exploring static properties of the bilayers, it is crucial to assess how well the simulations have converged. In order to extract reliable statistics, the conformations sampled have to represent the equilibrium distribution with enough transitions between states. Indeed, previous simulations have indicated that even 500~ns simulations might not be sufficient:
+Simulations of a single (1,2-dioleoyl-sn-glycero-3-phosphocholine) DOPC lipid using the CHARMM32b2 force field indicated that the conformations sampled do not replicate the equilibrium distribution even after 500 ns~\cite{vogel12}; also, the C--H bond dynamics of the Berger model was shown~\cite{ferreira15} to be too slow at the glycerol region of 1-palmitoyl-2-oleoylphosphatidylcholine (POPC) compared to correlation times extracted from NMR experiments.\\
 2) Give the right dynamics.
 Secondly, for complete picture of membrane functioning, knowledge on the bilayer dynamics in addition to equilibrium measurements are needed. The ability of the MD model to reproduce the relative abundance of different dynamical processes is crucial for the correct interpretation of pathways leading to, e.g., membrane deformation~\cite{chernomordik08} and lipid-induced conformational~\cite{gibson93,phillips09} changes of membrane proteins. The availability of such model could also greatly guide both the configuration and interpretation of NMR experiments used to extract dynamical information from lipid assemblies.\\
 We will check the lipid dynamics in existing MD models using the existing NMRlipids database.
 
 
-More specifically, we will analyze a wide set of publicly available phosphatidylcholine (PC) phospholipid bilayer molecular dynamics (MD) simulation trajectories, produced by using different MD models (force fields). In addition of simulations of one component bilayers under standard conditions, we study trajectories under varying hydration, cholesterol content, and salt concentration. We test whether different force fields reproduce the experimentally observed internal dynamics of PC lipids, and investigate if the dynamics extracted from various models share common features that can be used to draw general conclusions on the system, to suggest future directions for experimental research, and to avoid potential pitfalls in future simulations of bilayers.    
+More specifically, we will analyze a wide set of publicly available phosphatidylcholine (PC) phospholipid bilayer molecular dynamics (MD) simulation trajectories, produced by using different MD models (force fields). We test whether different force fields reproduce the experimentally observed internal dynamics of PC lipids, and investigate if the dynamics extracted from various models share common features that can be used to draw general conclusions on the system, to suggest future directions for experimental research, and to avoid potential pitfalls in future simulations of bilayers.  In addition to simulations of one component bilayers under standard conditions, we study trajectories under varying hydration, cholesterol content, and salt concentration.
 
-Our analysis of the lipid dynamics is based on two experimental quantities determined previously with $^{13}$C-NMR:
+Our analysis of the lipid dynamics is based on two quantities measured in previous $^{13}$C-NMR experiments:
 the effective correlation time $\tau_\mathrm{e}$ and
 the spin-lattice relaxation rate $R_{1}$,
 both %experimentally available through NMR measurements, and
@@ -107,10 +108,10 @@ Increasing $\tau_\mathrm{e}$ always signals some type of slowdown in the C--H bo
 The $R_{1}$ rates (or the corresponding $T_{1}$ times) have been traditionally used to assess both the conformational dynamics of lipids in experimental bilayers~\cite{feller02,eldho03,wohlert06,klauda08,leftin11} and the dynamics produced by lipid MD models in bilayer simulations\cite{feller02,wohlert06,klauda08,klauda08II}.
 In contrast to $\tau_\mathrm e$, the $R_1$ are sensitive to processes within a rather narrow time scale window set by the magnet frequency, and changes in $R_1$ are not intuitively related to changes in process speeds: A decrease in $R_1$ only tells that the amount of processes in the sensitive time window decreases, but not if the corresponding processes become faster or slower.
 %However, relying on $R_{1}$ only has several drawbacks. \todo{Do all flavors ($^{31}$P, $^{13}$C,\ldots) have the same problem?} It builds on an underlying rotation-diffusion model, its sensitivity is typically limited to C--H bond reorientation with time scales $\sim$1-10 ns, and
-Therefore, measurements at several temperatures and magnetic field strengths are required to fully characterize the dynamics. %To address these deficiencies, two of us introduced a procedure~\cite{ferreira15} for quantifying the effective C--H correlation times ($\tau_\mathrm{e}$)---a model free quantity that encompasses conformational dynamics with time scales up to hundreds of nanoseconds---from bilayer systems. 
+%Therefore, measurements at several temperatures and magnetic field strengths are required to fully characterize the dynamics. %To address these deficiencies, two of us introduced a procedure~\cite{ferreira15} for quantifying the effective C--H correlation times ($\tau_\mathrm{e}$)---a model free quantity that encompasses conformational dynamics with time scales up to hundreds of nanoseconds---from bilayer systems. 
 
-Our choice for the system of interest is inspired by the importance of phospholipids %not only
-as the building blocks of cell membranes.
+%Our choice for the system of interest is inspired by the importance of phospholipids %not only
+%as the building blocks of cell membranes.
 %but also as emerging candidates for micro- and nanotechnology, such as the use of liposomes as microcapsules in targeted drug delivery~\cite{sercombe15}. These molecules consist of a hydrophilic phosphate head group, which is connected to two hydrophobic fatty acid tails via a glycerol backbone. The ability of lipids to self assemble into bilayer membrane (and other) configurations is a direct consequence of this dual nature.
 
 \begin{comment}
@@ -643,7 +644,7 @@ CHARMM36 for the g$_3$, g$_2$,  C2 and C3;
 Lipid14 and ECC for the oleoyl double bond; and
 MacRog for the tail end segments.
 
-Notably, there are also instances where the $R_1$ comparison distinctly differs from what is seen for $\tau_\mathrm{e}$: Some models that do very well for $\tau_\mathrm{e}$, do rather poorly for $R_1$. Conversely, matching $R_{1}$ can be accompanied by larger-than-experimental $\tau_\mathrm{e}$.
+Notably, there are also instances where the $R_1$ comparison distinctly differs from what is seen for $\tau_\mathrm{e}$: Some models that do very well for $\tau_\mathrm{e}$, do rather poorly for $R_1$. Conversely, a matching $R_{1}$ can be accompanied by a larger-than-experimental $\tau_\mathrm{e}$.
 % such as CHARMM36 in the $\gamma$, $\beta$, and $\alpha$ segments.
 %Also examples to the contrary are seen: MacRog reproduces $R_{1}$ rates well for the $\beta$, $\alpha$, g$_3$, and g$_1$ segments, although it systematically overestimates their $\tau_\mathrm{e}$.
 To appreciate such differences,  recall that in order to capture our experimental $R_1$ rates (measured at 125\,MHz) a force field has to have correct rotational dynamics at the $(2\pi\times125~\mathrm{MHz})^{-1}\approx1$\,ns time scale, whereas
@@ -655,7 +656,7 @@ Such a combination suggests that MD does well at the 1\,ns scale, but has too sl
 
 The opposite---where $\tau_\mathrm{e}$ matches experiments, but $R_1$ does not---is demonstrated by all five all-atom force fields for the $\gamma$ segment,
 %for Slipids around the double bond,
-and by CHARMM36 for $\beta$ and $\alpha$. Therein a cancellation of error occurs in $\tau_\mathrm{e}$: The wrong dynamics at the 1\,ns scale are compensated by wrong dynamics at other time scales.
+and by CHARMM36 for $\beta$ and $\alpha$. Therein a cancellation of error occurs in $\tau_\mathrm{e}$: The wrong dynamics at the 1\,ns scale are compensated by wrong dynamics at the other time scales.
 As CHARMM36 overall performs rather well for both $R_1$ and $\tau_\mathrm{e}$,
 we proceed to study this shortcoming on the headgroup $R_1$ rates
 in some more detail.
