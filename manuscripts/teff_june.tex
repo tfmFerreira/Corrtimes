@@ -36,15 +36,14 @@
 \email{markus.miettinen@mpikg.mpg.de}
 
 
-%\title{Using open data to benchmark internal dynamics of phosphatidylcholine in molecular dynamics simulations}
-\title{Using open data to rapidly bench\-mark bio\-molecular simulations: Phospholipid internal dynamics}
+\title{Using open data to benchmark internal dynamics of phosphatidylcholine in molecular dynamics simulations}
 
 \begin{document}
 
 
 
 \begin{abstract}
-Molecular dynamics (MD) simulations are a widely used tool to
+Molecular dynamics (MD) simulations are a widely used to
     study the atomistic structure and dynamics of biomembranes. It
     remains unknown, however, how well the conformational dynamics
     observed in MD simulations correspond to those occurring in real
@@ -60,62 +59,22 @@ Molecular dynamics (MD) simulations are a widely used tool to
     not provide accurate conformational ensemble (J. Phys. Chem. B 119 15075 (2015)). However, the
     dynamics observed in CHARMM36 and Slipids were more realistic
     than those seen in the Amber Lipid14, OPLS-based MacRog, and
-    GROMOS-based Berger force fields, which were all characterized by
-    unrealistically slow dynamics in the glycerol backbone.
+    GROMOS-based Berger force fields, where dynamics of the glycerol backbone was unrealistically slow.
 \end{abstract}
 
 
-\clearpage
-\pagebreak
 \section{Introduction}
 
-Ever since the conception of the Protein Data Bank (PDB)~\cite{nnb1971,wwPDB2019} and the GenBank~\cite{jordan1982,sayers2020}, access to open data has shaped the state of the art of research in life sciences.
-%Not only has the development of new characterisation techniques (such as molecular replacement~\cite{rossmann62} in macromolecular x-ray crystallography and 3D electron microscopy) been aided by the existence of these databases~\cite{burley2018}, but perhaps more importantly they have
-It has led to entirely new ways of doing science in the form of bio- and cheminformatics, enabling data-driven discovery of drugs~\cite{kirchmair08}, materials~\cite{huang2016} as well as identifying~\cite{hobohm1992,levitt2007} and filling~\cite{meszaros2019} gaps in the databanks themselves. All in all, open access to standardised and searchable pools of experimental data, constantly extending owing to a collaborative effort, has enabled scientific progress that is well beyond the resources of one single research group.\\
-%
+Ever since the conception of the Protein Data Bank (PDB) and the NBCI GenBank, the access to open data has shaped the state of the art of research in life sciences.
+Not only has the development of new characterisation techniques (such as molecular replacement~\cite{rossmann62} in macromolecular x-ray crystallography and 3D electron microscopy) been aided by the existence of these databases~\cite{burley2018}, but perhaps more importantly they have lead to entirely new ways of doing science in the form of bio- and cheminformatics, enabling data-driven discovery of drugs~\cite{kirchmair08}, materials~\cite{huang2016} as well as identifying~\cite{hobohm1992,levitt2007} and filling~\cite{meszaros2019} gaps in the databanks themselves. All in all, open access to standardised and searchable pools of experimental data, constantly extending owing to a collaborative effort, has enabled scientific progress that is well beyond the resources of one single research group.
+
 %Today these data banks are regarded irreplaceable core resources. The cost of reproducing all the data in PDB has been estimated to be X and destruction of the databank would lead to a near complete halt both academic and commercial research.
-%
-%Much of the development of the PDB and other biomolecular databanks into the core resources they are today has been fueled by
-In addition to experimental results, the push from scientific journals and funders towards public availability and conservation of data has more recently extended to simulation trajectories of biomolecules, leading to increase in discussion on how and by whom databases of dynamic information, would be set up [citations]\\
-NRMlipids (since 2013) actually has already created such a database for lipids.
-%Inspired by the success of bio- and cheminformatics,
-We seek to exploit the existing NMRlipids database and demonstrate, for the first time, the viability of creating new scientific knowledge through analysis of pre-existing, open access simulation data.\\
 
-In their biologically relevant state as the core components of the cell's membranes, lipids are a intrinsically unstructured.\\
-To properly describe the (ensemble of structures and the) conformational dynamics of lipids is even more important than for (folded) proteins. 
-({\it Although biological membranes are complex mixtures of multiple lipid types as well as other molecules, lamellar phospholipid bilayers with one or few lipid types serve as an important model system, that have been successfully used to decipher,  \textit{eg.},  possible molecular mechanisms behind anesthetics~\cite{chau07,XXX}, the effect of cholesterol on membrane structure~\cite{XXX,ferreira13}, and the functioning of membrane proteins~\cite{lindahl08} \todo{add more references}. In particular,}) MD simulations of these model systems have been widely used~\cite{lyubartsev11,chau07,ferreira13,botan15, ferreira15,miettinen19,XXX} to provide an atomistic view on the biomembranes, and hold vast potential in making further connections between their structure and function.
-However, to be truly useful MD shouls:
+Much of the development of the PDB and other biomolecular databanks into the core resources they are today has been fueled by the push from scientific journals and funders towards public availability and conservation of data. In addition to experimental results, these principles have more recently extended to simulation trajectories of biomolecules, leading to databases of dynamic information. Inspired by the success of bio- and cheminformatics, we seek to exploit this and demonstrate, for the first time, the viability of creating new scientific knowledge analysis of pre-existing, open access simulation data. 
 
-1) Give the right statistics.
-%The significance for investigating the conformational dynamics of lipids in bilayer simulations is two-fold.
-Firstly, when exploring static properties of the bilayers, it is crucial to assess how well the simulations have converged. In order to extract reliable statistics, the conformations sampled have to represent the equilibrium distribution with enough transitions between states. Indeed, simulations of a single (1,2-dioleoyl-sn-glycero-3-phosphocholine) DOPC lipid using the CHARMM32b2 force field indicated that the conformations sampled do not replicate the equilibrium distribution even after 500 ns~\cite{vogel12}; also, the C--H bond dynamics of the Berger model was shown~\cite{ferreira15} to be too slow at the glycerol region of 1-palmitoyl-2-oleoylphosphatidylcholine (POPC) compared to correlation times extracted from NMR experiments.\\
-2) Give the right dynamics.
-Secondly, for complete picture of membrane functioning, knowledge on the bilayer dynamics in addition to equilibrium measurements are needed. The ability of the MD model to reproduce the relative abundance of different dynamical processes is crucial for the correct interpretation of pathways leading to, e.g., membrane deformation~\cite{chernomordik08} and lipid-induced conformational~\cite{gibson93,phillips09} changes of membrane proteins. The availability of such model could also greatly guide both the configuration and interpretation of NMR experiments used to extract dynamical information from lipid assemblies.\\
-We will check the lipid dynamics in existing MD models using the existing NMRlipids database.
+More specifically, we will analyze a wide set of publicly available phosphatidylcholine (PC) phospholipid bilayer molecular dynamics (MD) simulation trajectories, produced by using different MD models (force fields). In addition of simulations of one component bilayers under standard conditions, we study trajectories under varying hydration, salt concentration, and cholesterol content. We test whether different force fields reproduce the experimentally observed internal dynamics of PC lipids, and investigate if the dynamics extracted from various models share common features that can be used to draw general conclusions on the system, to suggest future directions for experimental research, and to avoid potential pitfalls in future simulations of bilayers.    
 
-
-More specifically, we will analyze a wide set of publicly available phosphatidylcholine (PC) phospholipid bilayer molecular dynamics (MD) simulation trajectories, produced by using different MD models (force fields). In addition of simulations of one component bilayers under standard conditions, we study trajectories under varying hydration, cholesterol content, and salt concentration. We test whether different force fields reproduce the experimentally observed internal dynamics of PC lipids, and investigate if the dynamics extracted from various models share common features that can be used to draw general conclusions on the system, to suggest future directions for experimental research, and to avoid potential pitfalls in future simulations of bilayers.    
-
-Our analysis of the lipid dynamics is based on two experimental quantities determined previously with $^{13}$C-NMR:
-the effective correlation time $\tau_\mathrm{e}$ and
-the spin-lattice relaxation rate $R_{1}$,
-both %experimentally available through NMR measurements, and
-directly calculable from all-atom MD simulations.
-Out of the two, the
-$\tau_\mathrm e$ are effectively an average over all the time scales relevant for the lipid internal dynamics,
-and respond intuitively to changes in these processes: 
-%Most importantly, i
-Increasing $\tau_\mathrm{e}$ always signals some type of slowdown in the C--H bond dynamics. %, making the interpretation less ambiguous than for $R_1$, where slowdown in the dynamics can lead to either an increase or a decrease of $R_{1}$ value
-\cite{ferreira15}
-%
-The $R_{1}$ rates (or the corresponding $T_{1}$ times) have been traditionally used to assess both the conformational dynamics of lipids in experimental bilayers~\cite{feller02,eldho03,wohlert06,klauda08,leftin11} and the dynamics produced by lipid MD models in bilayer simulations\cite{feller02,wohlert06,klauda08,klauda08II}.
-In contrast to $\tau_\mathrm e$, the $R_1$ are sensitive to processes within a rather narrow time scale window set by the magnet frequency, and changes in $R_1$ are not intuitively related to changes in process speeds: A decrease in $R_1$ only tells that the amount of processes in the sensitive time window decreases, but not if the corresponding processes become faster or slower.
-%However, relying on $R_{1}$ only has several drawbacks. \todo{Do all flavors ($^{31}$P, $^{13}$C,\ldots) have the same problem?} It builds on an underlying rotation-diffusion model, its sensitivity is typically limited to C--H bond reorientation with time scales $\sim$1-10 ns, and
-Therefore, measurements at several temperatures and magnetic field strengths are required to fully characterize the dynamics. %To address these deficiencies, two of us introduced a procedure~\cite{ferreira15} for quantifying the effective C--H correlation times ($\tau_\mathrm{e}$)---a model free quantity that encompasses conformational dynamics with time scales up to hundreds of nanoseconds---from bilayer systems. 
-
-Our choice for the system of interest is inspired by the importance of phospholipids %not only
-as the building blocks of cell membranes.
-%but also as emerging candidates for micro- and nanotechnology, such as the use of liposomes as microcapsules in targeted drug delivery~\cite{sercombe15}. These molecules consist of a hydrophilic phosphate head group, which is connected to two hydrophobic fatty acid tails via a glycerol backbone. The ability of lipids to self assemble into bilayer membrane (and other) configurations is a direct consequence of this dual nature.
+Our choice for the system of interest is inspired by the importance of phospholipids not only as the building blocks of cell membranes but also as emerging candidates for micro- and nanotechnology, such as the use of liposomes as microcapsules in targeted drug delivery~\cite{sercombe15}. These molecules consist of a hydrophilic phosphate head group, which is connected to two hydrophobic fatty acid tails via a glycerol backbone. The ability of lipids to self assemble into bilayer membrane (and other) configurations is a direct consequence of this dual nature. Although biological membranes are complex mixtures of multiple lipid types as well as other molecules, lamellar phospholipid bilayers with one or few lipid types serve as an important model system, that have been successfully used to decipher,  \textit{eg.},  possible molecular mechanisms behind anesthetics~\cite{chau07,XXX}, the effect of cholesterol on membrane structure~\cite{XXX,ferreira13}, and the functioning of membrane proteins~\cite{lindahl08} \todo{add more references}. In particular, MD simulations of these model systems have been widely used~\cite{lyubartsev11,chau07,ferreira13,botan15, ferreira15,miettinen19,XXX} to provide an atomistic view on the biomembranes, and hold vast potential in making further connections between their structure and function.
 
 \begin{comment}
 and the conformations adopted by the molecules play a crucial role in determining properties of these lipid assemblies, such as the dipole potential~\cite{Gawrisch92} and the curvature~\cite{XXX}\todo{Markus, any favourite references on curvature?} 
@@ -123,7 +82,16 @@ and the conformations adopted by the molecules play a crucial role in determinin
 Although biological membranes are complex mixtures of multiple different lipids as well as other molecules, lamellar phospholipid bilayers with one or few lipid types have been successfully used as simplified models systems to decipher,  \textit{eg.},  possible molecular mechanisms behind anesthetics~\cite{chau07,XXX}, the effect of cholesterol on membrane structure~\cite{XXX,ferreira13}, and the functioning of membrane proteins~\cite{lindahl08}. \todo{Markus, do you want to add your favourite topics/references, espc. experimental}. The ability of the simple model membranes to reproduce the biological functioning of headgroup/glycerol structure in cells is backed up by experimental evidence~\cite{gally81}.  In particular, MD simulations of these model systems have been widely used~\cite{lyubartsev11,chau07,ferreira13,botan15, ferreira15,miettinen19,XXX} to provide an atomistic view on the biomembranes, and hold vast potential in making further connections between the structure and the function.
 
 Unfortunately, recent comparison of lipid \mbox{C--H} order parameters from bilayer simulations to nuclear magnetic resonance (NMR) measurements has shown that none of the currently available lipid MD models perfectly reproduces the conformational ensemble sampled by the headgroup~\cite{botan15}. Here, we take a step further and investigate the dynamics of those MD models. 
+
 \end{comment}
+
+The significance for investigating the conformational dynamics of lipids in bilayer simulations is two-fold. Firstly, when exploring static properties of the bilayers, it is crucial to assess how well the simulations have converged. In order to extract reliable statistics, the conformations sampled have to represent the equilibrium distribution with enough transitions between states. Indeed, simulations of a single (1,2-dioleoyl-sn-glycero-3-phosphocholine) DOPC lipid using the CHARMM32b2 force field indicated that the conformations sampled do not replicate the equilibrium distribution even after 500 ns~\cite{vogel12}; also, the C--H bond dynamics of the Berger model was shown~\cite{ferreira15} to be too slow at the glycerol region of 1-palmitoyl-2-oleoylphosphatidylcholine (POPC) compared to correlation times extracted from NMR experiments. 
+
+Secondly, for complete picture of membrane functioning, knowledge on the bilayer dynamics in addition to equilibrium measurements are needed. The ability of the MD model to reproduce the relative abundance of different dynamical processes is crucial for the correct interpretation of pathways leading to, e.g., membrane deformation~\cite{chernomordik08} and lipid-induced conformational~\cite{gibson93,phillips09} changes of membrane proteins. The availability of such model could also greatly guide both the configuration and interpretation of NMR experiments used to extract dynamical information from lipid assemblies. 
+\todo{the following paragraph could be merged into methods, opinions?
+}
+Our analysis of the lipid dynamics is based on two quantities, the spin-lattice relaxation rate $R_{1}$ and the effective correlation time $\tau_\mathrm{e}$, both experimentally available through NMR measurements, and directly calculable from all-atom MD simulations.
+Out of the two, the $R_{1}$ rates (or the corresponding $T_{1}$ times) have been traditionally used to assess both the conformational dynamics of lipids in experimental bilayers~\cite{feller02,eldho03,wohlert06,klauda08,leftin11} and the dynamics produced by lipid MD models in bilayer simulations\cite{feller02,wohlert06,klauda08,klauda08II}. However, relying on $R_{1}$ only has several drawbacks~\todo{do all flavors (31P,13C,...) have the same problem?}. It builds on an underlying rotation-diffusion model, its sensitivity is typically limited to C--H bond reorientation with time scales $\sim$1-10 ns, and measurements at several temperatures and magnetic field strengths are required to fully characterize the dynamics. To address these deficiencies, two of us introduced a procedure~\cite{ferreira15} for quantifying the effective C--H correlation times ($\tau_\mathrm{e}$)---a model free quantity that encompasses conformational dynamics with time scales up to hundreds of nanoseconds---from bilayer systems. Most importantly, increasing $\tau_\mathrm{e}$ always signals some type of slowdown in the C--H bond dynamics, making the interpretation less ambiguous than for $R_1$, where slowdown in the dynamics can lead to either an increase or a decrease of $R_{1}$ value~\cite{ferreira15}. 
 
 In summary, this work provides first comprehensive comparison of dynamics of different phosphatidylcholine MD models, where both pure bilayers and the model response to changing conditions and composition is explored. The study is conducted using data-driven exploration of pre-existing, publicly available simulation trajectories to demonstrate the power of open, well documented data in creating new knowledge at a lowered computational cost and high potential for automation.  
 
@@ -153,7 +121,7 @@ where $\vec{\mu}(t)$ is the unit vector in the direction of the C--H bond at tim
 \begin{equation}
 g(\tau)=g_{\mathrm{f}}(\tau)g_{\mathrm{s}}(\tau) ,
 \end{equation} 
-where $g_{\mathrm{f}}(\tau)$ characterizes fast decays owing to, for example, the molecular  rotations, and $g_{\mathrm{s}}(\tau)$ describes slow decays that originate from, e.g., the lipid diffusion. The two components, along with the oscillation due to magic angle spinning at the $\sim$kHz region, are depicted in Fig.~\ref{fig:schem_teff}. Correlation time of 4.2 ms has been estimated for multilamellar POPC samples at 300 K for the slow modes, whereas  in liquid crystalline lipid bilayers the faster $g_{\mathrm{f}}(\tau)$ decays to a plateau value $S^{2}_{\rm{CH}}$ within a few hundred nanoseconds~\cite{ferreira15}. The C--H bond order parameters
+where $g_{\mathrm{f}}(\tau)$ characterizes fast decays owing to, for example, the molecular  rotations, and $g_{\mathrm{s}}(\tau)$ describes slow decays that originate from, e.g., lipid diffusion. The two components, along with the oscillation due to magic angle spinning at the $\sim$kHz region, are depicted in Fig.~\ref{fig:schem_teff}. Correlation time of 4.2 ms has been estimated for multilamellar POPC samples at 300 K for the slow modes, whereas  in liquid crystalline lipid bilayers the faster $g_{\mathrm{f}}(\tau)$ decays to a plateau value $S^{2}_{\rm{CH}}$ within a few hundred nanoseconds~\cite{ferreira15}. The C--H bond order parameters
 \begin{equation}
 \label{eq:OP}
 S_{\rm{CH}}=\frac{1}{2}\langle 3\cos^{2}\theta-1\rangle ,
@@ -175,7 +143,7 @@ It is easily seen that in the presence of more long-lived correlations $\tau_\ma
 
 \begin{figure}[t]
 \includegraphics[scale=0.45]{./figures/gfun_draft.pdf} 
-\caption{The autocorrelation function $g(\tau)$ a) The fast mode (white background) and the slow mode (shaded green) of the correlation function along with the oscillation owing to magic angle spinning. The fast mode decays to a plateau quantifying the $S_{\mathrm{CH}}$ while the slow mode gives the final descent to zero. b) Illustration of typical C--H bond autocorrelation function obtained from a MD simulation. The gray area under the curve gives a means of quantifying the $\tau_\mathrm{e}$. }
+\caption{The autocorrelation function $g(\tau)$ a) The fast mode (white background) and the slow mode (shaded green) of the correlation function along with the oscillation owing to magic angle spinning. The fast mode decays to a plateau quantifying the $S_{\mathrm{CH}}$ while the slow mode gives the final descent to zero. b) Illustration of typical C--H bond autocorrelation function obtained from a MD simulation. The gray area under the curve gives a way of quantifying the $\tau_\mathrm{e}$. }
 \label{fig:schem_teff}
 
 \end{figure} 
@@ -190,9 +158,9 @@ R_{1}=&\frac{d^2_{\mathrm{CH}}N_{\mathrm{H}}}{20}\left[j(\omega_{\mathrm{H}}-\om
 \end{split}
 \end{align}
 where $N_{\mathrm{H}}$ is the number of bound hydrogens, $\omega_{\mathrm{H}}$ and $\omega_{\mathrm{C}}$ are the Larmor frequencies for $^{1}$H and $^{13}$C, and $d_{\mathrm{CH}}$ is the rigid dipolar coupling constant. For the methylene bond, $d_{\mathrm{CH}}/2\pi$ approximately equals to -22~kHz.
+\todo{why there is a minus sign above?}
 
-
-The dependency of $R_{1}$ on the spectral densities $j$ at the Larmor frequencies means that the $R_{1}$ value depicts the relative amounts of relaxation processes with time-scales near the inverses of the Larmor frequencies. Since the Larmor frequencies depend on the field strength used in the NMR measurements, this typically makes $R_{1}$ sensitive to $\sim$1--10~ns time-scales. Importantly, a change in $R_{1}$ thus indicates a difference in the relative amounts of processes within the detection window, and therefore does not give information on the modulation of the total sampling rate.  
+The dependency of $R_{1}$ on the spectral densities $j$ at the Larmor frequencies means that the $R_{1}$ value depicts the relative amounts of relaxation processes with time-scales near the inverses of these frequencies. Since the Larmor frequencies depend on the field strength used in the NMR measurements, this typically makes $R_{1}$ sensitive to $\sim$1--10~ns time-scales. Importantly, a change in $R_{1}$ thus indicates a difference in the relative amounts of processes within the detection window, and therefore does not give information on the modulation of the total sampling rate.  
 
 
 \begin{comment}
@@ -212,11 +180,11 @@ All the experimental quantities were collected from the literature \todo{Except 
 \subsection{Simulational data acquisition and analysis}
 %
 The simulation trajectories used in this work were collected from the Zenodo repository (\url{zenodo.org}) with majority of the data originating from the NMRlipids Project~\cite{botan15,catte16} (\url{nmrlipids.blogspot.fi}).
-Table~\ref{tab:standr} lists, with references to the trajectory files, the simulations of pure POPC bilayers at/near room temperature and at full hydration.
+Table~\ref{tab:standr} details, with references to the trajectory files, the simulations of pure POPC bilayers at/near room temperature and at full hydration, whereas
 Table~\ref{tab:chol} lists simulations including cholesterol;
 Table~\ref{tab:hydr} simulations with varying hydration; and
 Table~\ref{tab:salt} at increasing NaCl concentration.
-Additional computational details of each of the simulations are available at the cited Zenodo entry.
+Additional computational details for each of the simulations are available at the cited Zenodo entry.
 
 \begin{table}[t!]
 \caption{Analyzed simulations of POPC lipid bilayers at standard conditions.}
@@ -389,7 +357,7 @@ Slipids \cite{jambeck12b}%/---
 %\onecolumn
 %\end{multicols}
 
-The simulational data were analysed using in-house scripts. These are available on GitHub \cite{citehere} along with a Python notebook outlining an example analysis run.
+The simulation data were analyzed using in-house scripts. These are available on GitHub \cite{citehere} along with a Python notebook outlining an example analysis run.
 After downloading the necessary files from Zenodo, the trajectory was processed with Gromacs \texttt{gmx trjconv} to make the molecules whole.
 The C--H bond order parameters  $S_\mathrm{CH}$, see Eq.~\eqref{eq:OP}, were then calculated with the \texttt{calcOrderParameters.py}\cite{citegithubhere} script that uses the MDanalysis\cite{XXX} Python library.
 %
@@ -416,12 +384,11 @@ that is, $t_\mathrm 0$ is the first time point at which $g'_\mathrm f$ reached z
 If $g'_\mathrm f$ did not reach zero within 
 $t_\mathrm{anal}/2$, the 
 $\tau_\mathrm e$ was not determined,
-but we report only its upper and lower error estimates.
+and we report only its upper and lower error estimates.
 
-To estimate the error on $\tau_\mathrm e$, we first estimate the error on $g'_\mathrm f(\tau)$.
-%
+To quantify the error on $\tau_\mathrm e$, we first estimate the error on $g'_\mathrm f(\tau)$,%
 %At a given timepoint $\tau$,
-There are two sources of error, $g_{\mathrm{f}}(\tau)$ and $S^2_\mathrm{CH}$.
+where we account for two sources of uncertainty, $g_{\mathrm{f}}(\tau)$ and $S^2_\mathrm{CH}$.
 %
 Performing linear error propagation on Eq.~\eqref{eq:nBCF} gives
 \begin{align}
@@ -444,18 +411,18 @@ Performing linear error propagation on Eq.~\eqref{eq:nBCF} gives
 \Delta S_\mathrm{CH}.
 \end{split}
 \end{align}
-Here the $\Delta S_\mathrm{CH}$ was determined as in the NMR\-lipids Project:
-the standard error of the mean of the $S_\mathrm{CH}$ of all the $N_\mathrm l$ individual lipids~\cite{botan15}.
+Here the $\Delta S_\mathrm{CH}$ was determined as in the NMR\-lipids Project~\cite{botan15}:
+as the standard error of the mean of the $S_\mathrm{CH}$ of all the $N_\mathrm l$ individual lipids in the system.
 %
-Similarly, we determined the error on $g_{\mathrm{f}}(\tau)$
+Similarly, we quantified the error on $g_{\mathrm{f}}(\tau)$
 by first determining an individual correlation function $g^m_{\mathrm{f}}(\tau)$ for each lipid $m$
 over the whole trajectory, and then obtaining the error estimate
 $\Delta g_{\mathrm{f}}(\tau)$
 as the standard error of the mean over the $N_\mathrm l$ lipids.
 %
-Importantly, this gives an error estimate at each time point $\tau$.
+Importantly, this gives an uncertainty estimate at each time point $\tau$.
 
-To obtain the lower error estimate on $\tau_\mathrm e$, we integrate the function
+To obtain the lower bound on $\tau_\mathrm e$, we integrate the function
 $g'_{\mathrm{f}}(\tau) - \Delta g'_{\mathrm{f}}(\tau)$ over time from $\tau=0$ until $\tau=t_\mathrm l$.
 Here
 \begin{equation}
@@ -468,7 +435,7 @@ t_\mathrm l= \min
 \right\}.
 \end{equation}
 That is,
-$t_\mathrm l$ is
+$t_\mathrm l$ equals
 the first time point at which the lower error estimate of $g'_\mathrm f$ reached zero;
 or $t_\mathrm l=t_\mathrm{anal}/2$, if zero was not reached by that point.
 %This is the one sigma error.
@@ -490,7 +457,7 @@ their contribution over long times could still add up to a sizable effect on $\t
 That said, it seems feasible to assume (see Fig. \ref{fig:schem_teff}A) that there are no longer-time contributions
 to $g_\mathrm f$ than something that decays with a time constant of $10^{-6}$~s.
 %
-We use this as our worst case estimate to assess the upper error on $\tau_\mathrm e$, and
+We use this as our worst case estimate to assess the upper bound for $\tau_\mathrm e$, and
 %
 assume that all the decay from the time point
 $
@@ -502,7 +469,7 @@ t_\mathrm u= \min
 $
 onwards comes solely from this slowest process.
 %
-The additional contribution to the upper error for $\tau_\mathrm e$ then reads
+The additional contribution to the upper bound for $\tau_\mathrm e$ then reads
 $
 \Delta g'_\mathrm f(t_\mathrm u) \times \left(\exp(-t_\mathrm u / 10^{-6}\,\mathrm s) - \exp(-1)\right) \times 10^{-6}\,\mathrm s.
 $
@@ -510,10 +477,9 @@ $
 
 %The effective correlation times $\tau_\mathrm e$ were calculated by integrating, see Eq.~\eqref{eq:teff}, $g'_\mathrm f(\tau)$ over time from $\tau=0$ until $\tau = t_0$.
 
-The $R_{1}$ rates were calculated using Eq.~\eqref{eq:R1},
+The $R_{1}$ rates were calculated using Eq.~\eqref{eq:R1}.
 %
-with the spectral density $j(\omega)$ obtained for
-a given normalized correlation function $g'_\mathrm f$
+The spectral density $j(\omega)$ was obtained from the normalized correlation function $g'_\mathrm f$
 by fitting it with a sum of $N=71$ exponentials
 \begin{equation}
 \label{eq:weights}
@@ -528,13 +494,13 @@ j{(\omega)}=2(1-S_\mathrm{CH})\sum_{i=1}^{N}\alpha_{i}\frac{\tau_{i}}{1+\omega\t
 \end{equation}
 %
 The $R_{1}$ rate of a given C--H bond was
-first calculated separately for each lipid $m$ (using Eq.~\eqref{eq:R1} with $N_\mathrm{H}=1$, and $j^m(\omega)$ obtained for the normalized correlation function ${g'_\mathrm f}^m$). The thus obtained $N_\mathrm{l}$ measurements per bond were then assumed independent:
+first calculated separately for each lipid $m$ (using Eq.~\eqref{eq:R1} with $N_\mathrm{H}=1$, and $j^m(\omega)$ obtained for the normalized correlation function ${g'_\mathrm f}^m$). The resulting $N_\mathrm{l}$ measurements per bond were then assumed independent:
 Their mean gave the $R_1$ rate of the bond, and 
 standard error of the mean its uncertainty.
 %
 The total $R_1$ rate of a given carbon was obtained as a sum of the $R_1$ rates of its C--H bonds.
 %
-When several carbons were known to have contributed to the experimental $R_1$ rate of a carbon segment, the carbon-wise $R_1$ rates were averaged to obtain the segment-wise $R_1$ rate.
+When several carbons contribute to the experimental $R_1$ rate of a carbon segment, the carbon-wise $R_1$ rates were averaged to obtain the segment-wise $R_1$ rate.
 %
 The segment-wise error estimates were obtained by standard error propagation, starting from the uncertainties of the $R_1$ rates of the C--H bonds.
 
@@ -554,71 +520,70 @@ to estimating $\tau_\mathrm{e}$, because
 	\approx\sum_{i=1}^{N}\alpha_{i}\tau_{i}.
 \end{equation}
 When the simulation trajectory is not long enough for the correlation function to reach the plateau, integrating $g'_\mathrm f$ gives a lower bound estimate for $\tau_\mathrm{e}$, while the sum of Eq.~\eqref{eq:TeffSum} includes also (some) contribution from the longer-time components via the fitting process.
-However, in practice the fit is often highly unreliable in terms of depicting the long tails of the correlation function, and thus in this work we chose to quantify $\tau_\mathrm{e}$ using the area under $g'_\mathrm f$, and estimate its errors as discussed in detail above.
+However, in practice the fit is often highly unreliable in depicting the long tails of the correlation function, and thus we chose to quantify $\tau_\mathrm{e}$ using the area under $g'_\mathrm f$, and estimate its uncertainty as detailed above.
 
 
 
 \section{Results and Discussion}
 
-In the following, we discuss phospholipid internal dynamics in
-six different MD force fields, %Berger, Slipids, MacRog, Lipid14, ECC, and CHARMM36
-first at standard conditions (pure POPC bilayers, full hydration, no salt;
-see Table~\ref{tab:standr} for simulation details and Fig~\ref{fig:teff_R1} for results).
+In the following, we discuss phospholipid conformational  dynamics in
+six different MD force fields. We do this first for %Berger, Slipids, MacRog, Lipid14, ECC, and CHARMM36 
+standard conditions (pure POPC bilayers, full hydration, no salt;
+see Table~\ref{tab:standr} for simulation details and Fig.~\ref{fig:teff_R1} for results)
 %
 %An assessment of the bilayer dynamics under one set of conditions does not a give complete picture of the membrane functioning.
-We then proceed to
-cover a wider range of experimentally, biologically, and computationally relevant conditions, and investigate how the dynamics change when cholesterol is added to the bilayer (Table~\ref{tab:chol} and Fig.~\ref{fig:chol}), when hydration level is reduced (Table~\ref{tab:hydr} and Fig.~\ref{fig:hydration}), and when monovalent salt is added to the solution (Table~\ref{tab:salt} and Fig.~\ref{fig:salt}).
+and then proceed to
+cover a wider range of experimentally, biologically, and computationally relevant conditions. We investigate how the dynamics change when cholesterol is added to the bilayer (Table~\ref{tab:chol} and Fig.~\ref{fig:chol}), when hydration level is reduced (Table~\ref{tab:hydr} and Fig.~\ref{fig:hydration}), and when monovalent salt is added to the solution (Table~\ref{tab:salt} and Fig.~\ref{fig:salt}).
 
 One should keep in mind that none of the force fields we study
 produces all the C--H bond order parameters, $S_\mathrm{CH}$, within experimental accuracy~\cite{botan15}.
 %
 %(In CHARMM36 the three headgroup segments have rather good $S_\mathrm{CH}$: $\gamma$ within $\pm0.01$, $\beta$ within $\pm0.04$, and $\alpha$ within $\pm0.02$.)
 %
-In other words, the structural ensembles simulated do not exactly match
-the structural ensemble occurring in reality, that is, these simulations are not a true computational microscope.
+This means that the structural ensembles simulated do not exactly match
+the structural ensemble occurring in reality.%, that is, these simulations are not a true computational microscope.
 %
 Consequently, the
 $\tau_\mathrm{e}$ times and $R_1$ rates
 depict the dynamics of sampling a somewhat different phase space
 for each model. %that differs from what is being observed in the experiments.
 %
-To this end,
-we will try to avoid overly detailed discussion on the models and rather concentrate on detecting common and qualitative trends.
+To this end, we avoid overly detailed discussion on the models and rather concentrate on common and qualitative trends.
 
 
 \subsection*{Effective correlation times $\tau_\mathrm e$ at standard conditions.}
 The left panels of Fig.~\ref{fig:teff_R1} compare the $\tau_\mathrm{e}$ obtained for fully hydrated POPC bilayers in experiments (black) and in the six different MD force fields (color).
 
-Qualitatively, every force field captures the general shape of the $\tau_\mathrm{e}$ profile: Dynamics slows down towards the glycerol backbone in both the headgroup and in the tails. Quantitatively, MD has a tendency towards
+Qualitatively, every force field captures the general shape of the $\tau_\mathrm{e}$ profile: Dynamics slows down towards the glycerol backbone in both the headgroup and the tails. Quantitatively, MD has a tendency towards
 slightly too fast dynamics in the membrane core,
 but
-at the water-facing interface MD is typically clearly too slow.
-CHARMM36 and Slipids show the best overall performance---although the $\tau_\mathrm{e}$ in Slipids exhibit a qualitatively wrong, decreasing, trend from $\mathrm g_{3}$ to $\mathrm g_{1}$.
+at the water-facing interface MD is typically too slow.
+CHARMM36 and Slipids show the best overall performance---although the $\tau_\mathrm{e}$ in Slipids exhibit a qualitatively wrong (decreasing) trend from $\mathrm g_{3}$ to $\mathrm g_{1}$.
 
-The slowness of MD around the glycerol backbone is consistent with previous results for the Berger model~\cite{ferreira15}. It also agrees with the insufficient conformational sampling of glycerol backbone torsions observed in 500-ns-long CHARMMc32b2~\cite{schlenkrich96,feller00} simulations of a DOPC lipid~\cite{vogel12}. % The first carbon of the palmitoyl tail is the only location where some force fields have a tendency to underestimate $\tau_{\mathrm{eff}}$. 
+The detected slow glycerol backbone dynamics in MD is consistent with previous results for the Berger model~\cite{ferreira15}. It also agrees with the  insufficient conformational sampling of glycerol backbone torsions observed in 500-ns-long CHARMMc32b2~\cite{schlenkrich96,feller00} simulations of a DOPC lipid~\cite{vogel12}. % The first carbon of the palmitoyl tail is the only location where some force fields have a tendency to underestimate $\tau_{\mathrm{eff}}$. 
 
 %We emphasize that the simulation data in Fig.~\ref{fig:teff_R1} give a \emph{lower} limit of $\tau_\mathrm{e}$, as discussed in Theoretical Background (Sec.~\ref{sec:theory}). The $\tau_\mathrm{e}$ values could increase further if the trajectories were extended, and thus the true overestimation could be more severe than what was seen here.
 
-It is worth noting that although temperature varied across these openly available simulation data, it was in no case lower than in the experiment. %As one would expect $\tau_\mathrm{e}$ to decrease with increasing temperature, the slow dynamics observed in some force fields do not occur because of the temperature difference.
-As decreasing the temperature would increase the
-$\tau_\mathrm{e}$---as indicated by the CHARMM36 simulations at different temperatures---any
-overestimation of $\tau_\mathrm{e}$ by MD would get worse, were the simulations done at the experimental 298\,K.
+Note that the temperature varied across these openly available simulation data. However, it was in no case lower than in the experiment. %As one would expect $\tau_\mathrm{e}$ to decrease with increasing temperature, the slow dynamics observed in some force fields do not occur because of the temperature difference.
+Were the simulations done at the experimental 298\,K, the overestimation of $\tau_\mathrm{e}$ at the glycerol backbone by MD would get worse as $\tau_\mathrm{e}$  increases at decreasing temperature
+---as indicated by the CHARMM36 data covering several temperatures.
+\todo{HA: add new CHARMM36 data to plot}
 
 \begin{figure*}[!ht]
 \centering
 \includegraphics[width=\textwidth]{./figures/normalcond_2020_3.pdf}
 \caption{Effective correlation times ($\tau_\mathrm{e}$, left panels) and $R_{1}$ rates (right panels) in experiments (black) and MD simulations (colored) of POPC bilayers in $L_{\alpha}$ phase under full hydration.
-Inset on the right shows the POPC structure and carbon segment labelling.
+Inset on the right shows the POPC structure and carbon segment labeling.
 Each plotted value contains contributions from all the hydrogens within its carbon segment; the data for segments 8--11 are only from the sn-2 (oleoyl) chain, whereas the (experimentally non-resolved) contributions of both tails are included for segments 2--3 (2'--3' in the sn-1 chain) and 16--18 (14'--16').
 %
 Simulation data are only shown for the segments for which there exists experimental data.
 %
 For $\tau_\mathrm{e}$,
-a simulation data point indicates the average over hydrogens; however,
-if $\tau_\mathrm{e}$ could not be determined for all hydrogens, only the error bar
+a simulation data point indicates the average over C--H bonds; however,
+if $\tau_\mathrm{e}$ could not be determined for all bonds, only the error bar
 (extending from the mean of the lower to the mean of the upper error estimates) is shown.
 %
-The methyl segments ($\gamma$, C18, and C16') in Berger are left out, because for a united atom model the hydrogens must be constructed post-simulation from the heavy atom locations, and the protonation algorithm does not preserve the methyl C--H bond dynamics.
+The Berger data for methyl segments ($\gamma$, C18, and C16') are left out, because the protonation algorithm used to construct the hydrogens post-simulation in united atom models does not preserve the methyl C--H bond dynamics.
 %
 Table~\ref{tab:standr} provides further simulation details.
 %
@@ -634,41 +599,37 @@ Error bars for the experimental values reflect error estimate of {\color{red}XXX
 \subsection*{$R_1$ rates at standard conditions.}
 The panels on the right side of Fig.~\ref{fig:teff_R1} compare experimental and simulated $R_{1}$ rates under the same conditions as for the $\tau_\mathrm{e}$ on the left.
 
-The $R_1$ comparison distinctly differs from what is seen for $\tau_\mathrm{e}$.
-Some models that do very well for $\tau_\mathrm{e}$, do rather poorly for $R_1$, such as CHARMM36 in the $\gamma$, $\beta$, and $\alpha$ segments.
-Also examples to the contrary are seen: MacRog gives particularly fitting $R_{1}$ rates for the $\beta$, $\alpha$, g$_3$, and g$_1$ segments, although it systematically overestimates their $\tau_\mathrm{e}$.
+There are certain qualitative features that all force fields predict correctly
+(for example that $\mathrm g_2$ has the smallest $R_1$ among the glycerol and C9 among the oleoyl double bond segments),
+and certain that they all miss (that $R_1$ rates for the oleoyl segments C8, C10, and C11 are all roughly equal).
 
-To appreciate the implications of such differences, let us recall that
-matching our experimental $R_1$ rates (measured at 125\,MHz)
-is a necessary condition for a given force field to have correct rotational dynamics at the $(2\pi\times125~\mathrm{MHz})^{-1}\approx1$\,ns time scale.
-In contrast, $\tau_\mathrm{e}$ reflects all the sub-$\mu$s time scales (Fig.~\ref{fig:schem_teff}).
-
-Figure~\ref{fig:teff_R1} reveals a few cases where both $R_1$ and $\tau_\mathrm{e}$ (almost) match experiments, suggesting (almost) correct rotational dynamics at all relevant time scales.
+Quantitatively,
+there are a few cases where both $R_1$ and $\tau_\mathrm{e}$ (almost) match experiments, suggesting (almost) correct rotational dynamics at all relevant time scales.
 %
 %, and for the .
 %
 For example, 
 %LET'S MENTION ONLY THE VERY GOOD ONES
-Slipids does a good job for the $\beta$ and $\alpha$ segments;
+Slipids performs well at the $\beta$ and $\alpha$ segments;
 CHARMM36 for the g$_3$, g$_2$,  C2 and C3;
 Lipid14 and ECC for the oleoyl double bond; and
 MacRog for the tail end segments.
-%
-(Notably,
-all force fields are qualitatively correct in giving that $\mathrm g_2$ has the smallest $R_1$ of the glycerol segments and segment 9 of the oleoyl double bond segments. That said, no MD model captures that the $R_1$ rates for the oleoyl segments 8, 10, and 11 are all roughly equal.)
 
-In Fig.~\ref{fig:teff_R1} there are also cases where a matching $R_1$ is accompanied by a larger-than-experimental $\tau_\mathrm{e}$. Such a combination suggests that MD does well at the 1\,ns scale, but has too slow long-time dynamics.
-%
-The most prominent example of this is MacRog for $\beta$, $\alpha$, and the glycerol region.
+Notably, there are also instances where the $R_1$ comparison distinctly differs from what is seen for $\tau_\mathrm{e}$: Some models that do very well for $\tau_\mathrm{e}$, do rather poorly for $R_1$. Conversely, matching $R_{1}$ can be accompanied by larger-than-experimental $\tau_\mathrm{e}$.
+% such as CHARMM36 in the $\gamma$, $\beta$, and $\alpha$ segments.
+%Also examples to the contrary are seen: MacRog reproduces $R_{1}$ rates well for the $\beta$, $\alpha$, g$_3$, and g$_1$ segments, although it systematically overestimates their $\tau_\mathrm{e}$.
+To appreciate such differences,  recall that in order to capture our experimental $R_1$ rates (measured at 125\,MHz) a force field has to have correct rotational dynamics at the $(2\pi\times125~\mathrm{MHz})^{-1}\approx1$\,ns time scale, whereas
+$\tau_\mathrm{e}$ reflects all the sub-$\mu$s time scales (Fig.~\ref{fig:schem_teff}).
 
-Figure~\ref{fig:teff_R1} also has cases where $\tau_\mathrm{e}$ matches experiments, but $R_1$ does not. This indicates a cancelation of errors for the $\tau_\mathrm{e}$: The wrong dynamics at the 1\,ns scale are compensated by wrong dynamics at other time scales.
-%
-This is seen to be the case in all five all-atom force fields for the $\gamma$ segment,
+MacRog for the $\beta$, $\alpha$, g$_3$, and g$_1$ segments provides a prominent example where
+the $R_1$ rates are well reproduced, but $\tau_\mathrm e$ times systematically overestimated.
+Such a combination suggests that MD does well at the 1\,ns scale, but has too slow long-time dynamics.
+
+The opposite---where $\tau_\mathrm{e}$ matches experiments, but $R_1$ does not---is demonstrated by all five all-atom force fields for the $\gamma$ segment,
 %for Slipids around the double bond,
-and for CHARMM36 in $\beta$ and $\alpha$.
-%
-As CHARMM36 on the whole did rather well for both $R_1$ and $\tau_\mathrm{e}$,
-let us next study this shortcoming on the headgroup $R_1$ rates
+and by CHARMM36 for $\beta$ and $\alpha$. Therein a cancellation of error occurs in $\tau_\mathrm{e}$: The wrong dynamics at the 1\,ns scale are compensated by wrong dynamics at other time scales.
+As CHARMM36 overall performs rather well for both $R_1$ and $\tau_\mathrm{e}$,
+we proceed to study this shortcoming on the headgroup $R_1$ rates
 in some more detail.
 %
 %Berger and Slipids for tail segment 2.
@@ -681,11 +642,11 @@ in some more detail.
 Figure~\ref{fig:cumulativeR1s}A zooms in on the headgroup ($\gamma$, $\beta$, $\alpha$) segments,
 whose $\tau_\mathrm e$ were not clearly visible on the scale of Fig.~\ref{fig:teff_R1}.
 %
-For all three segments, CHARMM36 matches the experimental $\tau_\mathrm e$,
+For all three, CHARMM36 matches the experimental $\tau_\mathrm e$,
 but overestimates $R_1$.
 %
 No other force field does any better for $\gamma$, but
-for the $\beta$ and $\alpha$ segments Slipids provides almost perfect dynamics.
+for $\beta$ and $\alpha$ Slipids provides almost perfect dynamics.
 
 \begin{figure}[!h]
 \centering
@@ -700,33 +661,33 @@ In B and C, a sliding average over 5 neighboring data points is shown.
 \label{fig:cumulativeR1s}
 \end{figure}
 
-The time scales that most contribute to $R_1$ rates are highlighted by the
-'cumulative' $R_1(\tau)$ (Fig.~\ref{fig:cumulativeR1s}B).
+To investigate where the differences between force fields arise, we visualize the 
+'cumulative' $R_1(\tau)$ in Fig.~\ref{fig:cumulativeR1s}B.
 It is obtained, as detailed in Methods,
 by including in the sum of Eq.~\eqref{eq:j} only terms with $\tau_i<\tau$.
-Consequently, at $\tau\to\infty$ the 'cumulative' $R_1(\tau)$ approaches the actual $R_1$.
+Consequently, at $\tau\to\infty$ the 'cumulative' $R_1(\tau)$ approaches the actual $R_1$. Ranges of steepest increase therefore indicate time scales that most strongly contribute to $R_1$ rates.
 
 Figure~\ref{fig:cumulativeR1s}B shows
 that for models that overestimate the $R_1$ rate of $\gamma$
 (MacRog, CHARMM36, and Slipids, see Fig.~\ref{fig:cumulativeR1s}A)
-the major contribution to $R_1$ arises at $\tau>50$\,ps.
-In contrast, for those that underestimate the $R_1$ rate
+the major contribution to $R_1$ arises at $\tau>50$\,ps, whereas those underestimating the $R_1$ 
 (Lipid14 and ECC, see Fig.~\ref{fig:teff_R1})
-the major contribution arises at $\tau<50$\,ps.
+the major contribution comes from $\tau<50$\,ps. 
 %
 This also manifests in the
 distribution of fitting weights ($\alpha_i$ in Eq.~\eqref{eq:weights}) in Fig.~\ref{fig:cumulativeR1s}C:
 The earlier the non-zero weights occur, the smaller is the resulting $R_1$.
 
+
 For the $\beta$ and $\alpha$ segments, Fig.~\ref{fig:cumulativeR1s}B shows
-that the main contribution to $R_1$ rates arises
+that the main contribution to $R_1$ rates arises from processes
 between 200~ps and 2~ns.
 %
 As CHARMM36 has the largest weights of all models in this window (Fig.~\ref{fig:cumulativeR1s}C),
 it overestimates $R_1$.
 %
 %For example
-Slipids, which has simultaneously $R_1$ and $\tau_\mathrm e$ correct,
+In contrast, Slipids, which has simultaneously $R_1$ and $\tau_\mathrm e$ correct,
 has its largest weights at $\tau<200$\,ps.
 %
 Indeed, considerable weights
@@ -739,7 +700,7 @@ which is thus considerably overestimated by MacRog and Berger (Fig.~\ref{fig:tef
 
 What are the motions in the 0.2--2\,ns window that are over-presented in CHARMM36?
 Identifying them and speeding them up would improve the model dynamics.
-However, the connection between the fitted correlation times and the correlation times of distinct motional processes such as dihedral rotations and lipid wobbling turns out to be highly non-trivial; we thus refrain from further analysis here.
+However, the connection between the fitted correlation times and the correlation times of distinct motional processes, such as dihedral rotations and lipid wobbling, turns out to be highly non-trivial; we thus refrain from further analysis here.
 
 \subsection*{Effect of cholesterol.}
 The experimental effective correlation times $\tau_\mathrm e$
@@ -750,9 +711,10 @@ slow down markedly.
 %
 The tail segments slow down too,
 the effect increasing towards the backbone.
+
 In stark contrast, however,
 the $\tau_\mathrm e$ of headgroup segments ($\gamma$, $\beta$, $\alpha$)
-appear fully unaffected by cholesterol.
+are unaffected by cholesterol.
 %
 Furthermore, cholesterol induces no measurable change in the
 headgroup $\beta$ and $\alpha$ segment
@@ -760,26 +722,25 @@ dynamics at short ($\sim$1\,ns) time scales, as
 demonstrated by
 the experimental $R_{1}$ rates (Fig.~\ref{fig:chol}A, lower panels).
 That said,
-there is a measurable change to $R_1$ at $\gamma$,
-at the oleoyl double bond, and at the tail end.
+there is a small but measurable impact on $R_1$ at $\gamma$.
 
-All the force fields investigated qualitatively reproduce slow downs of $\tau_\mathrm e$ (see Fig.~\ref{fig:chol}B):
-Slipids gives the best magnitude estimates, while CHARMM36 and MacRog clearly overestimate the changes at the glycerol, C2, and C3 carbons. Notably, MacRog {\color{red} (and Berger?)} predicts an erroneous slow down also for the $\beta$ and $\alpha$ carbons, for which experiments detect no change.
+All the force fields investigated qualitatively reproduce the increase in $\tau_\mathrm e$ (see Fig.~\ref{fig:chol}B):
+Slipids gives the best magnitude estimates, while CHARMM36 and MacRog clearly overestimate the changes at the glycerol, C2, and C3 carbons. Notably, MacRog \todo{and Berger?} erroneously predict slow down also for the $\beta$ and $\alpha$ carbons, for which experiments detect no change.
 %
-Also,  while CHARMM36 correctly shows no chance in $\tau_\mathrm{e}$
+Note that,  while CHARMM36 correctly shows no chance in $\tau_\mathrm{e}$
 of the $\gamma$, $\beta$, and $\alpha$ carbons,
-it does predict a clearly non-zero $\Delta R_{1}$ for all three, indicative of some inaccuracies in the
+it predicts a non-zero $\Delta R_{1}$ for all three, indicating some inaccuracies in the
 headgroup rotational dynamics. % at shorter time-scales.
-Such inaccuracies might affect the recent findings~\cite{leeb18}
-obtained using CHARMM36
+Such inaccuracies might be reflected in the recent findings~\cite{leeb18}
+(obtained using CHARMM36)
 that 
-(at least at small cholesterol concentrations)
+%(at least at small cholesterol concentrations)
 the headgroups of PCs neighbouring a cholesterol (within 6.6\,\AA) spend more time on top of the cholesterol than elsewhere;
-such arrested rotations should manifest on $\tau_\mathrm e$ and $R_1$.
+such arrested rotations could manifest on $\tau_\mathrm e$ and $R_1$.
 %
 Interestingly, 
-the tail $\Delta R_{1}$ seem to be pretty well captured by
-all three all-atom force fields, whereas Berger fails to capture the change at the oleoyl bond.
+the tail $\Delta R_{1}$ seem to be pretty well reproduced by
+all three all-atom force fields, whereas Berger fails to capture the change at the oleoyl double bond.
 
 %Along with the slow-down of dynamics, all the models show an increase in the $\vert S_{\rm{CH}}\vert$ upon addition of cholesterol at the tail region (\todo{Show data?}), reflecting the reduced available volume for the POPC.\todo{Is this a known effect/explanation?}
 
@@ -789,7 +750,7 @@ all three all-atom force fields, whereas Berger fails to capture the change at t
 	\centering
 	\includegraphics[width=\columnwidth]{./figures/cholesterol.pdf}  
 	\caption{Effect of bilayer cholesterol content.
-	(A) The experimental effective correlation times $\tau_\mathrm{e}$ (top panels) and $R_{1}$ rates (bottom) in a pure POPC bilayer and in a bilayer containing 50\% cholesterol. The data were measured at 298\,K and {\color{red} full(?) hydration}.
+	(A) The experimental effective correlation times $\tau_\mathrm{e}$ (top panels) and $R_{1}$ rates (bottom) in a pure POPC bilayer and in a bilayer containing 50\% cholesterol. The data were measured at 298\,K and full hydration.
 	(B) The change in $\tau_\mathrm{e}$ ($\Delta\tau_\mathrm{e}$, top panels) and $R_{1}$ ($\Delta R_{1}$, bottom),
 	both in experiments and in MD simulations, when bilayer composition changes from pure POPC to 50\% cholesterol.
 	Berger not shown for $\Delta\tau_\mathrm{e}$, because the open data available were insufficient to determine meaningful error estimates.
@@ -801,6 +762,7 @@ all three all-atom force fields, whereas Berger fails to capture the change at t
 	}
 	\label{fig:chol}
 \todo{@Hanne: Double check that the calculation of errors in (B) was as the caption describes.}
+\todo{Check if cholesterol data is in full hydration}
 \end{figure}
 
 
@@ -810,16 +772,11 @@ C--H bond dynamics in the PC headgroup and glycerol backbone;
 the plot compares the experimental effective correlation times $\tau_\mathrm e$
 measured for POPC at full hydration and for DMPC (1,2-dimyristoyl-sn-glycero-3-phosphocholine)
 at 13 waters per lipid.
-The $\tau_\mathrm e$ are the same within experimental accuracy.
-%
-This is in line with what was seen experimentally when adding cholesterol
-(Fig.~\ref{fig:chol}): The headgroup ($\gamma$, $\beta$, $\alpha$)
-$\tau_\mathrm e$ are unaffected by structural differences
-(such as the presence of cholesterol or the tail types)
-in the glycerol and tail regions.
-In addition,
-Fig.~\ref{fig:hydration}A indicates that
-a mild dehydration does not alter the $\tau_\mathrm e$
+
+
+The $\tau_\mathrm e$ are the same within experimental accuracy, which suggests two conclusions. Firstly, 
+The headgroup ($\gamma$, $\beta$, $\alpha$) $\tau_\mathrm e$ are unaffected by structural differences in the tails. This is analogous to  what was seen experimentally when adding cholesterol
+(Fig.~\ref{fig:chol}): Changes in the tail and glycerol regions do not reflect to the headgroup. Secondly, a mild dehydration does not alter the $\tau_\mathrm e$
 in the headgroup and glycerol regions. 
 
 \begin{figure}[ht!]
@@ -835,8 +792,8 @@ do not significantly differ from the
 $\tau_\mathrm e$ for POPC at full hydration. %(28\,w/l)
 (B) Calculated $\tau_\mathrm e$  for
 POPC at decreasing hydration in three MD models.
-Note that three Berger data points are from DLPC bilayers ({\color{red} dashed}).
-Points give the mean of segment hydrogens,
+Note that three Berger data points are from DLPC bilayers {\color{red} dashed}.
+Symbols give the mean of segment hydrogens,
 if $\tau_\mathrm{e}$ could be determined for all hydrogens; else only the error bar
 (extending from the mean of the lower to the mean of the upper uncertainty estimates) is shown;
 the area delimited by the error bars is shaded for visualization.
@@ -844,11 +801,12 @@ See Table~\ref{tab:hydr} for simulation details.}
 \label{fig:hydration}
 \todo{How to refer to full hydration POPC data?}\\
 \todo{Add also the black and orange (i.e. experimental) data points to B.}
+\todo{DLPC Berger points dashed or just in caption}
 \end{figure}
 
 Figure~\ref{fig:hydration}B shows the effects of dehydration in three MD models.
 Combination of
-the unrealistically slow dynamics especially in the glycerol backbone (Fig.~\ref{fig:teff_R1}) and
+the unrealistically slow dynamics, especially in the glycerol backbone, (Fig.~\ref{fig:teff_R1}) and
 the relatively short lengths of the openly available trajectories %with dehydration conditions
 (Table~\ref{tab:hydr})
 led to large uncertainty estimates. %for simulation data are large. %which makes discussion challenging.
@@ -856,7 +814,7 @@ led to large uncertainty estimates. %for simulation data are large. %which makes
 However, in the $\gamma$ segment
 there is clearly no effect above 13\,w/l in CHARMM36 and MacRog,
 in agreement with the experiments;
-lower water contents show a slow down, 
+reducing water content further induces a slow down, 
 especially in MacRog below 10\,w/l. 
 %
 Similarly, the
@@ -864,17 +822,16 @@ $\beta$ and $\alpha$ segments
 show no detectable change above 13\,w/l
 for CHARMM36 and Berger,
 in agreement with the experiments;
-below 10 w/l Berger shows a slowdown, and
+below 10 w/l Berger exhibits a slowdown, and
 in CHARMM36 the slowdown manifests as an abrupt increase of the uncertainty estimate.
-%
-For the glycerol segments,
-due to the large uncertainties,
-only qualitative trends of the lower error estimate can be looked at:
-For CHARMM36 the lower error estimate stays almost constant all the way until 7\,w/l,
-for Berger and MacRog it suggests a slowdown starting already from $\sim$20\,w/l.
+%HA: a synonym for slow-down?
 
-These simulational findings indicate that
-experiments at hydration levels below 10\,w/l would also show an increase in $\tau_\mathrm e$.
+Owing to the large uncertainties, we only point out the qualitative trends of the lower error estimates on the glycerol segments.
+For CHARMM36 the it stays almost constant all the way until 7\,w/l,
+for Berger and MacRog the lower error estimate suggests a retardation of the dynamics starting already from $\sim$20\,w/l.
+
+These simulational findings suggest that
+experiments reducing hydration levels below 10\,w/l would also show an increase in $\tau_\mathrm e$.
 This prediction is in line with the
 exponential slow-down
 %(decay constant $\sim$4 removed waters per lipid)
@@ -899,13 +856,13 @@ measured at 125\,MHz for the headgroup segments
 at different water contents;
 in addition to the full hydration POPC data from Fig.~\ref{fig:teff_R1},
 DMPC at 13\,w/l~\cite{pham15}, % 125 MHz, 300K
-and POPC at 20 and 5\,w/l~\cite{volke1995} %125.76 MHz, 298K
+and POPC at 20 and 5\,w/l~\cite{Volke:1995a} %125.76 MHz, 298K
 are shown.
 %
 An increasing trend with decreasing hydration is observed for all the segments,
 indicating changes of headgroup dynamics at short ($\sim$1\,ns) time scales.
 Interestingly, only CHARMM36 captures this,
-whereas Berger and MacRog present the opposite, decreasing, trend for the $\beta$ and $\alpha$ segments.
+whereas Berger and MacRog give decreasing $R_1$ rates for $\beta$ and $\alpha$.
 %
 \begin{figure}[ht!]
 \centering
@@ -913,9 +870,10 @@ whereas Berger and MacRog present the opposite, decreasing, trend for the $\beta
 \caption{Effect of drying on $^{13}$C-NMR $R_1$ rates of the headgroup segments (at 125\,MHz)
 in experiments and simulations.}
 \label{fig:dehydrationR1}
+\todo{HA: Redo \& merge this with the upper image}
 \end{figure}
 
-The here discussed slow down should be of significance
+The slow down discussed here is of significance
 not only when simulating a bilayer (stack) under low hydration,
 but also for studies of inter\-membrane interactions, such as membrane fusion, because these naturally lead to dehydrated conditions when the lipid assemblies approach. Slower dynamics imply that longer simulation times are needed for equilibration, for reliably quantifying the properties of the bilayers, and for observing rare events. %such as the lipid tail flips from one membrane to another in case of the fusion~\cite{best citation here}. Same applies in simulations performed in increasing concentrations of cholesterol, as the slow down of dynamics and the increase of tail order parameters observed therein are analogous to those occurring upon dehydration. \todo{really not the smoothest text}
 %Sims by Calero~\cite{Calero:2019a} for water dynamics at membrane
@@ -924,9 +882,9 @@ but also for studies of inter\-membrane interactions, such as membrane fusion, b
 \subsection*{Effect of cation binding.}
 \todo{MARKUS: I have started to think that we maybe should drop this section, because we do not have any experimental data to compare against. However, if we do decide to keep it, to me it seems that our main point here is not on the effects monovalent salt, but rather on the effects of cation binding. Therefore, it would be better to plot $\Delta\tau_\mathrm e$ as a function of the bound cation charge, as we did in Fig.~3 of Ref.~\citenum{catte16}; then we could also include calcium data.}
 
-Finally, let us comment on the response of the MD model dynamics to increasing amounts of monovalent salt.
-To our knowledge, no experimental $^{13}$C-NMR $R_1$ or $\tau_\mathrm e$ data exists as a function of monovalent salt concentration; therefore, the following discussion is rather qualitative.
-Experimentally, the modulation of $\alpha$ and $\beta$ carbon order parameters upon increasing ion concentration have been used to quantify ion binding to lipid bilayers (the molecular electrometer~\cite{seeling87,catte16}). The order parameters are constant for POPC bilayers under NaCl addition in experiments, indicating negligible ion binding. Based on this, we anticipate the effective correlation times also to be unaffected by monovalent salt, however, to our knowledge no experimental measurements have been conducted to quantify this.
+Finally, we comment on the response of the MD model dynamics to increasing amounts of monovalent salt.
+To our knowledge, no experimental $^{13}$C-NMR $R_1$ or $\tau_\mathrm e$ data exists as a function of monovalent salt concentration; therefore, the following discussion is kept qualitative.
+Experimentally, the modulation of $\alpha$ and $\beta$ carbon order parameters upon increasing ion concentration have been used to quantify ion binding to lipid bilayers (the molecular electrometer~\cite{seeling87,catte16}). The order parameters are constant for POPC bilayers under NaCl addition in experiments, indicating negligible ion binding. Based on this, we anticipate the effective correlation times also to be unaffected by monovalent salt. %however, to our knowledge no experimental measurements have been conducted to quantify this.
 
 The molecular electrometer has been used to show that most molecular dynamics force fields overestimate the binding of monovalent ions to PC bilayers~\cite{catte16}: In the simulations the modulation of the $\alpha$ and $\beta$ carbon order parameters by increasing NaCl concentration was overestimated compared to the experiments, and accompanied by accumulation of ions at the bilayer surface. In Fig.~\ref{fig:salt} we compare three force fields, one that is known to exhibit pronounced overbinding~\cite{catte16} (MacRog) and two producing more realistic binding affinity (Slipids and CHARMM36). The lateral distribution of Na$^{+}$ ions near the bilayer is quantified in Fig.~\ref{fig:salt}A whereas Fig.~\ref{fig:salt}B shows the chance in $\tau_{\rm{e}}$ for increasing salt concentration. Ion accumulation results in a slow down in the effective correlation time. %that is somewhat proportional to the strength of ion binding.
 Correlation times extracted from CHARMM36 vary only a little (low ion binding) when ion concentration is increased, whereas a slightly more pronounced change is observed with Slipids, and MacRog exhibits a clear slow-down (significant ion binding). This indicates that, similarly to the order parameters, $\tau_{\rm{e}}$ may be useful in investigating the ion binding affinity of lipid bilayers and experimental work exploring this avenue would be interesting.   
@@ -935,7 +893,7 @@ Correlation times extracted from CHARMM36 vary only a little (low ion binding) w
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[scale=0.36]{salt.pdf} 
+\includegraphics[scale=0.36]{./figures/salt.pdf} 
 \caption{The impact of increasing ionic strength on effective correlation times. a) The density distribution (average over both leaflets) of Na$^{+}$ ions as function of distance $z$ from the bilayer center. The plots for each force field are presented from left to right in the order of increasing ion accumulation. b) Effective correlation times for $\alpha$ and $\beta$ C--H bonds in growing NaCl concentration from CHARMM36, Slipids, MacRog POPC simulations. Details on the simulation data are provided in Table~\ref{tab:salt}.}
 \label{fig:salt}
 \end{figure}
@@ -943,7 +901,7 @@ Correlation times extracted from CHARMM36 vary only a little (low ion binding) w
 
 \section{Conclusions}
 
-
+\todo{Laske bilayerissa Sch korrelaatiot yksittaisille lipidelle vs taueff}
 ---
 
 Q: How is the effective correlation time $\tau_\mathrm e$ related to the autocorrelation of the order parameter $S_\mathrm{CH}$?
@@ -978,7 +936,7 @@ Finally, this work demonstrates the power of open data in creating new knowledge
 \acknowledgement
   This material is based upon work supported by XXX under Grant No. XXX. The project is/isn't part of the NMRlipids open collaboration (nmrlipids.blogspot.com)
 
-\bibliography{lipids,ff,simu,pdb,journals,bbRefs}
+\bibliography{lipids,ff,simu,pdb,journals}
 
 \begin{tocentry}
  % \includegraphics[width=77mm]{abstract_figure}
