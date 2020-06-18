@@ -913,7 +913,7 @@ whereas Berger and MacRog give decreasing $R_1$ rates for $\beta$ and $\alpha$.
 \caption{Effect of drying on $^{13}$C-NMR $R_1$ rates of the headgroup segments (at 125\,MHz)
 in experiments and simulations.}
 \label{fig:dehydrationR1}
-\todo{HA: Redo \& merge this with the upper image}
+\todo{HA: Redo \& merge this with the Fig.~\ref{fig:hydration}}
 \end{figure}
 
 The slow down discussed here is of significance
@@ -942,10 +942,8 @@ Correlation times extracted from CHARMM36 vary only a little (low ion binding) w
 \end{figure}
 
 
-\section{Conclusions}
-
-\todo{Laske bilayerissa Sch korrelaatiot yksittaisille lipidelle vs taueff}
----
+\subsection*{Correlation time of $S_\mathrm{CH}$ versus $\tau_\mathrm e$.}
+\todo{Laske bilayerissa $S_\mathrm{CH}$ korrelaatiot yksittaisille lipidelle vs $\tau_\mathrm e$.}
 
 Q: How is the effective correlation time $\tau_\mathrm e$ related to the autocorrelation of the order parameter $S_\mathrm{CH}$?
 After all, $\tau_\mathrm e$ does measure the reorientation of the C--H bond, which is clearly related to how fast the $S_\mathrm{CH}$ is sampled.
@@ -962,9 +960,7 @@ In the multi-exponential case it is a bit hard to say just based on $\tau_\mathr
 
 The main advantage of $\tau_\mathrm e$ is that the larger (smaller) it is, the slower (faster) the process is. The same is not true for $R_1$ or other spin relaxation parameters, because their connection to the molecular dynamics is complicated, and goes through the spectral density, see Eq.~\eqref{eq:R1}.
 
----
-
-
+\section{Conclusions}
 
 Here, we have investigated the dynamics of phosphatidylcholine molecular dynamics models using publicly available MD trajectories. The MD models are able to qualitatively capture the correlation time profile of POPC---the slow glycerol backbone and the faster dynamics of the headgroup and tail regions---but most are prone to too slow dynamics of the glycerol C--H bonds.  In general, the these force fields reproduce the experimentally detected $R_{1}$ values adequately, indicating that processes at time scales $\sim$1 ns are represented but problems arise at longer time-scales. While none of the force fields is able to reproduce all the experimental values, the CHARMM36 POPC model performs well when compared to the effective correlation times, while the Slipids and Lipid14 force field provide realistic $R_{1}$ in the PC headgroup and glycerol regions. However, since none of the current MD models reproduce the experimental order parameters, these timescales depict a sampling of a conformational space that does not fully represent the underlying reality.
 
