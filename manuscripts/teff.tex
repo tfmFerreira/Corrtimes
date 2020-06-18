@@ -33,13 +33,10 @@
 
 \author{Markus S. Miettinen}
 \affiliation{Department of Theory and Bio-Systems, Max Planck Institute of Colloids and Interfaces, 14424 Potsdam, Germany}
-\email{markus.miettinen@mpikg.mpg.de}
-
+\email{markus.miettinen@iki.fi}
 
 \title{Using open data to benchmark internal dynamics of phosphatidylcholine in molecular dynamics simulations}
-
 \begin{document}
-
 
 
 \begin{abstract}
@@ -62,51 +59,68 @@ Molecular dynamics (MD) simulations are a widely used to
     GROMOS-based Berger force fields, where dynamics of the glycerol backbone was unrealistically slow.
 \end{abstract}
 
-
 \section{Introduction}
-
-Ever since the conception of the Protein Data Bank (PDB)~\cite{nnb1971,wwPDB2019} and the GenBank~\cite{jordan1982,sayers2020}, access to open data has shaped the state of the art of research in life sciences.
-%Not only has the development of new characterisation techniques (such as molecular replacement~\cite{rossmann62} in macromolecular x-ray crystallography and 3D electron microscopy) been aided by the existence of these databases~\cite{burley2018}, but perhaps more importantly they have
-It has led to entirely new ways of doing science in the form of bio- and cheminformatics, enabling data-driven discovery of drugs~\cite{kirchmair08}, materials~\cite{huang2016} as well as identifying~\cite{hobohm1992,levitt2007} and filling~\cite{meszaros2019} gaps in the databanks themselves. All in all, open access to standardised and searchable pools of experimental data, constantly extending owing to a collaborative effort, has enabled scientific progress that is well beyond the resources of one single research group.\\
+Ever since the conception of Protein Data Bank (PDB)~\cite{nnb1971,wwPDB2019} and GenBank~\cite{jordan1982,sayers2020},
+open access to standardised and searchable pools of experimental data has
+%shaped the state of the art of 
+revolutionized
+research in life sciences.
+Constantly growing and improving in fidelity~\cite{hobohm1992,levitt2007,meszaros2019}
+%as well as identifying~\cite{hobohm1992,levitt2007} and filling~\cite{meszaros2019} gaps in the databanks themselves
+due to collaborative effort, the databanks~\cite{Gaber:2019a} enable scientific progress that is well beyond the resources of one single research group, giving rise to entirely new ways of doing science in the form of bio- and cheminformatics, and enabling data-driven discovery of 
+characterisation techniques~\cite{burley2018}, %(such as molecular replacement~\cite{rossmann62} in macromolecular x-ray crystallography and 3D electron microscopy) 
+drugs~\cite{kirchmair08}, and materials~\cite{huang2016}.
 %
 %Today these data banks are regarded irreplaceable core resources. The cost of reproducing all the data in PDB has been estimated to be X and destruction of the databank would lead to a near complete halt both academic and commercial research.
 %
 %Much of the development of the PDB and other biomolecular databanks into the core resources they are today has been fueled by
-In addition to experimental results, the push from scientific journals and funders towards public availability and conservation of data has more recently extended to simulation trajectories of biomolecules, leading to increase in discussion on how and by whom databases of dynamic information, would be set up [citations]\\
-NRMlipids (since 2013) actually has already created such a database for lipids.
+In addition to experimental results, the push from %scientific journals and
+funders towards public availability and conservation of data has recently extended to molecular dynamics (MD) simulation trajectories of biomolecules, and discussion on how and by whom such databases of dynamic information would be set up is currently active~\cite{Hildebrand:2019a,Abraham:2019a,Gygli:2020a,Abriata:2020a,Hospital:2020a}.
+%
+\todo{Mention GPCRmd~\cite{Rodriguez-Espigares:2019a}?}
+Notably, for atomistic MD simulations of lipid membranes,
+the NRMlipids Project ({\tt nmrlipids.blogspot.fi}) has already since 2013 built such a databank~\cite{Miettinen:2019c}.
 %Inspired by the success of bio- and cheminformatics,
-We seek to exploit the existing NMRlipids database and demonstrate, for the first time, the viability of creating new scientific knowledge through analysis of pre-existing, open access simulation data.\\
+Using this freely available resource
+({\tt zenodo.org/communities/nmrlipids})
+we demonstrate here, for the first time, the viability of creating new scientific knowledge solely through analysis of pre-existing, open access MD simulation data.
 
-In their biologically relevant state as the core components of the cell's membranes, lipids are a intrinsically unstructured.\\
-To properly describe the (ensemble of structures and the) conformational dynamics of lipids is even more important than for (folded) proteins. 
-({\it Although biological membranes are complex mixtures of multiple lipid types as well as other molecules, lamellar phospholipid bilayers with one or few lipid types serve as an important model system, that have been successfully used to decipher,  \textit{eg.},  possible molecular mechanisms behind anesthetics~\cite{chau07,XXX}, the effect of cholesterol on membrane structure~\cite{XXX,ferreira13}, and the functioning of membrane proteins~\cite{lindahl08} \todo{add more references}. In particular,}) MD simulations of these model systems have been widely used~\cite{lyubartsev11,chau07,ferreira13,botan15, ferreira15,miettinen19,XXX} to provide an atomistic view on the biomembranes, and hold vast potential in making further connections between their structure and function.
+Lipids, in their biologically relevant state as the core components of the cell's membranes, are intrinsically unstructured.
+To properly describe such molecules, a whole ensemble of conformations as well as the dynamics linking them is needed.
+To obtain such description, MD simulations of lamellar phospholipid bilayer systems are widely 
+%Although biological membranes are complex mixtures of multiple lipid types as well as other molecules,
+%bilayer with one or few lipid types serve as an important model system, that have been successfully used
+used~\cite{lyubartsev11,chau07,ferreira13,botan15, ferreira15,miettinen19,XXX}, and
+hold vast potential to decipher, e.g., molecular mechanisms behind anesthetics~\cite{chau07,XXX}, the effect of cholesterol on membrane structure~\cite{XXX,ferreira13}, and the functioning of membrane proteins~\cite{lindahl08} \todo{add more references}.
 However, to be truly useful MD should:
-
-1) Give the right statistics.
 %The significance for investigating the conformational dynamics of lipids in bilayer simulations is two-fold.
-Firstly, when exploring static properties of the bilayers, it is crucial to assess how well the simulations have converged. In order to extract reliable statistics, the conformations sampled have to represent the equilibrium distribution with enough transitions between states. Indeed, previous simulations have indicated that even 500~ns simulations might not be sufficient:
-Simulations of a single (1,2-dioleoyl-sn-glycero-3-phosphocholine) DOPC lipid using the CHARMM32b2 force field indicated that the conformations sampled do not replicate the equilibrium distribution even after 500 ns~\cite{vogel12}; also, the C--H bond dynamics of the Berger model was shown~\cite{ferreira15} to be too slow at the glycerol region of 1-palmitoyl-2-oleoylphosphatidylcholine (POPC) compared to correlation times extracted from NMR experiments.\\
-2) Give the right dynamics.
-Secondly, for complete picture of membrane functioning, knowledge on the bilayer dynamics in addition to equilibrium measurements are needed. The ability of the MD model to reproduce the relative abundance of different dynamical processes is crucial for the correct interpretation of pathways leading to, e.g., membrane deformation~\cite{chernomordik08} and lipid-induced conformational~\cite{gibson93,phillips09} changes of membrane proteins. The availability of such model could also greatly guide both the configuration and interpretation of NMR experiments used to extract dynamical information from lipid assemblies.\\
-We will check the lipid dynamics in existing MD models using the existing NMRlipids database.
+\mbox{1) Give the right equilibrium statistics.}
+In order to extract reliable statistics, it is crucial to assess that the simulations have converged: The conformations sampled have to represent the equilibrium distribution with enough transitions between states. Indeed, previous work has indicated that for lipids even 500\,ns simulations might be insufficient~\cite{vogel12,ferreira15}.
+%Simulations of a single (1,2-dioleoyl-sn-glycero-3-phosphocholine) DOPC lipid using the CHARMM32b2 force field indicated that the conformations sampled do not replicate the equilibrium distribution even after 500 ns~\cite{vogel12}; also, the C--H bond dynamics of the Berger model was shown~\cite{ferreira15} to be too slow at the glycerol region of 1-palmitoyl-2-oleoylphosphatidylcholine (POPC) compared to correlation times extracted from NMR experiments.
+%
+\mbox{2) Give the right dynamics.}
+For a complete picture of membrane function, knowledge on the bilayer dynamics is %in addition to equilibrium measurements are
+needed. The ability of MD to reproduce the relative abundance of different dynamical processes is crucial for the correct interpretation of pathways leading to, e.g., membrane deformation~\cite{chernomordik08} and lipid-induced conformational~\cite{gibson93,phillips09} changes of membrane proteins. Notably, the availability of such a realistic MD model could greatly guide both the configuration and the interpretation of NMR experiments used to extract dynamical information from lipid assemblies.
 
+%We will check the lipid dynamics in existing MD models using the existing NMRlipids databank.
+%
+%More specifically,
+Here we analyze a wide set of publicly available phosphatidylcholine (PC) lipid bilayer MD trajectories. We test whether different MD models (force fields) reproduce the experimentally observed internal dynamics of PC lipids, and investigate if the dynamics extracted from various models share common features. Such features can be used to draw general conclusions on the system, to avoid potential pitfalls in future simulations of bilayers, and to suggest future directions for experimental research.  In addition to simulations of one component bilayers under standard conditions, we study the effects of varying hydration, cholesterol content, and NaCl concentration.
 
-More specifically, we will analyze a wide set of publicly available phosphatidylcholine (PC) phospholipid bilayer molecular dynamics (MD) simulation trajectories, produced by using different MD models (force fields). We test whether different force fields reproduce the experimentally observed internal dynamics of PC lipids, and investigate if the dynamics extracted from various models share common features that can be used to draw general conclusions on the system, to suggest future directions for experimental research, and to avoid potential pitfalls in future simulations of bilayers.  In addition to simulations of one component bilayers under standard conditions, we study trajectories under varying hydration, cholesterol content, and salt concentration.
-
-Our analysis of the lipid dynamics is based on two quantities measured in previous $^{13}$C-NMR experiments:
-the effective correlation time $\tau_\mathrm{e}$ and
+We analyze lipid dynamics based on two quantities measured in previous $^{13}$C-NMR experiments:~\cite{ferreira15,pham15,Volke:1995a}
+The effective C--H bond correlation time $\tau_\mathrm{e}$ and
 the spin-lattice relaxation rate $R_{1}$,
 both %experimentally available through NMR measurements, and
-directly calculable from all-atom MD simulations.
-Out of the two, the
+directly calculable from atomistic MD simulations.
+The
 $\tau_\mathrm e$ are effectively an average over all the time scales relevant for the lipid internal dynamics,
-and respond intuitively to changes in these processes: 
+and respond intuitively to changes in these: 
 %Most importantly, i
 Increasing $\tau_\mathrm{e}$ always signals some type of slowdown in the C--H bond dynamics. %, making the interpretation less ambiguous than for $R_1$, where slowdown in the dynamics can lead to either an increase or a decrease of $R_{1}$ value
 \cite{ferreira15}
 %
-The $R_{1}$ rates (or the corresponding $T_{1}$ times) have been traditionally used to assess both the conformational dynamics of lipids in experimental bilayers~\cite{feller02,eldho03,wohlert06,klauda08,leftin11} and the dynamics produced by lipid MD models in bilayer simulations\cite{feller02,wohlert06,klauda08,klauda08II}.
-In contrast to $\tau_\mathrm e$, the $R_1$ are sensitive to processes within a rather narrow time scale window set by the magnet frequency, and changes in $R_1$ are not intuitively related to changes in process speeds: A decrease in $R_1$ only tells that the amount of processes in the sensitive time window decreases, but not if the corresponding processes become faster or slower.
+The $R_{1}$ rates (or the corresponding $T_{1}$ times) have been traditionally used to assess both the conformational dynamics of lipids in experiments~\cite{feller02,eldho03,wohlert06,klauda08,leftin11} and the dynamics produced by MD models in simulations~\cite{feller02,wohlert06,klauda08,klauda08II}.
+In contrast to $\tau_\mathrm e$, the $R_1$ are sensitive to processes within a rather narrow time scale window set by the magnet frequency, and changes in $R_1$ are not intuitively related to changes in process speeds: A decrease in $R_1$ tells that the amount of processes in the sensitive time window decreases, but not if the corresponding processes become faster or slower.
 %However, relying on $R_{1}$ only has several drawbacks. \todo{Do all flavors ($^{31}$P, $^{13}$C,\ldots) have the same problem?} It builds on an underlying rotation-diffusion model, its sensitivity is typically limited to C--H bond reorientation with time scales $\sim$1-10 ns, and
 %Therefore, measurements at several temperatures and magnetic field strengths are required to fully characterize the dynamics. %To address these deficiencies, two of us introduced a procedure~\cite{ferreira15} for quantifying the effective C--H correlation times ($\tau_\mathrm{e}$)---a model free quantity that encompasses conformational dynamics with time scales up to hundreds of nanoseconds---from bilayer systems. 
 
@@ -122,7 +136,7 @@ Although biological membranes are complex mixtures of multiple different lipids 
 Unfortunately, recent comparison of lipid \mbox{C--H} order parameters from bilayer simulations to nuclear magnetic resonance (NMR) measurements has shown that none of the currently available lipid MD models perfectly reproduces the conformational ensemble sampled by the headgroup~\cite{botan15}. Here, we take a step further and investigate the dynamics of those MD models. 
 \end{comment}
 
-In summary, this work provides first comprehensive comparison of dynamics of different phosphatidylcholine MD models, where both pure bilayers and the model response to changing conditions and composition is explored. The study is conducted using data-driven exploration of pre-existing, publicly available simulation trajectories to demonstrate the power of open, well documented data in creating new knowledge at a lowered computational cost and high potential for automation.  
+In summary, our work provides first comprehensive comparison of dynamics of different phosphatidylcholine MD models, where both pure bilayers and the model response to changing conditions and composition is explored. The study is conducted using data-driven exploration of pre-existing, publicly available simulation trajectories to demonstrate the power of open, well documented MD data in creating new knowledge at a lowered computational cost and high potential for automation.  
 
 
 %we intentionally restrict ourselves to re-use existing, publicly available simulation trajectories. This is to demonstrate the power of open, well documented data in creating new knowledge at a lowered cost. The main source of data was the collection of lipid bilayer simulations originating from the NMRlipids project~\cite{botan15,catte16}
@@ -963,7 +977,7 @@ Finally, this work demonstrates the power of open data in creating new knowledge
 
 
 \acknowledgement
-  This material is based upon work supported by XXX under Grant No. XXX. The project is/isn't part of the NMRlipids open collaboration (nmrlipids.blogspot.com)
+  This material is based upon work supported by XXX under Grant No. XXX. The project is/isn't part of the NMRlipids open collaboration (nmrlipids.blogspot.fi)
 
 \bibliography{lipids,ff,simu,pdb,journals}
 
