@@ -40,18 +40,19 @@
 
 
 \begin{abstract}
-Molecular dynamics (MD) simulations are a widely used to
+Molecular dynamics (MD) simulations are widely used to
     study the atomistic structure and dynamics of biomembranes. It
     remains unknown, however, how well the conformational dynamics
     observed in MD simulations correspond to those occurring in real
     life phospholipids. The accuracy of such time scales in MD can be
-    assessed by comparing against the effective correlation times of
+    assessed by comparing against the effective correlation times $\tau_\mathrm e$ of
     the C-H bonds measured in nuclear magnetic resonance experiments
     (J. Chem. Phys. 142 044905 (2015)).
 
-    Here, we analysed the conformational dynamics of phospholipids as
-    produced by several commonly used MD models (force fields). None
-    of the tested force fields reproduced all the effective
+    Here, we extend this previous analysis by considering carefully the error estimation of MD-determined $\tau_\mathrm e$,
+    and analyze the conformational dynamics of phospholipids as
+    produced by several commonly used MD models (force fields).
+    None of the tested force fields reproduced all the effective
     correlation times within experimental error, much like they do
     not provide accurate conformational ensemble (J. Phys. Chem. B 119 15075 (2015)). However, the
     dynamics observed in CHARMM36 and Slipids were more realistic
@@ -818,7 +819,7 @@ at 13 waters per lipid.
 
 
 The $\tau_\mathrm e$ are the same within experimental accuracy, which suggests two conclusions. Firstly, 
-The headgroup ($\gamma$, $\beta$, $\alpha$) $\tau_\mathrm e$ are unaffected by structural differences in the tails. This is analogous to  what was seen experimentally when adding cholesterol
+the headgroup ($\gamma$, $\beta$, $\alpha$) $\tau_\mathrm e$ are unaffected by structural differences in the tails. This is analogous to  what was seen experimentally when adding cholesterol
 (Fig.~\ref{fig:chol}): Changes in the tail and glycerol regions do not reflect to the headgroup. Secondly, a mild dehydration does not alter the $\tau_\mathrm e$
 in the headgroup and glycerol regions. 
 
@@ -870,7 +871,7 @@ in CHARMM36 the slowdown manifests as an abrupt increase of the uncertainty esti
 %HA: a synonym for slow-down?
 
 Owing to the large uncertainties, we only point out the qualitative trends of the lower error estimates on the glycerol segments.
-For CHARMM36 the it stays almost constant all the way until 7\,w/l,
+For CHARMM36 it stays almost constant all the way until 7\,w/l,
 for Berger and MacRog the lower error estimate suggests a retardation of the dynamics starting already from $\sim$20\,w/l.
 
 These simulational findings suggest that
@@ -975,35 +976,34 @@ If the relaxation is single-exponential, $\tau_\mathrm e$ is the relaxation time
 Figure~\ref{fig:Teff-vs-Tsch} shows this correlation for systems studied in this work; we see\ldots
 \todo{Laske bilayerissa $S_\mathrm{CH}$:n korrelaatioaika (yksittaisessa lipidissa) vs $\tau_\mathrm e$. Tee scatter plot.}
 
-
 \section{Conclusions}
+Open access databanks of MD trajectories allow one to extract new scientific information without running a single new simulation.
+We demonstrated this here by investigating the dynamics of phosphatidylcholine molecular dynamics models using  the trajectories publicly available in the NMRlipids databank.
+
+We found that MD qualitatively captures the $^{13}$C-NMR effective correlation time ($\tau_\mathrm e$) profile of POPC---the slow glycerol backbone and the faster dynamics of the headgroup and tail regions---but most MD force fields are prone to too slow dynamics of the glycerol C--H bonds (Fig.~\ref{fig:teff_R1}).
+%
+While no force field reproduces all the experimental data,
+CHARMM36 and Slipids have an overall impressive $\tau_\mathrm e$.
+This is particularly the case for CHARMM36, as it is known to
+sample a conformational space that rather well represents reality~\cite{botan15}.
+%
+That said, we find that CHARMM36 does still struggle with the balance of dynamics in the headgroup region:
+The $R_1$ rates, sensitive for 1-ns processes, are too high for the $\gamma$, $\beta$, and $\alpha$ segments (Fig.~\ref{fig:cumulativeR1s}).
+
 \todo{Make the point that the 500-ns simulations indicated by Vogel~\cite{vogel12} are not needed for sufficient sampling?}
 
-We demonstrated that open access MD databanks, here NMRlipids databank as an example,
-have reached a level of maturity that allows one to extract new scientific information without
-running a single new simulation.
+In addition to standard conditions, we explored how the dynamics react to addition of cholesterol or NaCl, or to removal of water.
 %
-We investigated the dynamics of phosphatidylcholine molecular dynamics models using publicly available MD trajectories.
+MD qualitatively captures that when cholesterol is mixed into a POPC bilayer, the conformational dynamics in the tail and glycerol regions slows down; however, some force fields predict an (erroneous) slowdown also for the headgroup (Fig.~\ref{fig:chol}).
 %
-We estimate the errors on $\tau_\mathrm e$!
+With increasing NaCl concentration, a behaviour reminiscent of the molecular electrometer was observed: Amount of ion binding to the bilayer correlated with the magnitude increase in $\tau_\mathrm e$; this could open up the possibility of using $\tau_\mathrm e$ in quantifying cation binding to lipid bilayers.
 %
-The MD models are able to qualitatively capture the correlation time profile of POPC---the slow glycerol backbone and the faster dynamics of the headgroup and tail regions---but most are prone to too slow dynamics of the glycerol C--H bonds.
-%
-While none of the force fields is able to reproduce all the experimental values,
-CHARMM36 and Slipids have an overall impressive $\tau_\mathrm e$.
-This is particularly impressive for CHARMM36, as it also has the right structure, i.e., the right $S_\mathrm{CH}$~\cite{botan15}.
-%
-However, we find that CHARMM36 does still struggle with the balance of dynamics in the headgroup:
-The $R_1$ rates, sensitive for 1-ns processes, are too high for the $\gamma$, $\beta$, and $\alpha$ segments.
-%
-However, since none of the current MD models reproduce the experimental order parameters, these timescales depict a sampling of a conformational space that does not fully represent the underlying reality.
+When reducing the water content, MD exhibits slowdown of headgroup and backbone dynamics below $\sim$10 waters per lipid in qualitative agreement with experimental data. \todo{ Hydration needs some kind of statement of significance.}
 
+By gathering a set of $^{13}$C-NMR data on the phosphatidylcholine dynamics and charting the typical features of the existing MD models, this study lays the foundation for further improvement of the current force fields. While work is still needed in capturing even the correct conformations~\cite{botan15}, realistic dynamics will be an essential part of developing MD into a true computational microscope.
 
-In addition to the bilayers under standard conditions, we explored how the dynamics react to the addition of cholesterol, NaCl, and to the reduction of hydration level. When cholesterol is mixed into the POPC bilayer, the conformational dynamics of the tails and the glycerol regions slows down. The MD models are able to qualitatively capture this, but some also predict an increase in the correlation times for the headgroup carbons, possibly leading to erroneous conclusions. In increasing NaCl concentration a behaviour reminiscent of the molecular electrometer was observed: Amount of ion binding to the bilayer correlated with the magnitude of slowdown in the correlation times. This could open up the possibility of using effective correlation times in quantifying the ion binding to lipid bilayers. When reducing the water content, the MD models exhibited somewhat constant correlation times down to $\sim$15 waters per lipid in agreement with experimental data. After this, a slow down was observed.\todo{hydration needs some kind of statement of significance.}
-
-By gathering a set of experimental information on the phosphatidylcholine dynamics and underlining some of the typical features of the MD models, this study sets a foundation and a potential roadmap for further improvement of the current force fields. While work is still needed in capturing even the correct order parameters, the dynamics is equally essential part of developing MD into a true computational microscope; after all, it is possible to obtain the correct order parameters just by freezing the system into a set of selected conformations.\todo{not very smoothly put, help!}  
-
-Finally, this work demonstrates the power of open data in creating new knowledge out of existing trajectories at a reduced computational and labor cost. Although no new simulations were performed for the purpose of this work, we were able to conduct a comprehensive study on the dynamics of MD models under several conditions. An interesting extension would be exploring other lipid headgroups individually as well as performing a comparison of MD model dynamics between headgroup types, as the available simulation data goes well beyond simulations of lipids with the phosphocholine headgroup. If the data are well indexed and documented, this process could be easily automated and has the potential to facilitate faster progress, eg., in the development of lipid (and other) MD models. Naturally, such database would provide a fruitful platform to other machine learning applications as well. 
+Importantly, this work demonstrates the power of open data in creating new knowledge out of existing trajectories at a reduced computational and labor cost. %Although no new simulations were performed for the purpose of this work, we were able to conduct a comprehensive study on the dynamics of MD models under several conditions. An interesting extension would be exploring other lipid headgroups individually as well as performing a comparison of MD model dynamics between headgroup types, as the available simulation data goes well beyond simulations of lipids with the phosphocholine headgroup.
+If the data are well indexed and documented, this process could be automated and has the potential to facilitate faster progress, e.g., in the development of MD force fields, for example through machine learning approaches.
 
 
 \acknowledgement
