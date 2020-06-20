@@ -167,9 +167,9 @@ g(\tau)=g_{\mathrm{f}}(\tau)g_{\mathrm{s}}(\tau) ,
 where $g_{\mathrm{f}}(\tau)$ characterizes fast decays owing to, for example, the molecular  rotations, and $g_{\mathrm{s}}(\tau)$ describes slow decays that originate from, e.g., lipid diffusion. The two components, along with the oscillation due to magic angle spinning at the $\sim$kHz region, are depicted in Fig.~\ref{fig:schem_teff}. Correlation time of 4.2 ms has been estimated for multilamellar POPC samples at 300 K for the slow modes, whereas  in liquid crystalline lipid bilayers the faster $g_{\mathrm{f}}(\tau)$ decays to a plateau value $S^{2}_{\rm{CH}}$ within a few hundred nanoseconds~\cite{ferreira15}. The C--H bond order parameters
 \begin{equation}
 \label{eq:OP}
-S_{\rm{CH}}=\frac{1}{2}\langle 3\cos^{2}\theta-1\rangle ,
+S_{\rm{CH}}=\frac{1}{2}\langle 3\cos^{2}\theta(t)-1\rangle ,
 \end{equation}
-where $\theta$ is the angle between the bond and the bilayer normal, are measured in NMR experiments from this plateau. As $S_{\rm{CH}}$ describes the conformational ensemble of the molecule, the fast-decaying component of the rotational correlation function intuitively depicts the time needed to sample these conformations. The characteristic time can be quantified via the effective correlation time
+where $\theta(t)$ is the angle between the bond and the bilayer normal, are measured in NMR experiments from this plateau. As $S_{\rm{CH}}$ describes the conformational ensemble of the molecule, the fast-decaying component of the rotational correlation function intuitively depicts the time needed to sample these conformations. The characteristic time can be quantified via the effective correlation time
 \begin{equation}
 \label{eq:teff}
 \tau_\mathrm{e}=\int_{0}^{\infty}\frac{g_{\mathrm{f}}(\tau)-S^{2}_{\rm{CH}}}{1-S^2_{\mathrm{CH}}}\mathrm d\tau.
@@ -941,31 +941,65 @@ Correlation times extracted from CHARMM36 vary only a little (low ion binding) w
 \label{fig:salt}
 \end{figure}
 
-
 \subsection*{Correlation time of $S_\mathrm{CH}$ versus $\tau_\mathrm e$.}
-\todo{Laske bilayerissa $S_\mathrm{CH}$ korrelaatiot yksittaisille lipidelle vs $\tau_\mathrm e$.}
+To determine the C--H bond order parameter $S_\mathrm{CH}$ (Eq.~\eqref{eq:OP})
+in MD, one first calculates an instantaneous order parameter
+\begin{equation}
+\label{eq:instantaneousOP}
+S_{\rm{CH}}(t)=\frac{1}{2}\left( 3\cos^{2}\theta(t)-1 \right),
+\end{equation}
+where $\theta(t)$ is the angle between the C--H bond and the membrane normal at time $t$.
+As this quantity is sampled along the trajectory, its average
+$\langle S_\mathrm{CH}(t) \rangle$
+approaches $S_\mathrm{CH}$.
+For reliable determination of $S_\mathrm{CH}$,
+it would be of interest to know the correlation time of this relaxation,
+because it determines the minimum simulation length required.
 
-Q: How is the effective correlation time $\tau_\mathrm e$ related to the autocorrelation of the order parameter $S_\mathrm{CH}$?
-After all, $\tau_\mathrm e$ does measure the reorientation of the C--H bond, which is clearly related to how fast the $S_\mathrm{CH}$ is sampled.
+To this end, it is also of interest to know
+how this correlation time relates to $\tau_\mathrm{e}$.
+%
+As discussed (see Fig.~\ref{fig:schem_teff}), 
+in a bilayer the C--H bond's
+second order rotational correlation function $g(\tau)$, see Eq.~\eqref{eq:BCF}, approaches $S^2_\mathrm{CH}$ with time. The speed of this approach tells how fast the C--H bond orientations are sampled.
+%
+However, the correlation time of $S_\mathrm{CH}$,
+which is calculated using the {\it a priori} knowledge of the membrane normal direction (Eq.~\eqref{eq:instantaneousOP}),
+does not need to equal $\tau_\mathrm e$.
+Rather, one would intuitively expect it to be shorter than $\tau_\mathrm e$,
+because the rotational averaging around the membrane normal direction is already implicitly taken into account in Eq.~\eqref{eq:instantaneousOP}.
 
-A: In a lipid bilayer, the second order rotational correlation function approaches $S^2_\mathrm{CH}$. The speed of this approach tells how fast the C--H bond orientations are sampled. In the relaxation experiment this speed is measured.
+A further complication is that the relaxational process of the C--H bond direction (used to determine $\tau_\mathrm e$) can be single or multi-exponential.
+If the relaxation is single-exponential, $\tau_\mathrm e$ is the relaxation time of this exponential process. If the relaxation is multi-exponential, $\tau_\mathrm e$ is the weighted mean of the corresponding set of relaxation times, and it is a bit hard to say just based on $\tau_\mathrm e$ how long one needs to sample to reach the $S_\mathrm{CH}$, because this depends also on the weights of the processes.
 
-In the C--H bond order parameter experiment one measures how much of the second order rotational correlation is left after all the available C--H bond orientations in the bilayer have been sampled.
+Figure~\ref{fig:Teff-vs-Tsch} shows this correlation for systems studied in this work; we see\ldots
+\todo{Laske bilayerissa $S_\mathrm{CH}$:n korrelaatioaika (yksittaisessa lipidissa) vs $\tau_\mathrm e$. Tee scatter plot.}
 
-That is,  $\tau_\mathrm e$ does indeed measure how fast the $S^2_\mathrm{CH}$ is sampled.
-
-If the relaxation is single-exponential, $\tau_\mathrm e$ is the relaxation time of this exponential process. If the relaxation is multi-exponential, $\tau_\mathrm e$ is the weighted mean of the corresponding set of relaxation times.
-
-In the multi-exponential case it is a bit hard to say just based on $\tau_\mathrm e$, how long one needs to sample the $S_\mathrm{CH}$, because this depends also on the above-mentioned weights of the processes.
-
-The main advantage of $\tau_\mathrm e$ is that the larger (smaller) it is, the slower (faster) the process is. The same is not true for $R_1$ or other spin relaxation parameters, because their connection to the molecular dynamics is complicated, and goes through the spectral density, see Eq.~\eqref{eq:R1}.
 
 \section{Conclusions}
+\todo{Make the point that the 500-ns simulations indicated by Vogel~\cite{vogel12} are not needed for sufficient sampling?}
 
-Here, we have investigated the dynamics of phosphatidylcholine molecular dynamics models using publicly available MD trajectories. The MD models are able to qualitatively capture the correlation time profile of POPC---the slow glycerol backbone and the faster dynamics of the headgroup and tail regions---but most are prone to too slow dynamics of the glycerol C--H bonds.  In general, the these force fields reproduce the experimentally detected $R_{1}$ values adequately, indicating that processes at time scales $\sim$1 ns are represented but problems arise at longer time-scales. While none of the force fields is able to reproduce all the experimental values, the CHARMM36 POPC model performs well when compared to the effective correlation times, while the Slipids and Lipid14 force field provide realistic $R_{1}$ in the PC headgroup and glycerol regions. However, since none of the current MD models reproduce the experimental order parameters, these timescales depict a sampling of a conformational space that does not fully represent the underlying reality.
+We demonstrated that open access MD databanks, here NMRlipids databank as an example,
+have reached a level of maturity that allows one to extract new scientific information without
+running a single new simulation.
+%
+We investigated the dynamics of phosphatidylcholine molecular dynamics models using publicly available MD trajectories.
+%
+We estimate the errors on $\tau_\mathrm e$!
+%
+The MD models are able to qualitatively capture the correlation time profile of POPC---the slow glycerol backbone and the faster dynamics of the headgroup and tail regions---but most are prone to too slow dynamics of the glycerol C--H bonds.
+%
+While none of the force fields is able to reproduce all the experimental values,
+CHARMM36 and Slipids have an overall impressive $\tau_\mathrm e$.
+This is particularly impressive for CHARMM36, as it also has the right structure, i.e., the right $S_\mathrm{CH}$~\cite{botan15}.
+%
+However, we find that CHARMM36 does still struggle with the balance of dynamics in the headgroup:
+The $R_1$ rates, sensitive for 1-ns processes, are too high for the $\gamma$, $\beta$, and $\alpha$ segments.
+%
+However, since none of the current MD models reproduce the experimental order parameters, these timescales depict a sampling of a conformational space that does not fully represent the underlying reality.
 
 
-In addition to the bilayers under standard conditions, we also explored how the dynamics react to the addition of cholesterol, salt, and to the reduction of hydration level. When cholesterol is mixed into the POPC bilayer, the conformational dynamics of the tails and the glycerol regions slows down. Again, the MD models are able to qualitatively capture this, but some also predict an increase in the correlation times for the headgroup carbons, possibly leading to erroneous conclusions. In increasing salt concentration a behaviour reminiscent of the molecular electrometer was observed: Amount of ion binding to the bilayer correlated with the magnitude of slowdown in the correlation times. This could open up the possibility of using effective correlation times in quantifying the ion binding to lipid bilayers. When reducing the water content, the MD models exhibited somewhat constant correlation times down to $\sim$15 waters per lipid in agreement with experimental data. After this, a slow down was observed.\todo{hydration needs some kind of statement of significance.}
+In addition to the bilayers under standard conditions, we explored how the dynamics react to the addition of cholesterol, NaCl, and to the reduction of hydration level. When cholesterol is mixed into the POPC bilayer, the conformational dynamics of the tails and the glycerol regions slows down. The MD models are able to qualitatively capture this, but some also predict an increase in the correlation times for the headgroup carbons, possibly leading to erroneous conclusions. In increasing NaCl concentration a behaviour reminiscent of the molecular electrometer was observed: Amount of ion binding to the bilayer correlated with the magnitude of slowdown in the correlation times. This could open up the possibility of using effective correlation times in quantifying the ion binding to lipid bilayers. When reducing the water content, the MD models exhibited somewhat constant correlation times down to $\sim$15 waters per lipid in agreement with experimental data. After this, a slow down was observed.\todo{hydration needs some kind of statement of significance.}
 
 By gathering a set of experimental information on the phosphatidylcholine dynamics and underlining some of the typical features of the MD models, this study sets a foundation and a potential roadmap for further improvement of the current force fields. While work is still needed in capturing even the correct order parameters, the dynamics is equally essential part of developing MD into a true computational microscope; after all, it is possible to obtain the correct order parameters just by freezing the system into a set of selected conformations.\todo{not very smoothly put, help!}  
 
