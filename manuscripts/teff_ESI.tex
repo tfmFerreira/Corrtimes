@@ -1,0 +1,56 @@
+\documentclass[journal=jpcbfk,manuscript=article,layout=twocolumn]{achemso}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{widetext}
+\usepackage{verbatim}
+\usepackage{graphicx}
+% \usepackage{multicol}
+\usepackage[normalem]{ulem} % for strikethrough
+\usepackage[obeyFinal]{easy-todo}
+\usepackage{dutchcal}
+\usepackage{xfrac}
+\usepackage{footmisc}
+
+\newcommand{\figurewidth}{.48\textwidth}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\dz}{\,\mathrm{d}z}
+\graphicspath{{Figures/}}
+\newcommand{\onlinecite}[1]{\hspace{-1 ex} \nocite{#1}\citenum{#1}}
+\SectionNumbersOn
+%\DeclareUnicodeCharacter{2009}{FIXME}
+
+\author{Hanne S. Antila}
+\affiliation{Department of Theory and Bio-Systems, Max Planck Institute of Colloids and Interfaces, 14424 Potsdam, Germany}
+
+\author{Tiago Ferreira}
+\affiliation{NMR Group --- Institute for Physics, Martin-Luther University Halle--Wittenberg, 06120 Halle (Saale), Germany}
+
+\author{Matti Javanainen}
+\affiliation{Add Matti to author list?}
+
+\author{O. H. Samuli Ollila}
+\affiliation{Institute of Biotechnology, University of Helsinki, 00014 Helsinki, Finland}
+
+\author{Markus S. Miettinen}
+\affiliation{Department of Theory and Bio-Systems, Max Planck Institute of Colloids and Interfaces, 14424 Potsdam, Germany}
+\email{markus.miettinen@iki.fi}
+
+%\title{Using open data to benchmark internal dynamics of phosphatidylcholine in molecular dynamics simulations}
+\title{ESI: Using open data to rapidly bench\-mark bio\-molecular simulations: Phospholipid internal dynamics}
+\begin{document}
+
+
+
+
+\section{Experimental setup and analysis of $R_1$, $R_{1\rho}$ and $\tau_{\rm{e}}$}
+All experiments were conducted on a standard bore E-free CP-MAS 4mm probe, using a Bruker AVANCE II-500 NMR spectrometer, operating at a $^{13}$C Larmor frequency of 125.78 MHz. The magic angle spinning (MAS) rate used was 5 kHz and the effective temperature was 298 K. Sample preparation and the $R_1$ and $R_{{\rm{1}}\rho}}$ experiments were as described in reference \cite{ferreira15}.\\
+
+The following pages show the fits performed to determine the relaxation rates shown in figures x and y of the main manuscript. The error estimates for $R_1$ and $R_{1\rho}$ were defined as the highest deviation between the 95\% confidence bounds and the fitted values of $R_1$ and $R_{1\rho}$ using MATLAB 2018b~\cite{} and the curve fitting toolbox package to fit single exponential decays of the form $a\exp(-R_1 t)$ (figures x-y). Each point of the relaxation decays for each individual $^{13}$C peak was calculated by analytical integration of a fitted gaussian lineshape to the  $^{13}$C peak.      
+
+
+
+\bibliography{lipids,ff,simu,pdb,journals}
+
+
+
+\end{document}

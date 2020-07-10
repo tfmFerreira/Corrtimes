@@ -1,0 +1,735 @@
+\providecommand{\latin}[1]{#1}
+\makeatletter
+\providecommand{\doi}
+  {\begingroup\let\do\@makeother\dospecials
+  \catcode`\{=1 \catcode`\}=2\doi@aux}
+\providecommand{\doi@aux}[1]{\endgroup\texttt{#1}}
+\makeatother
+\providecommand*\mcitethebibliography{\thebibliography}
+\csname @ifundefined\endcsname{endmcitethebibliography}
+  {\let\endmcitethebibliography\endthebibliography}{}
+\begin{mcitethebibliography}{81}
+\providecommand*\natexlab[1]{#1}
+\providecommand*\mciteSetBstSublistMode[1]{}
+\providecommand*\mciteSetBstMaxWidthForm[2]{}
+\providecommand*\mciteBstWouldAddEndPuncttrue
+  {\def\EndOfBibitem{\unskip.}}
+\providecommand*\mciteBstWouldAddEndPunctfalse
+  {\let\EndOfBibitem\relax}
+\providecommand*\mciteSetBstMidEndSepPunct[3]{}
+\providecommand*\mciteSetBstSublistLabelBeginEnd[3]{}
+\providecommand*\EndOfBibitem{}
+\mciteSetBstSublistMode{f}
+\mciteSetBstMaxWidthForm{subitem}{(\alph{mcitesubitemcount})}
+\mciteSetBstSublistLabelBeginEnd
+  {\mcitemaxwidthsubitemform\space}
+  {\relax}
+  {\relax}
+
+\bibitem[nnb(1971)]{nnb1971}
+Crystallography: Protein Data Bank. \emph{Nat. New Biol.} \textbf{1971},
+  \emph{233}, 223\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[{wwPDB consortium}(2019)]{wwPDB2019}
+{wwPDB consortium}, Protein Data Bank: the single global archive for 3D
+  macromolecular structure data. \emph{Nucleic Acids Res.} \textbf{2019},
+  \emph{47}, D520--D528\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Jordan and Carrico(1982)Jordan, and Carrico]{jordan1982}
+Jordan,~E.; Carrico,~C. DNA Database. \emph{Science} \textbf{1982}, \emph{218},
+  108\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Sayers \latin{et~al.}(2020)Sayers, Cavanaugh, Clark, Ostell, Pruitt,
+  and Karsch-Mizrachi]{sayers2020}
+Sayers,~E.~W.; Cavanaugh,~M.; Clark,~K.; Ostell,~J.; Pruitt,~K.~D.;
+  Karsch-Mizrachi,~I. GenBank. \emph{Nucleic. Acids Res.} \textbf{2020},
+  \emph{48}, D84--D86\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Gaber \latin{et~al.}(2019)Gaber, Rashad, and Fathy]{Gaber:2019a}
+Gaber,~Y.; Rashad,~B.; Fathy,~E. In \emph{Biological 3D Structural Databases};
+  Shaik,~N.~A., Hakeem,~K.~R., Banaganapalli,~B., Elango,~R., Eds.; Springer
+  International Publishing: Cham, 2019; pp 47--73\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Hobohm \latin{et~al.}(1992)Hobohm, Scharf, Schneider, and
+  Sander]{hobohm1992}
+Hobohm,~U.; Scharf,~M.; Schneider,~R.; Sander,~C. Selection of representative
+  protein data sets. \emph{Protein Science} \textbf{1992}, \emph{1},
+  409--417\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Levitt(2007)]{levitt2007}
+Levitt,~M. Growth of novel protein structural data. \emph{Proceedings of the
+  National Academy of Sciences} \textbf{2007}, \emph{104}, 3183--3188\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[M{\'e}sz{\'a}ros \latin{et~al.}(2019)M{\'e}sz{\'a}ros, Doszt{\'a}nyi,
+  Fich{\'o}, Magyar, and Simon]{meszaros2019}
+M{\'e}sz{\'a}ros,~B.; Doszt{\'a}nyi,~Z.; Fich{\'o},~E.; Magyar,~C.; Simon,~I.
+  In \emph{Computational Methods to Study the Structure and Dynamics of
+  Biomolecules and Biomolecular Processes: From Bioinformatics to Molecular
+  Quantum Mechanics}; Liwo,~A., Ed.; Springer International Publishing: Cham,
+  2019; pp 561--596\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Burley \latin{et~al.}(2018)Burley, Berman, Christie, Duarte, Feng,
+  Westbrook, Young, and Zardecki]{burley2018}
+Burley,~S.~K.; Berman,~H.~M.; Christie,~C.; Duarte,~J.~M.; Feng,~Z.;
+  Westbrook,~J.; Young,~J.; Zardecki,~C. RCSB Protein Data Bank: Sustaining a
+  living digital data resource that enables breakthroughs in scientific
+  research and biomedical education. \emph{Protein Science} \textbf{2018},
+  \emph{27}, 316--330\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Kirchmair \latin{et~al.}(2008)Kirchmair, Markt, Distinto, Schuster,
+  Spitzer, Liedl, Langer, and Wolber]{kirchmair08}
+Kirchmair,~J.; Markt,~P.; Distinto,~S.; Schuster,~D.; Spitzer,~G.~M.;
+  Liedl,~K.~R.; Langer,~T.; Wolber,~G. The Protein Data Bank (PDB), Its Related
+  Services and Software Tools as Key Components for In Silico Guided Drug
+  Discovery. \emph{Journal of Medicinal Chemistry} \textbf{2008}, \emph{51},
+  7021--7040\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Huang \latin{et~al.}(2016)Huang, Boyken, and Baker]{huang2016}
+Huang,~P.-S.; Boyken,~S.~E.; Baker,~D. The coming of age of de novo protein
+  design. \emph{Nature} \textbf{2016}, \emph{537}, 320\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Hildebrand \latin{et~al.}(2019)Hildebrand, Rose, and
+  Tiemann]{Hildebrand:2019a}
+Hildebrand,~P.~W.; Rose,~A.~S.; Tiemann,~J. K.~S. Bringing Molecular Dynamics
+  Simulation Data into View. \emph{Trends in Biochemical Sciences}
+  \textbf{2019}, \emph{44}, 902--913\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Abraham \latin{et~al.}(2019)Abraham, Apostolov, Barnoud, Bauer, Blau,
+  Bonvin, Chavent, Chodera, {\v C}ondi{\'c}-Jurki{\'c}, Delemotte,
+  Grubm{\"u}ller, Howard, Jordan, Lindahl, Ollila, Selent, Smith, Stansfeld,
+  Tiemann, Trellet, Woods, and Zhmurov]{Abraham:2019a}
+Abraham,~M.; Apostolov,~R.; Barnoud,~J.; Bauer,~P.; Blau,~C.; Bonvin,~A. M.
+  J.~J.; Chavent,~M.; Chodera,~J.; {\v C}ondi{\'c}-Jurki{\'c},~K.;
+  Delemotte,~L. \latin{et~al.}  Sharing Data from Molecular Simulations.
+  \emph{Journal of Chemical Information and Modeling} \textbf{2019}, \emph{59},
+  4093--4099\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Gygli and Pleiss(2020)Gygli, and Pleiss]{Gygli:2020a}
+Gygli,~G.; Pleiss,~J. Simulation Foundry: Automated and F.A.I.R. Molecular
+  Modeling. \emph{Journal of Chemical Information and Modeling} \textbf{2020},
+  \emph{60}, 1922--1927\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Abriata \latin{et~al.}(2020)Abriata, Lepore, and
+  Dal~Peraro]{Abriata:2020a}
+Abriata,~L.~A.; Lepore,~R.; Dal~Peraro,~M. About the need to make computational
+  models of biological macromolecules available and discoverable.
+  \emph{Bioinformatics} \textbf{2020}, \emph{36}, 2952--2954\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Hospital \latin{et~al.}(2020)Hospital, Battistini, Soliva, Gelp{\'\i},
+  and Orozco]{Hospital:2020a}
+Hospital,~A.; Battistini,~F.; Soliva,~R.; Gelp{\'\i},~J.~L.; Orozco,~M.
+  Surviving the deluge of biosimulation data. \emph{WIREs Computational
+  Molecular Science} \textbf{2020}, \emph{10}, e1449\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Rodr{\'\i}guez-Espigares \latin{et~al.}(2019)Rodr{\'\i}guez-Espigares,
+  Torrens-Fontanals, Tiemann, Aranda-Garc{\'\i}a, Ram{\'\i}rez-Anguita,
+  Stepniewski, Worp, Varela-Rial, Morales-Pastor, Lacruz, P{\'a}ndy-Szekeres,
+  Mayol, Giorgino, Carlsson, Deupi, Filipek, Filizola, G{\'o}mez-Tamayo,
+  Gonzalez, Gutierrez-de Teran, Jimenez, Jespers, Kapla, Khelashvili, Kolb,
+  Latek, Marti-Solano, Matricon, Matsoukas, Miszta, Olivella, Perez-Benito,
+  Provasi, R{\'\i}os, Rodr{\'\i}guez-Torrecillas, Sallander, Sztyler, Vaidehi,
+  Vasile, Weinstein, Zachariae, Hildebrand, Fabritiis, Sanz, Gloriam, Cordomi,
+  Guix{\`a}-Gonz{\'a}lez, and Selent]{Rodriguez-Espigares:2019a}
+Rodr{\'\i}guez-Espigares,~I.; Torrens-Fontanals,~M.; Tiemann,~J. K.~S.;
+  Aranda-Garc{\'\i}a,~D.; Ram{\'\i}rez-Anguita,~J.~M.; Stepniewski,~T.~M.;
+  Worp,~N.; Varela-Rial,~A.; Morales-Pastor,~A.; Lacruz,~B.~M. \latin{et~al.}
+  GPCRmd uncovers the dynamics of the 3D-GPCRome. \emph{bioRxiv} \textbf{2019},
+  839597\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Miettinen \latin{et~al.}(2019)Miettinen, {NMRlipids Collaboration},
+  and Ollila]{Miettinen:2019c}
+Miettinen,~M.~S.; {NMRlipids Collaboration},; Ollila,~O. H.~S. LDB: Lipid
+  Databank from the NMRlipids Project. \emph{Biophysical Journal}
+  \textbf{2019}, \emph{116}, 91a\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lyubartsev and Rabinovich(2011)Lyubartsev, and
+  Rabinovich]{lyubartsev11}
+Lyubartsev,~A.~P.; Rabinovich,~A.~L. Recent development in computer simulations
+  of lipid bilayers. \emph{Soft Matter} \textbf{2011}, \emph{7}, 25--39\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Chau \latin{et~al.}(2007)Chau, Hoang, Picaud, and Jedlovszky]{chau07}
+Chau,~P.-L.; Hoang,~P.~N.; Picaud,~S.; Jedlovszky,~P. A possible mechanism for
+  pressure reversal of general anaesthetics from molecular simulations.
+  \emph{Chemical Physics Letters} \textbf{2007}, \emph{438}, 294 -- 297\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ferreira \latin{et~al.}(2013)Ferreira, Coreta-Gomes, Ollila, Moreno,
+  Vaz, and Topgaard]{ferreira13}
+Ferreira,~T.~M.; Coreta-Gomes,~F.; Ollila,~O. H.~S.; Moreno,~M.~J.; Vaz,~W.
+  L.~C.; Topgaard,~D. Cholesterol and POPC segmental order parameters in lipid
+  membranes: solid state 1H–13C NMR and MD simulation studies. \emph{Phys.
+  Chem. Chem. Phys.} \textbf{2013}, \emph{15}, 1976--1989\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Botan \latin{et~al.}(2015)Botan, Favela-Rosales, Fuchs, Javanainen,
+  Kanduč, Kulig, Lamberg, Loison, Lyubartsev, Miettinen, Monticelli,
+  Määttä, Ollila, Retegan, Róg, Santuz, and Tynkkynen]{botan15}
+Botan,~A.; Favela-Rosales,~F.; Fuchs,~P. F.~J.; Javanainen,~M.; Kanduč,~M.;
+  Kulig,~W.; Lamberg,~A.; Loison,~C.; Lyubartsev,~A.; Miettinen,~M.~S.
+  \latin{et~al.}  Toward Atomistic Resolution Structure of Phosphatidylcholine
+  Headgroup and Glycerol Backbone at Different Ambient Conditions. \emph{The
+  Journal of Physical Chemistry B} \textbf{2015}, \emph{119}, 15075--15088,
+  PMID: 26509669\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ferreira \latin{et~al.}(2015)Ferreira, Ollila, Pigliapochi, Dabkowska,
+  and Topgaard]{ferreira15}
+Ferreira,~T.~M.; Ollila,~O. H.~S.; Pigliapochi,~R.; Dabkowska,~A.~P.;
+  Topgaard,~D. Model-free estimation of the effective correlation time for
+  C–H bond reorientation in amphiphilic bilayers: 1H–13C solid-state NMR
+  and MD simulations. \emph{The Journal of Chemical Physics} \textbf{2015},
+  \emph{142}, 044905\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Miettinen and Lipowsky(2019)Miettinen, and Lipowsky]{miettinen19}
+Miettinen,~M.~S.; Lipowsky,~R. {Bilayer {Membranes} with {Frequent}
+  {Flip}-{Flops} {Have} {Tensionless} {Leaflets}}. \emph{Nano Lett.}
+  \textbf{2019}, \emph{19}, 5011--5016\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lindahl and Sansom(2008)Lindahl, and Sansom]{lindahl08}
+Lindahl,~E.; Sansom,~M.~S. Membrane proteins: molecular dynamics simulations.
+  \emph{Current Opinion in Structural Biology} \textbf{2008}, \emph{18}, 425 --
+  431, Membranes / Engineering and design\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Vogel and Feller(2012)Vogel, and Feller]{vogel12}
+Vogel,~A.; Feller,~S.~E. Headgroup Conformations of Phospholipids from
+  Molecular Dynamics Simulation: Sampling Challenges and Comparison to
+  Experiment. \emph{The Journal of Membrane Biology} \textbf{2012}, \emph{245},
+  23--28\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Chernomordik and Kozlov(2008)Chernomordik, and Kozlov]{chernomordik08}
+Chernomordik,~L.~V.; Kozlov,~M.~M. Mechanics of membrane fusion. \emph{Nature
+  structural \& molecular biology} \textbf{2008}, \emph{15}, 675\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Gibson and Brown(1993)Gibson, and Brown]{gibson93}
+Gibson,~N.~J.; Brown,~M.~F. Lipid headgroup and acyl chain composition modulate
+  the MI-MII equilibrium of rhodopsin in recombinant membranes.
+  \emph{Biochemistry} \textbf{1993}, \emph{32}, 2438--2454, PMID: 8443184\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Phillips \latin{et~al.}(2009)Phillips, Ursell, Wiggins, and
+  Sens]{phillips09}
+Phillips,~R.; Ursell,~T.; Wiggins,~P.; Sens,~P. Emerging roles for lipids in
+  shaping membrane-protein function. \emph{Nature} \textbf{2009}, \emph{459},
+  379\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Pham \latin{et~al.}(2015)Pham, Topgaard, and Sparr]{pham15}
+Pham,~Q.~D.; Topgaard,~D.; Sparr,~E. Cyclic and Linear Monoterpenes in
+  Phospholipid Membranes: Phase Behavior, Bilayer Structure, and Molecular
+  Dynamics. \emph{Langmuir} \textbf{2015}, \emph{31}, 11067--11077, PMID:
+  26375869\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Volke and Pampel(1995)Volke, and Pampel]{Volke:1995a}
+Volke,~F.; Pampel,~A. Membrane Hydration and Structure on a Subnanometer Scale
+  as Seen by High Resolution Solid State Nuclear Magnetic Resonance: POPC and
+  POPC/C$_{12}$E0$_4$ Model Membranes. \emph{Biophys. J.} \textbf{1995},
+  \emph{68}, 1960--1965\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Feller \latin{et~al.}(2002)Feller, Gawrisch, and MacKerell]{feller02}
+Feller,~S.~E.; Gawrisch,~K.; MacKerell,~A.~D. Polyunsaturated Fatty Acids in
+  Lipid Bilayers: Intrinsic and Environmental Contributions to Their Unique
+  Physical Properties. \emph{Journal of the American Chemical Society}
+  \textbf{2002}, \emph{124}, 318--326, PMID: 11782184\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Eldho \latin{et~al.}(2003)Eldho, Feller, Tristram-Nagle, Polozov, and
+  Gawrisch]{eldho03}
+Eldho,~N.~V.; Feller,~S.~E.; Tristram-Nagle,~S.; Polozov,~I.~V.; Gawrisch,~K.
+  Polyunsaturated Docosahexaenoic vs Docosapentaenoic AcidDifferences in Lipid
+  Matrix Properties from the Loss of One Double Bond. \emph{Journal of the
+  American Chemical Society} \textbf{2003}, \emph{125}, 6409--6421, PMID:
+  12785780\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Wohlert and Edholm(2006)Wohlert, and Edholm]{wohlert06}
+Wohlert,~J.; Edholm,~O. Dynamics in atomistic simulations of phospholipid
+  membranes: Nuclear magnetic resonance relaxation rates and lateral diffusion.
+  \emph{The Journal of Chemical Physics} \textbf{2006}, \emph{125},
+  204703\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Klauda \latin{et~al.}(2008)Klauda, Roberts, Redfield, Brooks, and
+  Pastor]{klauda08}
+Klauda,~J.~B.; Roberts,~M.~F.; Redfield,~A.~G.; Brooks,~B.~R.; Pastor,~R.~W.
+  Rotation of Lipids in Membranes: Molecular Dynamics Simulation, 31P
+  Spin-Lattice Relaxation, and Rigid-Body Dynamics. \emph{Biophysical Journal}
+  \textbf{2008}, \emph{94}, 3074--3083\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Leftin and Brown(2011)Leftin, and Brown]{leftin11}
+Leftin,~A.; Brown,~M.~F. An NMR database for simulations of membrane dynamics.
+  \emph{Biochimica et Biophysica Acta (BBA) - Biomembranes} \textbf{2011},
+  \emph{1808}, 818 -- 839, Including the Special Section: Protein translocation
+  across or insertion into membranes\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Klauda \latin{et~al.}(2008)Klauda, Eldho, Gawrisch, Brooks, and
+  Pastor]{klauda08II}
+Klauda,~J.~B.; Eldho,~N.~V.; Gawrisch,~K.; Brooks,~B.~R.; Pastor,~R.~W.
+  Collective and Noncollective Models of NMR Relaxation in Lipid Vesicles and
+  Multilayers. \emph{The Journal of Physical Chemistry B} \textbf{2008},
+  \emph{112}, 5924--5929, PMID: 18179193\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Catte \latin{et~al.}(2016)Catte, Girych, Javanainen, Loison, Melcr,
+  Miettinen, Monticelli, Määttä, Oganesyan, Ollila, Tynkkynen, and
+  Vilov]{catte16}
+Catte,~A.; Girych,~M.; Javanainen,~M.; Loison,~C.; Melcr,~J.; Miettinen,~M.~S.;
+  Monticelli,~L.; Määttä,~J.; Oganesyan,~V.~S.; Ollila,~O. H.~S.
+  \latin{et~al.}  Molecular electrometer and binding of cations to phospholipid
+  bilayers. \emph{Phys. Chem. Chem. Phys.} \textbf{2016}, \emph{18},
+  32560--32569\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ollila \latin{et~al.}(2007)Ollila, Hyv{\"o}nen, and
+  Vattulainen]{ollila07a}
+Ollila,~S.; Hyv{\"o}nen,~M.~T.; Vattulainen,~I. Polyunsaturation in Lipid
+  Membranes: Dynamic Properties and Lateral Pressure Profiles. \emph{J. Phys.
+  Chem. B} \textbf{2007}, \emph{111}, 3139--3150\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ollila \latin{et~al.}(2014)Ollila, Ferreira, and
+  Topgaard]{bergerFILESpopc}
+Ollila,~O. H.~S.; Ferreira,~T.; Topgaard,~D. {MD simulation trajectory and
+  related files for POPC bilayer (Berger model delivered by Tieleman, Gromacs
+  4.5)}. 2014; \url{{http://dx.doi.org/10.5281/zenodo.13279}}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Klauda \latin{et~al.}(2010)Klauda, Venable, Freites, O'Connor, Tobias,
+  Mondragon-Ramirez, Vorobyov, Jr, and Pastor]{klauda10}
+Klauda,~J.~B.; Venable,~R.~M.; Freites,~J.~A.; O'Connor,~J.~W.; Tobias,~D.~J.;
+  Mondragon-Ramirez,~C.; Vorobyov,~I.; Jr,~A. D.~M.; Pastor,~R.~W. Update of
+  the {CHARMM} All-Atom Additive Force Field for Lipids: Validation on Six
+  Lipid Types. \emph{J. Phys. Chem. B} \textbf{2010}, \emph{114},
+  7830--7843\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Santuz(2015)]{charmm36files}
+Santuz,~H. {MD simulation trajectory and related files for POPC bilayer
+  (CHARMM36, Gromacs 4.5)}. 2015; \url{http://dx.doi.org/10.5281/zenodo.14066},
+  DOI: 10.5281/zenodo.14066\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Antila(2018)]{charmm36filesHA}
+Antila,~H. {}. 2018; \url{http://dx.doi.org/10.5281/zenodo.148560}, DOI:
+  10.5281/zenodo.1468560\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Kulig \latin{et~al.}(2015)Kulig, Jurkiewicz, Ol{\.z}y{\'n}ska,
+  Tynkkynen, Javanainen, Manna, Rog, Hof, Vattulainen, and Jungwirth]{kulig15}
+Kulig,~W.; Jurkiewicz,~P.; Ol{\.z}y{\'n}ska,~A.; Tynkkynen,~J.; Javanainen,~M.;
+  Manna,~M.; Rog,~T.; Hof,~M.; Vattulainen,~I.; Jungwirth,~P. Experimental
+  determination and computational interpretation of biophysical properties of
+  lipid bilayers enriched by cholesteryl hemisuccinate. \emph{Biochim. Biophys.
+  Acta} \textbf{2015}, \emph{1848}, 422 -- 432\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Javanainen(2015)]{macrogCHOLfiles}
+Javanainen,~M. {POPC/Cholesterol @ 310K. 0, 10, 40, 50 and 60 mol-%
+  cholesterol. Model by Maciejewski and Rog}. \textbf{2015}, \relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Dickson \latin{et~al.}(2014)Dickson, Madej, Skjevik, Betz, Teigen,
+  Gould, and Walker]{dickson14}
+Dickson,~C.~J.; Madej,~B.~D.; Skjevik,~A.~A.; Betz,~R.~M.; Teigen,~K.;
+  Gould,~I.~R.; Walker,~R.~C. Lipid14: The Amber Lipid Force Field. \emph{J.
+  Chem. Theory Comput.} \textbf{2014}, \emph{10}, 865--879\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ollila and Retegan(2014)Ollila, and Retegan]{lipid14files}
+Ollila,~O. H.~S.; Retegan,~M. MD simulation trajectory and related files for
+  POPC bilayer (Lipid14, Gromacs 4.5). 2014; DOI: 10.5281/zenodo.12767\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[J{\"a}mbeck and Lyubartsev(2012)J{\"a}mbeck, and
+  Lyubartsev]{jambeck12b}
+J{\"a}mbeck,~J. P.~M.; Lyubartsev,~A.~P. An Extension and Further Validation of
+  an All-Atomistic Force Field for Biological Membranes. \emph{J. Chem. Theory
+  Comput.} \textbf{2012}, \emph{8}, 2938--2948\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Javanainen(2016)]{slipidsFILESpopcchol}
+Javanainen,~M. {POPC with 0, 10, 20, and 30 mol-% of cholesterol at 310 K.
+  Slipids force field.} 2016;
+  \url{http://dx.doi.org/10.5281/zenodo.3243328}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Melcr \latin{et~al.}(2018)Melcr, Martinez-Seara, Nencini, Kolafa,
+  Jungwirth, and Ollila]{melcr18}
+Melcr,~J.; Martinez-Seara,~H.; Nencini,~R.; Kolafa,~J.; Jungwirth,~P.;
+  Ollila,~O. H.~S. Accurate Binding of Sodium and Calcium to a POPC Bilayer by
+  Effective Inclusion of Electronic Polarization. \emph{The Journal of Physical
+  Chemistry B} \textbf{2018}, \emph{122}, 4546--4557\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Melcr(2019)]{eccFILESpopc}
+Melcr,~J. {Simulations of POPC lipid bilayer in water solution at various NaCl,
+  KCl and CaCl2 concentrations using ECC-POPC force field}. \textbf{2019},
+  \relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[H{\"o}ltje \latin{et~al.}(2001)H{\"o}ltje, F{\"o}rster, Brandt,
+  Engels, von Rybinski, and H{\"o}ltje]{holtje01}
+H{\"o}ltje,~M.; F{\"o}rster,~T.; Brandt,~B.; Engels,~T.; von Rybinski,~W.;
+  H{\"o}ltje,~H.-D. Molecular dynamics simulations of stratum corneum lipid
+  models: fatty acids and cholesterol. \emph{Biochim. Biophys. Acta}
+  \textbf{2001}, \emph{1511}, 156 -- 167\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ollila(2014)]{bergerFILESpopc50chol}
+Ollila,~O. H.~S. {MD simulation trajectory and related files for
+  POPC/cholesterol (50 mol%) bilayer (Berger model delivered by Tieleman,
+  modified Höltje, Gromacs 4.5)}. \textbf{2014}, \relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lim \latin{et~al.}(2012)Lim, Rogaski, and Klauda]{lim12}
+Lim,~J.~B.; Rogaski,~B.; Klauda,~J.~B. Update of the Cholesterol Force Field
+  Parameters in CHARMM. \emph{J. Phys. Chem. B} \textbf{2012}, \emph{116},
+  203--210\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Santuz(2015)]{charmm36files50perCHOL}
+Santuz,~H. {MD simulation trajectory for POPC/50\% Chol bilayer (CHARMM36,
+  Gromacs 4.5)}. 2015; \url{http://dx.doi.org/10.5281/zenodo.14068}, DOI:
+  10.5281/zenodo.14068\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[J\"{a}mbeck and Lyubartsev(2013)J\"{a}mbeck, and
+  Lyubartsev]{jambeck13chol}
+J\"{a}mbeck,~J. P.~M.; Lyubartsev,~A.~P. Another Piece of the Membrane Puzzle:
+  Extending Slipids Further. \emph{Journal of Chemical Theory and Computation}
+  \textbf{2013}, \emph{9}, 774--784, PMID: 26589070\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Kanduc \latin{et~al.}(2013)Kanduc, Schneck, and Netz]{kanduc13}
+Kanduc,~M.; Schneck,~E.; Netz,~R.~R. Hydration Interaction between Phospholipid
+  Membranes: Insight into Different Measurement Ensembles from Atomistic
+  Molecular Dynamics Simulations. \emph{Langmuir} \textbf{2013}, \emph{29},
+  9126--9137\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Kanduc(2015)]{bergerFILESdlpc24}
+Kanduc,~M. {MD trajectory for DLPC bilayer (Berger, Gromacs 4.5.4), nw=24 w/l}.
+  2015; DOI: 10.5281/zenodo.16289\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Kanduc(2015)]{bergerFILESdlpc16}
+Kanduc,~M. {MD trajectory for DLPC bilayer (Berger, Gromacs 4.5.4), nw=16 w/l}.
+  2015; DOI: 10.5281/zenodo.16292\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Kanduc(2015)]{bergerFILESdlpc12}
+Kanduc,~M. {MD trajectory for DLPC bilayer (Berger, Gromacs 4.5.4), nw=12 w/l}.
+  2015; DOI: 10.5281/zenodo.16293\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ollila(2015)]{bergerDEHYDfiles}
+Ollila,~O. H.~S. {MD simulation trajectory and related files for POPC bilayer
+  in low hydration (Berger model delivered by Tieleman, Gromacs 4.5)}.
+  \textbf{2015}, \relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Kanduc(2015)]{bergerFILESdlpc4}
+Kanduc,~M. {MD trajectory for DLPC bilayer (Berger, Gromacs 4.5.4), nw=4 w/l}.
+  2015; DOI: 10.5281/zenodo.16295\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ollila and Miettinen(2015)Ollila, and Miettinen]{charmm36files15wPERl}
+Ollila,~O. H.~S.; Miettinen,~M. {MD simulation trajectory and related files for
+  POPC bilayer in medium low hydration (CHARMM36, Gromacs 4.5)}. 2015;
+  \url{{http://dx.doi.org/10.5281/zenodo.13946}}, {DOI:
+  10.5281/zenodo.13946}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ollila and Miettinen(2015)Ollila, and Miettinen]{charmm36files7wPERl}
+Ollila,~O. H.~S.; Miettinen,~M. {MD simulation trajectory and related files for
+  POPC bilayer in low hydration (CHARMM36, Gromacs 4.5)}. 2015;
+  \url{{http://dx.doi.org/10.5281/zenodo.13945}}, {DOI:
+  10.5281/zenodo.13945}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Javanainen(2014)]{macrogdehydFILES}
+Javanainen,~M. {POPC @ 310K, varying water-to-lipid ratio. Model by Maciejewski
+  and Rog}. 2014; \url{{http://dx.doi.org/10.5281/zenodo.13498}}, {DOI:
+  10.5281/zenodo.13498}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Venable \latin{et~al.}(2013)Venable, Luo, Gawrisch, Roux, and
+  Pastor]{venable13}
+Venable,~R.~M.; Luo,~Y.; Gawrisch,~K.; Roux,~B.; Pastor,~R.~W. Simulations of
+  Anionic Lipid Membranes: Development of Interaction-Specific Ion Parameters
+  and Validation Using NMR Data. \emph{J. Phys. Chem. B} \textbf{2013},
+  \emph{117}, 10183--10192\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ollila(2015)]{charmmPOPC350mMNaClfiles}
+Ollila,~O. H.~S. {MD simulation trajectory and related files for POPC bilayer
+  with 350mM NaCl (CHARMM36, Gromacs 4.5)}. 2015;
+  \url{http://dx.doi.org/10.5281/zenodo.32496}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ollila(2015)]{charmmPOPC690mMNaClfiles}
+Ollila,~O. H.~S. {MD simulation trajectory and related files for POPC bilayer
+  with 690mM NaCl (CHARMM36, Gromacs 4.5)}. 2015;
+  \url{http://dx.doi.org/10.5281/zenodo.32497}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ollila(2015)]{charmmPOPC950mMNaClfiles}
+Ollila,~O. H.~S. {MD simulation trajectory and related files for POPC bilayer
+  with 950mM NaCl (CHARMM36, Gromacs 4.5)}. 2015;
+  \url{http://dx.doi.org/10.5281/zenodo.32498}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[\r{A}qvist(1990)]{aqvist90}
+\r{A}qvist,~J. Ion-water interaction potentials derived from free energy
+  perturbation simulations. \emph{J. Phys. Chem.} \textbf{1990}, \emph{94},
+  8021--8024\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Javanainen and Tynkkynen(2015)Javanainen, and
+  Tynkkynen]{macrogIONfiles}
+Javanainen,~M.; Tynkkynen,~J. {POPC @ 310K, varying amounts of NaCl. Model by
+  Maciejewski and Rog}. 2015;
+  \url{http://dx.doi.org/10.5281/zenodo.14976}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Smith and Dang(1994)Smith, and Dang]{smith94}
+Smith,~D.~E.; Dang,~L.~X. Computer simulations of NaCl association in
+  polarizable water. \emph{J. Chem. Phys} \textbf{1994}, \emph{100},
+  3757--3766\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Javanainen(2015)]{slipidsFILESpopc130mMnaclSD}
+Javanainen,~M. {POPC @ 310K, 130 mM of NaCl. Slipids with ions by Smith \&
+  Dang}. 2015; \url{http://dx.doi.org/10.5281/zenodo.35275}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Javanainen(2015)]{slipidsFILESpopc1MnaclSD}
+Javanainen,~M. {POPC with varying amounts of cholesterol, 1 M of NaCl. Slipids
+  with ions by Smith \& Dang}. 2015;
+  \url{http://dx.doi.org/10.5281/zenodo.259341}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Schlenkrich \latin{et~al.}(1996)Schlenkrich, Brickmann, MacKerell, and
+  Karplus]{schlenkrich96}
+Schlenkrich,~M.; Brickmann,~J.; MacKerell,~A.~D.; Karplus,~M. \emph{Biological
+  Membranes}; Springer, 1996; pp 31--81\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Feller and MacKerell(2000)Feller, and MacKerell]{feller00}
+Feller,~S.~E.; MacKerell,~A.~D. An improved empirical potential energy function
+  for molecular simulations of phospholipids. \emph{The Journal of Physical
+  Chemistry B} \textbf{2000}, \emph{104}, 7510--7515\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Leeb and Maibaum(2018)Leeb, and Maibaum]{leeb18}
+Leeb,~F.; Maibaum,~L. Spatially Resolving the Condensing Effect of Cholesterol
+  in Lipid Bilayers. \emph{Biophysical Journal} \textbf{2018}, \emph{115}, 2179
+  -- 2188\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ulrich and Watts(1994)Ulrich, and Watts]{ulrich94}
+Ulrich,~A.; Watts,~A. Molecular response of the lipid headgroup to bilayer
+  hydration monitored by 2H-NMR. \emph{Biophys. J.} \textbf{1994}, \emph{66},
+  1441 -- 1449\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Bechinger and Seelig(1991)Bechinger, and Seelig]{bechinger91}
+Bechinger,~B.; Seelig,~J. Conformational changes of the phosphatidylcholine
+  headgroup due to membrane dehydration. A 2H-NMR study. \emph{Chemistry and
+  Physics of Lipids} \textbf{1991}, \emph{58}, 1 -- 5\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Seelig \latin{et~al.}(1987)Seelig, MacDonald, and Scherer]{seeling87}
+Seelig,~J.; MacDonald,~P.~M.; Scherer,~P.~G. Phospholipid head groups as
+  sensors of electric charge in membranes. \emph{Biochemistry} \textbf{1987},
+  \emph{26}, 7535--7541, PMID: 3322401\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\end{mcitethebibliography}

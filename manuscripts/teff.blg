@@ -1,0 +1,67 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: teff.aux
+The style file: achemso.bst
+Case mismatch error between cite keys Ferreira15 and ferreira15
+---line 71 of file teff.aux
+ : \citation{Ferreira15
+ :                     }
+I'm skipping whatever remains of this command
+Case mismatch error between cite keys Ferreira15 and ferreira15
+---line 72 of file teff.aux
+ : \citation{Ferreira15
+ :                     }
+I'm skipping whatever remains of this command
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: acs-teff.bib
+Database file #2: lipids.bib
+Database file #3: ff.bib
+Database file #4: simu.bib
+Database file #5: pdb.bib
+Database file #6: journals.bib
+Warning--I didn't find a database entry for "XXX"
+Warning--I didn't find a database entry for "citehere"
+Warning--I didn't find a database entry for "citegithubhere"
+achemso 2017/01/21 v3.10h
+You've used 81 entries,
+            2536 wiz_defined-function locations,
+            1806 strings with 31805 characters,
+and the built_in function-call counts, 28003 in all, are:
+= -- 2276
+> -- 1725
+< -- 50
++ -- 664
+- -- 583
+* -- 3017
+:= -- 3801
+add.period$ -- 157
+call.type$ -- 81
+change.case$ -- 4
+chr.to.int$ -- 2
+cite$ -- 82
+duplicate$ -- 1492
+empty$ -- 1851
+format.name$ -- 703
+if$ -- 5468
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 508
+num.names$ -- 241
+pop$ -- 156
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 64
+stack$ -- 0
+substring$ -- 1417
+swap$ -- 1632
+text.length$ -- 163
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 558
+warning$ -- 0
+while$ -- 270
+width$ -- 0
+write$ -- 1035
+(There were 2 error messages)
